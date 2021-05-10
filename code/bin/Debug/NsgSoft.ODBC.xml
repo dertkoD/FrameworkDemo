@@ -1,0 +1,130 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NsgSoft.ODBC</name>
+    </assembly>
+    <members>
+        <member name="T:NsgSoft.ODBC.NsgExcelService">
+            <summary>
+            Класс сервиса работы с Excel.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.ODBC.NsgExcelService.ConnectionFormats">
+            <summary>
+            Перечисление форматов соединения с источником данных.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.ODBC.NsgExcelService.ConnectionFormats.ACE">
+            <summary>
+            Microsoft.ACE.OLEDB.12.0.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.ODBC.NsgExcelService.ConnectionFormats.Jet">
+            <summary>
+            Microsoft.Jet.OLEDB.4.0.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.#ctor(System.String,System.Boolean)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="excelFilename">Имя файла данных Excel.</param>
+            <param name="useFirstLineAsColumnNames">Использовать первую строку для задания
+             имен колонкам.</param>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.#ctor(System.String)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="excelFilename">Имя файла данных Excel.</param>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelService.IsOpened">
+            <summary>
+            Флаг открытого соединения.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelService.Filename">
+            <summary>
+            Имя файла Excel.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelService.ConnectionFormat">
+            <summary>
+            Формат соединения с источником данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelService.Sheets">
+            <summary>
+            Список листов.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.Open">
+            <summary>
+            Метод открытия соединения.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.Close">
+            <summary>
+            Метод закрытия соединения.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.GetSheet(System.String)">
+            <summary>
+            Метод получения листа документа Excel.
+            </summary>
+            <param name="name">Имя листа.</param>
+            <returns>Возвращает данные листа, если такой лист есть, иначе null.</returns>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.getConnectionPatern">
+            <summary>
+            Метод получения патерна строки соединения взависимости от формата соединения.
+            </summary>
+            <returns>Возвращает строку патерна соединения.</returns>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelService.Dispose">
+            <summary>
+            Метод освобождения ресурсов.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.ODBC.NsgExcelSheet">
+            <summary>
+            Класс данных листа документа Excel.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelSheet.#ctor(System.String,System.String[],System.Data.DataTable)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="name">Имя листа.</param>
+            <param name="columns">Список колонок.</param>
+            <param name="data">Таблица данных.</param>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelSheet.Name">
+            <summary>
+            Имя листа.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelSheet.Columns">
+            <summary>
+            Список колонок.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelSheet.Data">
+            <summary>
+            Таблица данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.ODBC.NsgExcelSheet.Count">
+            <summary>
+            Количество строк с данными.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.ODBC.NsgExcelSheet.GetColumnData(System.String)">
+            <summary>
+            Метод получения всех значений по колонке.
+            </summary>
+            <param name="columnName">Имя колонки.</param>
+            <returns>Возвращает список найденных значений.</returns>
+        </member>
+    </members>
+</doc>

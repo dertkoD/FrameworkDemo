@@ -1,0 +1,3192 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NsgSoft.Tools</name>
+    </assembly>
+    <members>
+        <member name="T:NsgSoft.Tools.NsgConfirmActionEventHandler">
+            <summary>
+            Делегат события о подтверждении опеределенного действия.
+            </summary>
+            <param name="actionQuestion">Строка вопроса о совершении действия.</param>
+            <param name="buttons">Кнопки в диалоге.</param>
+            <returns>Возвращает результат диалога.</returns>
+        </member>
+        <member name="T:NsgSoft.Tools.NsgDataExportFormat">
+            <summary>
+            Перечисление форматов экспорта данных.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExportFormat.NsgSoft_v1_0">
+            <summary>
+            Формат NsgSoft версия 1.0.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExportFormat.C1_v2_0">
+            <summary>
+            Формат С1 версия 2.0.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.NsgDataExchangeService">
+            <summary>
+            Класс сервиса обмена данными.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.EXPORT_DATA_SIGNATURE">
+            <summary>
+            Подпись файла экспорта данных.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.INFO_NODE">
+            <summary>
+            Узел 'Информация'.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.DATA_FILE">
+            <summary>
+            Узел 'Файл'.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.CONFIG_FILE">
+            <summary>
+            Файл настроек.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.DateBeginExport">
+            <summary>
+            Дата начала выгрузки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.DateEndExport">
+            <summary>
+            Дата окончания выгрузки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.C1ExchangeRulesFile">
+            <summary>
+            Файл правил обмена С1.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Tools.NsgDataExchangeService.СonfirmDialog">
+            <summary>
+            Событие для подтверждений действий.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.ExchangeObjectBuffer">
+            <summary>
+            Количество объектов обмена, выгружаемых за одну операцию 
+            обмена,без учета зависимых объектов
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.CheckIntegrity">
+            <summary>
+            Проверка целостности при переносе данных
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.ImportOverrideEntries">
+            <summary>
+            Перезаписывать существующие элементы при импорте.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.ImportHandleDocuments">
+            <summary>
+            Проводить документы при импорте.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.ExportBindedObjects">
+            <summary>
+            Выгружать связанные объекты.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.HandleAllDocuments">
+            <summary>
+            Выгружать связанные объекты.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.NsgDataExchangeService.ExportFormat">
+            <summary>
+            формат выгрузки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="container"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject,System.String,NsgSoft.DataObjects.NsgCompare,System.String)">
+            <summary>
+            Метод экспорта данных указанного типа по условию. Исполняется синхронно.
+            </summary>
+            <param name="exportObject">Тип объекта для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="description">Описание операции.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject,System.String,NsgSoft.DataObjects.NsgCompare,System.String,System.Boolean,System.Int64,System.Int64)">
+            <summary>
+            Метод экспорта данных указанного типа по условию. Исполняется синхронно.
+            </summary>
+            <param name="exportObject">Тип объекта для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="description">Описание операции.</param>
+            <param name="isEndExport">Если True - то закончить экспорт и сформировать архив.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject,System.String,NsgSoft.DataObjects.NsgCompare)">
+            <summary>
+            Метод экспорта данных указанного типа по условию. Исполняется синхронно.
+            </summary>
+            <param name="exportObject">Тип объекта для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject,System.String,System.String)">
+            <summary>
+            Метод экспорта всех данных указанного типа. Исполняется синхронно.
+            </summary>
+            <param name="exportObject">Тип объекта для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="description">Описание операции.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject,System.String)">
+            <summary>
+            Метод экспорта всех данных указанного типа. Исполняется синхронно.
+            </summary>
+            <param name="exportObject">Тип объекта для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject[],System.String,NsgSoft.DataObjects.NsgCompare)">
+            <summary>
+            Метод экспорта данных указанных типов по условию. Исполняется синхронно.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject[],System.String,System.String)">
+            <summary>
+            Метод экспорта всех данных указанных типов. Исполняется синхронно.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="description">Описание операции.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject[],System.String)">
+            <summary>
+            Метод экспорта всех данных указанных типов. Исполняется синхронно.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject[],System.String,NsgSoft.DataObjects.NsgCompare,System.String)">
+            <summary>
+            Метод экспорта данных указанных типов по условию. Исполняется синхронно.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="description">Описание операции.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ExportData(NsgSoft.DataObjects.NsgMultipleObject[],System.String,NsgSoft.DataObjects.NsgCompare,System.String,System.Boolean,System.Int64,System.Int64)">
+            <summary>
+            Метод экспорта данных указанных типов по условию. Исполняется синхронно.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="description">Описание операции.</param>
+            <param name="isEndExport">Если True - то закончить экспорт и сформировать архив.</param>
+            <param name="exportInNumber"></param>
+            <param name="exportOutNumber"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.exportDataC1Format(NsgSoft.DataObjects.NsgMultipleObject[],System.String,NsgSoft.DataObjects.NsgCompare@,System.String@)">
+            <summary>
+            Метод экспорта данных указанных типов по условию. Формат NsgSoft.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="description">Описание операции.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.readRules(System.Guid@,System.Xml.XmlDocument)">
+            <summary>
+            Метод чтения правил обмена.
+            </summary>
+            <param name="rulesGuid">Идентификатор правил конвертации.</param>
+            <param name="setDoc">Основной документ XML.</param>
+            <returns>Элемент XML.</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.exportDataNsgFormat(NsgSoft.DataObjects.NsgMultipleObject[],System.String,NsgSoft.DataObjects.NsgCompare@,System.String@,System.Boolean,System.Int64,System.Int64)">
+            <summary>
+            Метод экспорта данных указанных типов по условию. Формат 1С.
+            </summary>
+            <param name="exportObjects">Список типов объектов для экспорта.</param>
+            <param name="fileName">Имя файла для сохранения.</param>
+            <param name="cmp">Параметры выборки данных для экспорта.</param>
+            <param name="description">Описание операции.</param>
+            <param name="isEndExport">Если True - то закончить экспорт и сформировать архив.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.saveElement(NsgSoft.DataObjects.NsgDataXmlExporter,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Guid,System.Object}},System.Collections.Generic.Dictionary{System.Object,System.Object},NsgSoft.DataObjects.NsgMultipleObject)">
+            <summary>
+            Метод сохранения элемента.
+            </summary>
+            <param name="importer">Объект экспорта данных в XML.</param>
+            <param name="referentsList">Список референтов на заполнение.</param>
+            <param name="savedObjects">Список уже сохраненных элементов.</param>
+            <param name="saveObj">Сохраняемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.rekurseReferents(NsgSoft.DataObjects.NsgDataXmlExporter,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Guid,System.Object}},System.Collections.Generic.Dictionary{System.Object,System.Object},NsgSoft.DataObjects.NsgMultipleObject)">
+            <summary>
+            Метод сбора референтов по ObjectList'у сохраняемого объекта.
+            </summary>
+            <param name="importer">Объект экспорта данных в XML.</param>
+            <param name="referentsList">Список референтов на заполнение.</param>
+            <param name="savedObjects">Список уже сохраненных элементов.</param>
+            <param name="saveObj">Сохраняемый элемент.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.saveReferents(NsgSoft.DataObjects.NsgDataXmlExporter,NsgSoft.DataObjects.NsgMetaData,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.Guid,System.Object}},System.Collections.Generic.Dictionary{System.Object,System.Object},NsgSoft.Common.NsgDataFixedFields)">
+            <summary>
+            Метод сохранения списка элементов.
+            </summary>
+            <param name="importer">Объект экспорта данных в XML.</param>
+            <param name="md">Метаданные.</param>
+            <param name="referentsList">Список референтов на заполнение.</param>
+            <param name="savedObjects">Список уже сохраненных элементов.</param>
+            <param name="findFiled">Поле для поиска объектов.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.ImportData(System.String,System.String@,System.String@)">
+            <summary>
+            Метод импорта данных. Исполняется синхронно.
+            </summary>
+            <param name="fileName">Имя файла для загрузки.</param>
+            <param name="importInNumber">Номер обмена, загруженный базой приемником</param>
+            <param name="importOutNumber">Номер обмена выгруженный базой приемником</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.handleDocList(NsgSoft.DataObjects.NsgMetaData,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            Метод проведения списка документов.
+            </summary>
+            <param name="md">Метаданные.</param>
+            <param name="handleList">Список ID документов.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.throwNodeError(System.String,System.Xml.XmlTextReader,System.String)">
+            <summary>
+            Метод бросает исключение об ошибке в узле.
+            </summary>
+            <param name="fileName">Имя файла.</param>
+            <param name="reader">Узел.</param>
+            <param name="attribute">Атрибут.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.checkInformation(NsgSoft.DataObjects.NsgMetaData@,System.Boolean@,System.String@,System.String@,System.String,System.Collections.Generic.List{System.String})">
+            <summary>
+            Метод проверки информации о XML файле.
+            </summary>
+            <param name="md">Метаданные.</param>
+            <param name="integrity">Целостность данных.</param>
+            <param name="importInNumber">Номер обмена, загруженный базой приемником</param>
+            <param name="importOutNumber">Номер обмена выгруженный базой приемником</param>
+            <param name="cfgFile">Файл настроек XML.</param>
+            <param name="filesList">Список файлов на обработку.</param>
+            <returns>Возвращает тип документа XML. Если возвращает null, то продолжение невозможно.</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.confimAction(System.String,System.Windows.Forms.MessageBoxButtons)">
+            <summary>
+            Метод подверждения действия.
+            </summary>
+            <param name="question">Вопрос для подтверждения.</param>
+            <param name="buttons">Кнопки в диалоге.</param>
+            <returns>Возвращает результат диалога.</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.loadDataFromXML(NsgSoft.DataObjects.NsgMetaData,System.String,System.Boolean,System.Collections.Generic.List{System.Guid})">
+            <summary>
+            Метод загрузки данных из XML.
+            </summary>
+            <param name="md">Метаданные.</param>
+            <param name="fileName">Файл данных XML.</param>
+            <param name="dataIntegrity">Целостность данных.</param>
+            <param name="handleList">Список объектов на проведение.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.postObjects(System.Collections.Generic.List{NsgSoft.DataObjects.NsgMultipleObject},System.Boolean)">
+            <summary>
+            Метод записи списка объектов в БД.
+            </summary>
+            <param name="loadList">Список на сохранение.</param>
+            <param name="dataIntegrity">Целостность данных.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.checkDataIntegrity(System.Collections.Generic.List{NsgSoft.DataObjects.NsgMultipleObject})">
+            <summary>
+            Метод проверки целостности загружаемых данных.
+            </summary>
+            <param name="loadList">Список на сохранение.</param>
+        </member>
+        <member name="F:NsgSoft.Tools.NsgDataExchangeService.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.NsgDataExchangeService.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Components.NsgLazyWrite">
+            <summary>
+            Объект, реализующий отложенную запись документов в БД.
+            Например, отложенная запись кассовых чеков на рабочем месте кассира
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Components.NsgLazyWrite.FolderToSave">
+            <summary>
+            Путь к каталогу для временного сохранения документов на диск. Путь задавть без последнего слэша
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Components.NsgLazyWrite.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Components.NsgLazyWrite.Start">
+            <summary>
+            Запуск потока на выполнение
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Components.NsgLazyWrite.Stop">
+            <summary>
+            Корректное завершение работы объекта с ожиданием завершения всех задач в очереди
+            По окончании всех задач будет сгенерировано событие Finished
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Components.NsgLazyWrite.thread_DoWork(NsgSoft.DataObjects.NsgThread,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Фоновый поток, в котором все объекты сохраняются в БД. По мере сохранения, объекты удаляются из очереди и удаляются файлы, связанные с объектом. 
+            </summary>
+            <param name="thread"></param>
+            <param name="args"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.Components.NsgLazyWrite.LazyPost(NsgSoft.DataObjects.NsgDataDocument)">
+            <summary>
+            Функция отложенной записи документа.
+            Документ будет сразу записан в файл и в порядке единой очереди в БД. После этого, временный файл будет удалён.
+            </summary>
+            <param name="doc">Сохраняемый документ</param>
+        </member>
+        <member name="E:NsgSoft.Tools.Components.NsgLazyWrite.StatusChanged">
+            <summary>
+            Событие при смене статуса. Внимание! Событие вызывается из фонового потока.
+            Зеленый - режим ожидания
+            Желтый - есть документы в очереди
+            Красный - при записи произошла ошибка
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Components.NsgLazyWrite.StatusEventHandlerDelegate">
+            <summary>
+            Делегат для Сообщений
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Tools.Components.NsgLazyWrite.Finished">
+            <summary>
+            Событие о завершении работы объекта. Вызывается при вызове метода Stop после обработки всех оставщихся заданий на сохранение.
+            В пареметрах возвращает статус (цвет) обработки 
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Components.NsgLazyWrite.CurrentStatus">
+            <summary>
+            Текущий статус обработчика
+            Зеленый - режим ожидания
+            Желтый - есть документы в очереди
+            Красный - при записи произошла ошибка
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.FoxTable.Controls.Exceptions.FoxClosedException">
+            <summary>
+            Недопустимая операцыя закрытия таблицы
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.FoxTable.Controls.Exceptions.FoxFileFormatException">
+            <summary>
+            Ошибка формата dbf- или fpt- файла
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.FoxTable.Controls.FoxField.FieldName">
+            <summary>
+            Имя поля
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.FoxTable.Controls.FoxField.FieldType">
+            <summary>
+            Тип поля
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.FoxTable.Controls.FoxField.FieldLen">
+            <summary>
+            Вся длинна поля
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.FoxTable.Controls.FoxField.FieldDec">
+            <summary>
+            Длинна десятичной части
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxField.#ctor(System.String,NsgSoft.Tools.FoxTable.Controls.FoxTypes,System.Byte,System.Byte)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="fieldName"></param>
+            <param name="fieldType"></param>
+            <param name="fieldLen"></param>
+            <param name="fieldDec"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxField.#ctor(System.String,NsgSoft.Tools.FoxTable.Controls.FoxTypes,System.Byte)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="fieldName"></param>
+            <param name="fieldType"></param>
+            <param name="fieldLen"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxField.#ctor(System.String,System.Char,System.Byte,System.Byte)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="fieldName"></param>
+            <param name="fieldType"></param>
+            <param name="fieldLen"></param>
+            <param name="fieldDec"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxField.#ctor(System.String,System.Char,System.Byte)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="fieldName"></param>
+            <param name="fieldType"></param>
+            <param name="fieldLen"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxField.#ctor(System.String,System.Char)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="fieldName"></param>
+            <param name="fieldType"></param>
+        </member>
+        <member name="T:NsgSoft.Tools.FoxTable.Controls.FoxTable">
+            <summary>
+            Summary description for FoxUtils.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Use(System.String)">
+            <summary>
+            Подключает таблицу
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Use(System.String,System.Boolean)">
+            <summary>
+            Подключает таблицу
+            </summary>
+            <param name="fileName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Use(System.String,System.Boolean,System.Boolean@)">
+            <summary>
+            Подключает таблицу, с проверкой структуры файла и чтение битого файла
+            </summary>
+            <param name="fileName"></param>
+            <param name="readOnly"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Create(System.String,NsgSoft.Tools.FoxTable.Controls.FoxField[])">
+            <summary>
+            Создаеть таблицу
+            </summary>
+            <param name="fileName"></param>
+            <param name="structure"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Create(System.String,NsgSoft.Tools.FoxTable.Controls.FoxField[],System.Int32,System.Boolean)">
+            <summary>
+            Создаеть таблицу
+            </summary>
+            <param name="fileName"></param>
+            <param name="structure"></param>
+            <param name="codepage"></param>
+            <param name="overWriteIfExists"></param>
+            <returns></returns>
+        </member>
+        <member name="F:NsgSoft.Tools.FoxTable.Controls.FoxTable.FileName">
+            <summary>
+            Имя таблицы
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.FoxTable.Controls.FoxTable.CPDBF">
+            <summary>
+            Кодовая страница
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.FoxTable.Controls.FoxTable.ReadOnly">
+            <summary>
+            Только чтение
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Close">
+            <summary>
+            Закрывает таблицу и все сохраняет
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.GetDeleted">
+            <summary>
+            Получить помеченные на удаление
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.SetDeleted(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="_value"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.FlushField(System.Int32,System.Object)">
+            <summary>
+            Сохранить
+            </summary>
+            <param name="fieldIndex"></param>
+            <param name="_value"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Gather(System.Data.DataRow)">
+            <summary>
+            Замещает значения текущей строки
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Scatter(System.Data.DataRow)">
+            <summary>
+            Получает значения текущей строки
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.ScatterAll(System.Data.DataTable)">
+            <summary>
+            Получает значения всех строк
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.GetFieldValue(System.String)">
+            <summary>
+            Получить значение поля в текущей строке
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.GetFieldValue(System.Int32)">
+            <summary>
+            Получить значение поля в текущей строке
+            </summary>
+            <param name="fieldName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.SetFieldValue(System.String,System.Object)">
+            <summary>
+            Установить значение поля в текущей строке
+            </summary>
+            <param name="fieldName"></param>
+            <param name="_value"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.SetFieldValue(System.Int32,System.Object)">
+            <summary>
+            Установить значение поля в текущей строке
+            </summary>
+            <param name="fieldName"></param>
+            <param name="_value"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Append(System.Data.DataRow)">
+            <summary>
+            Добавить строку в таблицу
+            </summary>
+            <param name="row"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.AppendBlank">
+            <summary>
+            Довавить запись в таблицу
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Go(System.Int32)">
+            <summary>
+            Сохранить таблицу и переходит на запись
+            </summary>
+            <param name="recno"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Delete">
+            <summary>
+            Пометить строку на удаление
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Recall">
+            <summary>
+            Отменить пометку удаления
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Lock">
+            <summary>
+            Не реализован всегда true
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.LockTable">
+            <summary>
+            Не реализован всегда true
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.LockHeader">
+            <summary>
+            Всегда true
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.FoxTable.Unlock">
+            <summary>
+            Не реализован
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.FoxTable.Controls.FoxTable.Deleted">
+            <summary>
+            Признак пометки записи на удаление
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.FoxTable.Controls.FoxTable.Reccount">
+            <summary>
+            Количество записей
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.FoxTable.Controls.FoxTable.Recno">
+            <summary>
+            Номер текущей записи
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.FoxTable.Controls.FoxTypes">
+            <summary>
+            Типы полей
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.Service.ByteLib.IntTo4Bytes(System.Int32)">
+            <summary>
+            Конвертация int в bytes[]
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.Service.FileUtils.AddExt(System.String,System.String)">
+            <summary>
+            Создание имени файла индексов 
+            </summary>
+            <param name="FileName"></param>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.Service.StringLib.ParseDecimal(System.String)">
+            <summary>
+            Конвертация string в decimal
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.Service.StringLib.Empty(System.String)">
+            <summary>
+            Проверка на пустую строку
+            </summary>
+            <param name="p"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.FoxTable.Controls.Service.StringLib.IStr(System.Decimal,System.Byte,System.Byte)">
+            <summary>
+            Конвертация decimal к виду numeric DBF
+            </summary>
+            <param name="dm"></param>
+            <param name="fieldLen"></param>
+            <param name="fieldDec"></param>
+            <param name="fieldDec_2"></param>
+            <returns></returns>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.AlignControl">
+            <summary>
+            Summary description for AlignControl.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.AlignControl.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.AlignControl.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.AlignEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.AlignEditor">
+            <summary>
+            Summary description for ImageEditor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.DateItemCollection">
+            <summary>
+            Represents a collection of DateItem objects
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.DateItemCollection.owner">
+            <summary>
+            The Calendar that owns this DateItemCollection
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.DateItemCollectionEditor">
+            <summary>
+            A custom CollectionEditor for editing DateItemCollection
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Day">
+            <summary>
+            Summary description for Day.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayClickEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayDragDropEventArgs.#ctor(System.Windows.Forms.IDataObject,System.Int32,System.String)">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayStateChangedEventArgs.#ctor(System.String,NsgSoft.Tools.Calendar.mcDayState,NsgSoft.Tools.Calendar.mcDayState)">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayMouseMoveEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Footer">
+            <summary>
+            Summary description for Footer.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.FooterPropertyEventArgs.m_property">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.GlobalHook">
+            <summary>
+            Summary description for GlobalHook.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Header">
+            <summary>
+            Summary description for Header
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.HeaderPropertyEventArgs.m_property">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.ImageMapEditor">
+            <summary>
+            Summary description for ImageEditor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Month">
+            <summary>
+            Summary description for DayProperties.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.MonthPropertyEventArgs.m_property">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.MonthColorEventArgs.m_color">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.MonthBorderStyleEventArgs.m_borderStyle">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.MonthCalendar.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.MonthCalendar.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.MonthCalendar.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.MonthChangedEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayRenderEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayRenderEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.DayQueryInfoEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayRenderEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.ClickEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.CalendarColorEventArgs.m_color">
+            <summary>
+            The color that has changed
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.CalendarColorEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the MozItemEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.BeforeMonthChangedEventArgs.#ctor(System.Int32,System.Int32,System.Int32,System.Int32)">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.KeyboardChangedEventArgs.#ctor(NsgSoft.Tools.Calendar.mcKeyboard,System.Windows.Forms.Keys,System.Windows.Forms.Keys)">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.NativeMethods">
+            <summary>
+            Summary description for NativeMethods.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Resource1">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Calendar.Resource1.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Calendar.Resource1.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Calendar.Resource1.WEEKNUMBER">
+            <summary>
+              Looks up a localized string similar to 99.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.SelectedDatesCollection">
+            <summary>
+            Represents a collection of DateItem objects
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.SelectedDatesCollection.owner">
+            <summary>
+            The Calendar that owns this DateItemCollection
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Weekday">
+            <summary>
+            Summary description for Weekday.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.WeekdayClickEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.WeekdayPropertyEventArgs.m_property">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Calendar.Weeknumber">
+            <summary>
+            Summary description for WeekNumber.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.Calendar.WeeknumberClickEventArgs.#ctor">
+            <summary>
+            Initializes a new instance of the DayClickEventArgs class with default settings
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.Calendar.WeeknumberPropertyEventArgs.m_property">
+            <summary>
+            The property that has changed
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.Properties.Resources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.caps_down_white">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.keyboard">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Icon similar to (Icon).
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.keyboard_alphabetical">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.keyboard_kids_lower">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.keyboard_kids_upper">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.keyboard_white">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.lang_down_white">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.Properties.Resources.shift_down_white">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeAttribute">
+            <summary>
+            Аттрибут для описание примитива
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeAttribute.ImageResId">
+            <summary>
+            Идентификатор изображения примтива в ресурсе (сборки)
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeAttribute.ImageResourceTypeFullName">
+            <summary>
+            Имя типа ресурса, если не задано, ищется в ресурсе сборки TableEditorLib
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeAttribute.Text">
+            <summary>
+            Описание примитива для отображения в списке
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeAttribute.DefaultWidth">
+            <summary>
+            Размер примитива по умолчанию (ширина)
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeAttribute.DefaultHeight">
+            <summary>
+            Размер примитива по умолчанию (высота)
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.BrushInfo">
+            <summary>
+            Полное описание заливки
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.BrushInfo.BrushMode">
+            <summary>
+            Перечисления вариантов заливки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.BrushInfo.BgColor">
+            <summary>
+            Цвет фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.BrushInfo.ForeColor">
+            <summary>
+            Цвет лица (штриха)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.BrushInfo.Mode">
+            <summary>
+            Режим заливки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.BrushInfo.HatchStyle">
+            <summary>
+            Стиль заливки штрихами
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.BrushInfo.GetBrush">
+            <summary>
+            Получить нужный Brush по заданным свойствам
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.BrushInfo.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Сериализация
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.BrushInfo.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Десериализация
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.DocumentInitInfo">
+            <summary>
+            Структура для инициализации размеров редактирования
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentInitInfo.DocumentWidth">
+            <summary>
+            Ширина документа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentInitInfo.DocumentHeight">
+            <summary>
+            Высота документа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentInitInfo.ViewScaleMode">
+            <summary>
+            Режим масштабирования документа в режиме просмотра
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentInitInfo.LeftPanelWidth">
+            <summary>
+            Ширина панели тулбара слева, в режиме редактирования
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs">
+            <summary>
+            Класс для события выбора элемента (или сброса выбора)
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs.SelectShapeMode">
+            <summary>
+            Выбранный режим
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs.SelectShapes">
+            <summary>
+            Выбранные элементы
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs.#ctor(NsgSoft.Tools.TableEditorLib.SelectShapeMode,NsgSoft.Tools.TableEditorLib.ShapeBase[])">
+            <summary>
+            Конструктор с указанием параметров
+            </summary>
+            <param name="selectShapeMode">Выбранный режим</param>
+            <param name="selectShapes">Выбранные элементы</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs">
+            <summary>
+            Класс для события выбора элемента (или сброса выбора)
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs.Mode">
+            <summary>
+            Режим документа
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs.ClickMode">
+            <summary>
+            Тип клика
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs.Shape">
+            <summary>
+            Выбранные элементы
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs.Args">
+            <summary>
+            Текущее состояние мыши
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs.#ctor(NsgSoft.Tools.TableEditorLib.DocumentMode,NsgSoft.Tools.TableEditorLib.ShapeBase,NsgSoft.Tools.TableEditorLib.EClickMode,System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Конструктор с указанием параметров
+            </summary>
+            <param name="mode">Режим документа</param>
+            <param name="selectShape">Текущий шэйп</param>
+            <param name="clickMode">Режим клика</param>
+            <param name="args">Аргументы мыши</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.HandleManager">
+            <summary>
+            Мэнеджер для работы с объектом 
+            (Выделить, переместить и т.п.)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleManager.handleMode">
+            <summary>
+            Текущий режим работы выделения
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleManager.handleType">
+            <summary>
+            Тип точки за который был захват
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleManager.selector">
+            <summary>
+            Текущая обертка(выделение) над элементом
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleManager.sourcePoint">
+            <summary>
+            Исходная точка нажатия
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Tools.TableEditorLib.HandleManager.SelectShapes">
+            <summary>
+            Событие о выборе элемента
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.notifySelectShapeEvent">
+            <summary>
+            Вызвать событие о выделении
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.addShape(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Добавить шейп в рамку
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.removeShape(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Удалить шейп из рамки
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.AddShape(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Добавить шейп в рамку
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.RemoveShape(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Удалить шейп из рамки
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.Paint(System.Drawing.Graphics)">
+            <summary>
+            Отрисовать рамку
+            </summary>
+            <param name="grphx"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.Clean">
+            <summary>
+            Очистить мэнеджер от объекта
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.BeginDown(System.Drawing.Point)">
+            <summary>
+            Произошел клик мыши
+            </summary>
+            <param name="point">Точка мыши</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.MoveTo(System.Drawing.Point)">
+            <summary>
+            Произошло перемещение мыши
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.EndDown(System.Drawing.Point)">
+            <summary>
+            Произошло отпускание мыши
+            </summary>
+            <param name="point"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.IsManaging">
+            <summary>
+            Находится ли что-то в выделении
+            </summary>
+            <returns>true= находиться</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.IsInSelection(System.Drawing.Point)">
+            <summary>
+            Проверить попала ли координата в выделение
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.HandleManager.GetSelectedShapes">
+            <summary>
+            Получить список выделенных примитивов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ItemDescriber">
+            <summary>
+            Класс для контейнера элемента в тулбоксе
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ItemDescriber.CountMode">
+            <summary>
+            Варианты работы с элементом на схеме
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.CountMode.AddToDocument">
+            <summary>
+            Добавить на документ
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.CountMode.RemoveFromDocument">
+            <summary>
+            Удалить из документа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.refOfShapes">
+            <summary>
+            Ссылка на словарь описателей (для Single) режима
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.mode">
+            <summary>
+            Режим работы примитива
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.attr">
+            <summary>
+            Аттрибут шейпа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.size">
+            <summary>
+            Размер
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.shapeInfo">
+            <summary>
+            Исходная информация о шейпе
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.currentCount">
+            <summary>
+            Текущее количество 
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.imageIndex">
+            <summary>
+            Текущий индекс картики в списке
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ItemDescriber.lvi">
+            <summary>
+            Связанный ListViewItem
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ItemDescriber.Mode">
+            <summary>
+            Режим работы шейпа
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ItemDescriber.Lvi">
+            <summary>
+            Получить связанный ListViewItem
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ItemDescriber.Type">
+            <summary>
+            Тип примитива
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ItemDescriber.Count">
+            <summary>
+            Текущее количество
+            </summary>
+        </member>
+        <!-- Badly formed XML comment ignored for member "M:NsgSoft.Tools.TableEditorLib.ItemDescriber.#ctor(NsgSoft.Tools.TableEditorLib.ShapeInfo,NsgSoft.Tools.TableEditorLib.ShapeCounterMode,NsgSoft.Tools.TableEditorLib.ShapeAttribute,System.Int32,NsgSoft.Tools.TableEditorLib.ItemDict@)" -->
+        <member name="M:NsgSoft.Tools.TableEditorLib.ItemDescriber.CanCreateByUser">
+            <summary>
+            Получить признак, что пользователь может создать примитив
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ItemDescriber.ChangeSingleCount(System.Int32)">
+            <summary>
+            Изменение кол-ва сингл экземпляров.
+            </summary>
+            <param name="countChange"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ItemDescriber.ChangeCountTo(NsgSoft.Tools.TableEditorLib.ItemDescriber.CountMode)">
+            <summary>
+            Изменить индекс на ...
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ItemDescriber.getText">
+            <summary>
+            Получить текст для Lvi
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ItemDescriber.GetSize">
+            <summary>
+            Получить размер
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ItemDict">
+            <summary>
+            Словарь описателей примитивов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ItemDict.AddItem(NsgSoft.Tools.TableEditorLib.ShapeCounterMode,NsgSoft.Tools.TableEditorLib.ItemDescriber)">
+            <summary>
+            Добавить описание
+            </summary>
+            <param name="mode"></param>
+            <param name="item"></param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.MultiMode">
+            <summary>
+            Описание типов примитивов, которые могут независимо вести подсчет.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Selector.halfSizeSmall">
+            <summary>
+            Половина размера маленького квадрата для узла перемещения
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.Selector.HandlePointDef">
+            <summary>
+            Описание узлов рамки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Selector.HandlePointDef.HandleType">
+            <summary>
+            Тип узла
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Selector.HandlePointDef.Rectangle">
+            <summary>
+            Регион узла
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Selector.xor">
+            <summary>
+            Экземпляр для работы с Xor
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Selector.shape">
+            <summary>
+            Элемент для которого создана рамка
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Selector.points">
+            <summary>
+            Массив узлов рамки за которые можно тянуть
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.Selector.Shape">
+            <summary>
+            Элемент для которого создана рамка
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.#ctor(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="shape"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.buildRegions">
+            <summary>
+            Построить массив регионов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.Paint(System.Drawing.Graphics)">
+            <summary>
+            Отрисовать рамку
+            </summary>
+            <param name="grfx"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.Commit">
+            <summary>
+            Применить изменения
+            </summary>
+            <param name="sizeMove"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.GetHandleMode(System.Drawing.Point,NsgSoft.Tools.TableEditorLib.HandleType@)">
+            <summary>
+            Получить режим работы по точке и рамке
+            </summary>
+            <param name="point">Точка нажатия</param>
+            <returns>Режим работы</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.MoveTo(System.Drawing.SizeF)">
+            <summary>
+            Переместить на размер 
+            </summary>
+            <param name="sizeMove"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.ReSize(NsgSoft.Tools.TableEditorLib.HandleType,System.Drawing.SizeF)">
+            <summary>
+            Изменить размер
+            </summary>
+            <param name="sizeMove"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Selector.Dispose">
+            <summary>
+            Уничтожение объекта и очистка ресурсов
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeContainer">
+            <summary>
+            Контейнер всех шейпов. Сюда помещются все объекты.
+            Все объекты хранятся в строгой истории по слоям.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeContainer.shapes">
+            <summary>
+            Список примитивов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.GetPaintedObjectInRect(System.Drawing.Rectangle)">
+            <summary>
+            Получить список объектов для отрисовки в заданном прямоугольнике
+            </summary>
+            <param name="rectangle">Прямоугольник отрисовки</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.GetTopByMouse(System.Drawing.Point)">
+            <summary>
+            Получить верхний шейп под мышью
+            </summary>
+            <param name="point"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.RemoveRange(NsgSoft.Tools.TableEditorLib.ShapeBase[])">
+            <summary>
+            Удалить диапазон примитивов
+            </summary>
+            <param name="shapes"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.IndexOf(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Получить индекс
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.Insert(System.Int32,NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Вставить примитив
+            </summary>
+            <param name="index"></param>
+            <param name="item"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.RemoveAt(System.Int32)">
+            <summary>
+            Удалить из позиции
+            </summary>
+            <param name="index"></param>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeContainer.Item(System.Int32)">
+            <summary>
+            Получить по индексу
+            </summary>
+            <param name="index"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.Add(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Добавить примитив
+            </summary>
+            <param name="item">Примитив</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.Clear">
+            <summary>
+            Очистить список
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.Contains(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Содержит ли список примитив
+            </summary>
+            <param name="item">примитив</param>
+            <returns>true = содержит</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.CopyTo(NsgSoft.Tools.TableEditorLib.ShapeBase[],System.Int32)">
+            <summary>
+            Скопировать в новый массив
+            </summary>
+            <param name="array"></param>
+            <param name="arrayIndex"></param>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeContainer.Count">
+            <summary>
+            Получить количество
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeContainer.IsReadOnly">
+            <summary>
+            Получить признак только для чтения
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.Remove(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Удалить примитив из списка
+            </summary>
+            <param name="item"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.GetEnumerator">
+            <summary>
+            Получить перечисление
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeContainer.System#Collections#IEnumerable#GetEnumerator">
+            <summary>
+            Получить перечисление
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeInfo">
+            <summary>
+            Информация о типе примитива для отображения 
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeInfo.Count">
+            <summary>
+            Количество экземпляров примитива
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeInfo.ShapeType">
+            <summary>
+            Тип экземпляра примитива
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.TableCirc">
+            <summary>
+            Прямоугольный стол
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.TableEllipse">
+            <summary>
+            Прямоугольный стол
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.TableRect">
+            <summary>
+            Прямоугольный стол
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.TableSquare">
+            <summary>
+            Прямоугольный стол
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.CircleShape">
+            <summary>
+            Примитив описывающий эллипсоид
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.CircleShape.#ctor(NsgSoft.Tools.TableEditorLib.UserHanlding,NsgSoft.Tools.TableEditorLib.ShapeAttributes)">
+            <summary>
+            Конструктор, для указания режима обратной связи для примитива
+            </summary>
+            <param name="userHanlding">Допустимый режим работы</param>
+            <param name="attributes">Поддерживаемые аттрибуты шейпа</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.CircleShape.PaintShape(System.Drawing.Graphics)">
+            <summary>
+            Реализация отрисовки
+            </summary>
+            <param name="grfx">Graphics</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.RectangleShape">
+            <summary>
+            Примитив описывающий прямоугольник
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.RectangleShape.selfRectangle">
+            <summary>
+            Текущий экземпляр прямоугольника в истинных координатах и размере
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.RectangleShape.handlingRectangle">
+            <summary>
+            Сохраненное состояние в режиме управления
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.#ctor(NsgSoft.Tools.TableEditorLib.UserHanlding,NsgSoft.Tools.TableEditorLib.ShapeAttributes)">
+            <summary>
+            Конструктор, для указания режима обратной связи для примитива
+            </summary>
+            <param name="userHanlding">Допустимый режим работы</param>
+            <param name="attributes">Поддерживаемые аттрибуты шейпа</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.GetNormalizeRect">
+            <summary>
+            Вернуть нормализованный Rectangle для отрисовки примитива
+            </summary>
+            <returns>RectangleF по которому можно рисовать примитив</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.Create(System.Drawing.PointF,System.Drawing.SizeF)">
+            <summary>
+            Создать элемент по заданным координатам и размеру
+            </summary>
+            <param name="centerPoint">Центр объекта</param>
+            <param name="size">Размер объекта</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.IsIntersect(System.Drawing.Rectangle)">
+            <summary>
+            Вернуть признак того, что объект попадает в указанный участок для
+            отрисовки
+            </summary>
+            <param name="paintRect">Область отрисовки</param>
+            <returns>true = попадает</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.PaintShape(System.Drawing.Graphics)">
+            <summary>
+            Реализация отрисовки
+            </summary>
+            <param name="grfx">Graphics</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.IsCanManageByRect">
+            <summary>
+            Вернуть признак того, что объект может управляться через рамку
+            </summary>
+            <returns>true= Может управляться рамкой</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.GetManageRect(System.Boolean)">
+            <summary>
+            Вернуть рамку для управления
+            </summary>
+            <param name="useNonHandle">True= вернуть исходный размер, записанный при HandleBegin</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.SetManageRect(System.Drawing.RectangleF)">
+            <summary>
+            Установить новую рамку управления. 
+            (Вписать элемент в этот контур)
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.MoveTo(System.Drawing.SizeF)">
+            <summary>
+            Сместить примитив на указанные величины
+            </summary>
+            <param name="translateLength">Размеры смещений</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.HandleBegin">
+            <summary>
+            Подготовить объект к управлению
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.HandleEnd">
+            <summary>
+            Освободить ресурсы связанные с управлением
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.HandleCommit">
+            <summary>
+            Применить изменения полученные от управления
+            </summary>
+            <param name="sizeMove"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.HandleCancel">
+            <summary>
+            Отменить изменения полученные от управления
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.RectangleShape.SetScale(System.Drawing.SizeF)">
+            <summary>
+            Установить масштаб
+            </summary>
+            <param name="scale">Параметры масштабирования</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeBase">
+            <summary>
+            Примитив элемента
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.CreateShape(System.Drawing.PointF,NsgSoft.Tools.TableEditorLib.ItemDescriber)">
+            <summary>
+            Создать примитив по описанию
+            </summary>
+            <param name="pointInDocument">Координаты в документе</param>
+            <param name="item">Описание примитива</param>
+            <returns>Примитив</returns>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.userHanlding">
+            <summary>
+            Допустимый режим работы с реакцией пользователя
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.attributes">
+            <summary>
+            Поддерживаемые аттрибуты шейпа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.brushInfo">
+            <summary>
+            Информация про заливку
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.transform">
+            <summary>
+            Матрица преобразований
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.text">
+            <summary>
+            Текст примитива
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.font">
+            <summary>
+            Шрифт
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.brushFont">
+            <summary>
+            Кисть для шрифта
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.centerPoint">
+            <summary>
+            Центральная точки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.size">
+            <summary>
+            Размер
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.pen">
+            <summary>
+            Кисть
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.brush">
+            <summary>
+            Заливка
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.isHandling">
+            <summary>
+            Флаг нахождения объекта под управлением
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeBase.hasChanging">
+            <summary>
+            Флаг наличия изменений в объекте
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.IsHandling">
+            <summary>
+            Флаг нахождения объекта под управлением
+            True= находиться в режиме управления
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.UserHanlding">
+            <summary>
+            Допустимый режим работы с реакцией пользователя
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.Attributes">
+            <summary>
+            Поддерживаемые аттрибуты примитива
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.IsCanFontEdit">
+            <summary>
+            Можно ли изменять шрифт
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.IsCanBrushEdit">
+            <summary>
+            Можно ли изменять шрифт
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.IsCanTextEdit">
+            <summary>
+            Можно ли изменять текст
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.Text">
+            <summary>
+            Текст примитива
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.Font">
+            <summary>
+            Фонт примитива
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.ShapeBase.BrushInfo">
+            <summary>
+            Фонт примитива
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.#ctor(NsgSoft.Tools.TableEditorLib.UserHanlding,NsgSoft.Tools.TableEditorLib.ShapeAttributes)">
+            <summary>
+            Конструктор, для указания режима обратной связи для примитива
+            </summary>
+            <param name="userHanlding">Допустимый режим работы</param>
+            <param name="attributes">Поддерживаемые аттрибуты шейпа</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.Create(System.Drawing.PointF,System.Drawing.SizeF)">
+            <summary>
+            Создать элемент по заданным координатам и размеру
+            </summary>
+            <param name="centerPoint">Центр объекта</param>
+            <param name="size">Размер объекта</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.IsIntersect(System.Drawing.Rectangle)">
+            <summary>
+            Вернуть признак того, что объект попадает в указанный участок для
+            отрисовки
+            </summary>
+            <param name="paintRect">Область отрисовки</param>
+            <returns>true = попадает</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.Paint(System.Drawing.Graphics)">
+            <summary>
+            Реализация отрисовки примитива в целом 
+            PaintShape, PaintText
+            </summary>
+            <param name="grfx">Graphics</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.PaintShape(System.Drawing.Graphics)">
+            <summary>
+            Реализация отрисовки
+            </summary>
+            <param name="grfx">Graphics</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.PaintText(System.Drawing.Graphics)">
+            <summary>
+            Отрисовка текста
+            </summary>
+            <param name="grfx"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.IsCanManageByRect">
+            <summary>
+            Вернуть признак того, что объект может управляться через рамку
+            </summary>
+            <returns>true= Может управляться рамкой</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.GetManageRect(System.Boolean)">
+            <summary>
+            Вернуть рамку для управления
+            </summary>
+            <param name="useNonHandle">True= вернуть исходный размер, записанный при HandleBegin</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.SetManageRect(System.Drawing.RectangleF)">
+            <summary>
+            Установить новую рамку управления. 
+            (Вписать элемент в этот контур)
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.MoveTo(System.Drawing.SizeF)">
+            <summary>
+            Сместить примитив в точку
+            </summary>
+            <param name="translateLength">Размеры смещений</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.HandleBegin">
+            <summary>
+            Подготовить объект к управлению
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.HandleEnd">
+            <summary>
+            Освободить ресурсы связанные с управлением
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.HandleCommit">
+            <summary>
+            Применить изменения полученные от управления
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.HandleCancel">
+            <summary>
+            Отменить изменения полученные от управления
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.SetScale(System.Drawing.SizeF)">
+            <summary>
+            Установить масштабирование
+            </summary>
+            <param name="scale"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.GetSchema">
+            <summary>
+            Получить схему
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Десериализация
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Сериализация
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Tools.TableEditorLib.ShapeBase.DoPaint">
+            <summary>
+            Событие об изменении некоторых свойств
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ShapeBase.OnDoPaint">
+            <summary>
+            Вызвать событие изменения свойства
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.TableCircBase">
+            <summary>
+            Базовый овальный стол
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.TableCircBase.#ctor">
+            <summary>
+            Конструктор, для указания режима обратной связи для примитива
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.TableRectBase">
+            <summary>
+            Базовый прямоугольный стол
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.TableRectBase.#ctor">
+            <summary>
+            Конструктор, для указания режима обратной связи для примитива
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.SingleMode">
+            <summary>
+            Описание общего кол-ва и типов примитивов, по которым ведется единый подсчет кол-ва экземпляров на листе.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.SingleMode.TotalCount">
+            <summary>
+            Максимально допустимое число примтивов
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.SingleMode.Shapes">
+            <summary>
+            Перечень допустимых типов
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.UnlimMode">
+            <summary>
+            Описание типов примитивов, по которым подсчет не нужен (перегородки и прочее).
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.UnlimMode.Shapes">
+            <summary>
+            Список примитивов.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp">
+            <summary>
+            Класс для работы с сериализацией объектов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadPoint(System.Xml.XmlReader)">
+            <summary>
+            Прочитать Point
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadPointF(System.Xml.XmlReader)">
+            <summary>
+            Прочитать PointF
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadSize(System.Xml.XmlReader)">
+            <summary>
+            Прочитать Size
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadSizeF(System.Xml.XmlReader)">
+            <summary>
+            Прочитать SizeF
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadRectangle(System.Xml.XmlReader)">
+            <summary>
+            Прочитать Rectangle
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadRectangleF(System.Xml.XmlReader)">
+            <summary>
+            Прочитать RectangleF
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadColor(System.Xml.XmlReader)">
+            <summary>
+            Прочитать Color
+            </summary>
+            <param name="reader"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WritePoint(System.Xml.XmlWriter,System.Drawing.Point)">
+            <summary>
+            Записать Point
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WritePointF(System.Xml.XmlWriter,System.Drawing.PointF)">
+            <summary>
+            Записать PointF
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WriteSize(System.Xml.XmlWriter,System.Drawing.Size)">
+            <summary>
+            Записать Size
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WriteSizeF(System.Xml.XmlWriter,System.Drawing.SizeF)">
+            <summary>
+            Записать SizeF
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WriteRectangle(System.Xml.XmlWriter,System.Drawing.Rectangle)">
+            <summary>
+            Записать Rectangle
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WriteRectangleF(System.Xml.XmlWriter,System.Drawing.RectangleF)">
+            <summary>
+            Записать RectangleF
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WriteColor(System.Xml.XmlWriter,System.Drawing.Color)">
+            <summary>
+            Записать Color
+            </summary>
+            <param name="writer"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.MoveTo(System.Xml.XmlReader,System.String)">
+            <summary>
+            Перейти на элемент
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.ReadElementValue``1(System.Xml.XmlReader,System.String)">
+            <summary>
+            Прочитать значение элемента
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="reader"></param>
+            <param name="elName"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XmlSerializeHelp.WriteElementValue(System.Xml.XmlWriter,System.String,System.Object)">
+            <summary>
+            Записать значение элемента
+            </summary>
+            <param name="writer"></param>
+            <param name="elName"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.XorApi.PaintPointsPolyGon(System.Drawing.Graphics,System.Drawing.PointF[],System.Int32,System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="grfx"></param>
+            <param name="p"></param>
+            <param name="v_s">шаг перебора точек</param>
+            <param name="v_le">замыать последнюю с 1-й</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.Controls.BgChoose">
+            <summary>
+            Форма выбора фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.mode">
+            <summary>
+            Режим фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.color">
+            <summary>
+            Цвет фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.image">
+            <summary>
+            Изображение фона
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.EBgMode">
+            <summary>
+            Режим фона
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.Color">
+            <summary>
+            Цвет фона
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.Image">
+            <summary>
+            Изображение фона
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.#ctor(NsgSoft.Tools.TableEditorLib.EBgMode,System.Drawing.Color,System.Drawing.Image)">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BgChoose.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor">
+            <summary>
+            Редактор заливки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor.Info">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor.#ctor">
+            <summary>
+            Конструктор формы
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor.#ctor(NsgSoft.Tools.TableEditorLib.BrushInfo)">
+            <summary>
+            Конструктор формы
+            </summary>        
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.BrushEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.Controls.TextEditor">
+            <summary>
+            Редактор текста
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.Controls.TextEditor.Text">
+            <summary>
+            Значение из элемента
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.TextEditor.#ctor">
+            <summary>
+            Редактор текста
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.TextEditor.#ctor(System.String)">
+            <summary>
+            Редактор текста
+            </summary>
+            <param name="text">Текст который нужно установить</param>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Controls.TextEditor.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.TextEditor.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Controls.TextEditor.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.Document">
+            <summary>
+            Основной элемент отображения и работы с примитивами
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.afterRestoreShape">
+            <summary>
+            Делегат для оповещения после загруки примитива
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.saveDelegate">
+            <summary>
+            делегат на сохранение изображения
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.loadDelegate">
+            <summary>
+            делегат на чтение изображения
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.createShapeDlg">
+            <summary>
+            Делегат для восстановления примитива
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.scaleMode">
+            <summary>
+            Режим масштабирования
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.originalSize">
+            <summary>
+            Оригинальный размер в режиме редактирования
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.documentMode">
+            <summary>
+            Текущий режим работы документа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.bg">
+            <summary>
+            Форма указания фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.handleManager">
+            <summary>
+            Менеджер работы с объектами, 
+            менеджер выделения
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.shapeContainer">
+            <summary>
+            Контейнер всех шейпов. Сюда помещются все объекты.
+            Все объекты хранятся в строгой истории по слоям.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.bgmode">
+            <summary>
+            Текущий ражим фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.bgcolor">
+            <summary>
+            Фоновый цвет
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.bgimage">
+            <summary>
+            Фоновое изображение
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Document.documentInfo">
+            <summary>
+            Параметры инициализации документа
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditorLib.Document.DocumentMode">
+            <summary>
+            Получить текущий режим работы документа
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Tools.TableEditorLib.Document.SelectShapes">
+            <summary>
+            Событие о выборе элемента
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Tools.TableEditorLib.Document.ShapeCallback">
+            <summary>
+            Событие о срабатывании действия на примитиве
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.SetDocumentInfo(System.Nullable{NsgSoft.Tools.TableEditorLib.DocumentInitInfo})">
+            <summary>
+            Установить иниц.параметры документа
+            </summary>
+            <param name="documentInitInfo"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.DeSelectAll">
+            <summary>
+            Снять все выделение
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.EditTextInShape">
+            <summary>
+            Запустить диалог редактирования текста элемента
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.EditFontInShape">
+            <summary>
+            Запустить процесс редактирования шрифта
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.EditBrushInShape">
+            <summary>
+            Запустить процесс редактирования заливки
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnSaveImage(NsgSoft.Tools.TableEditorLib.SaveImage)">
+            <summary>
+            Установить делегат на сохранение изображения
+            </summary>
+            <param name="saveImage">Делегат</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnRestoreImage(NsgSoft.Tools.TableEditorLib.LoadImage)">
+            <summary>
+            Установить делегат на загрузку изображения
+            </summary>
+            <param name="loadImage">Делегат</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnRestoreShape(NsgSoft.Tools.TableEditorLib.CreateShapeDlg,System.Action{NsgSoft.Tools.TableEditorLib.ShapeBase})">
+            <summary>
+            Установить делегат на восстановление примитива
+            </summary>
+            <param name="restoreShape">Делегат для создания типа</param>
+            <param name="afterRestoreShape">Делегат для оповещения после загруки примитива</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.SetDocumentMode(NsgSoft.Tools.TableEditorLib.DocumentMode)">
+            <summary>
+            Установить режим работы документа
+            </summary>
+            <param name="documentMode">Режим работы документа</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.ChooseBackGround">
+            <summary>
+            Дать пользователю выбрать фон
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.AddShape(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Добавить примитив на документ
+            </summary>
+            <param name="shape"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.DeleteSelectedShapes">
+            <summary>
+            Удалить выделенные примитивы
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnSizeChanged(System.EventArgs)">
+            <summary>
+            Обработчик изменения размера
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnPaint(System.Windows.Forms.PaintEventArgs)">
+            <summary>
+            Перегрузка отрисовки компонента
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnMouseDown(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Перегрузка для работы с мышью
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnMouseMove(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Перегрузка для работы с мышью
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.OnMouseUp(System.Windows.Forms.MouseEventArgs)">
+            <summary>
+            Перегрузка для работы с мышью
+            </summary>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.applyScale">
+            <summary>
+            Применить масштабирование
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.checkDocumentMode(NsgSoft.Tools.TableEditorLib.DocumentMode)">
+            <summary>
+            Проверить находиться ли документ в заданном режиме
+            </summary>
+            <param name="checkedMode">Режим на который идет проверка</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.commitBgMode">
+            <summary>
+            Применить настройки фона
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.handleManager_SelectShapes(System.Object,NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs)">
+            <summary>
+            Вызов события выделения
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.GetSchema">
+            <summary>
+            Получить схему
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.ReadXml(System.Xml.XmlReader)">
+            <summary>
+            Сериализация
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Document.WriteXml(System.Xml.XmlWriter)">
+            <summary>
+            Десериализация
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.documentInit">
+            <summary>
+            Информация для инициализации документа.
+            Если == null, то размер не задан идет растяжение
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.shapeDescriber">
+            <summary>
+            Описание шейпов по типам
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.singleMode">
+            <summary>
+            Решение по единому режиму
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.multiMode">
+            <summary>
+            Мульти режим
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.unlimMode">
+            <summary>
+            Неограниченый режим
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.workDocument">
+            <summary>
+            Текущий рабочий документ
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.shapeMgr">
+            <summary>
+            Текущий экземпляр счетчика примитивов, 
+            для получения типов и количество для панели 
+            инструментов.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.shapeImageList">
+            <summary>
+            Список картинок для тулбара 
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.dnd">
+            <summary>
+            Помошник работы с Drag'n'Drop
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.creationItem">
+            <summary>
+            Выбранный элемент для создания
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.listOfDescribes">
+            <summary>
+            Список допустимых элементов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.#ctor">
+            <summary>
+            Конструктор
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspFont_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик редактирования шрифта
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspBrush_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик редактирования заливки
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspEditTxt_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик нажатия кнопки редактирования текста
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspComboBox_SelectedIndexChanged(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик смены режима
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspNewBtn_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик создать новое расположение
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspOpenBtn_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик открыть расположение
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.RestoreShape(System.String)">
+            <summary>
+            Получить шейп с информацией по количеству
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspSaveBtn_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик сохранить расположение
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.toolBg_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик задания фона
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.commitModeToVisual">
+            <summary>
+            Применить режим пользователя на интерфейс
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.commitModeToDocument">
+            <summary>
+            Применить изменения на документ
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.tspDelete_Click(System.Object,System.EventArgs)">
+            <summary>
+            Обработчик удалить примитив
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.workDocument_SelectShape(System.Object,NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs)">
+            <summary>
+            Обработчик выделения шейпа
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.dnd_EventDestinationDragDrop(System.Object,System.Windows.Forms.DragEventArgs)">
+            <summary>
+            Обработчик окончания драг-дропа
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.shapeList_ItemDrag(System.Object,System.Windows.Forms.ItemDragEventArgs)">
+            <summary>
+            Обработчик взятия элемента из списка
+            </summary>
+            <param name="sender"></param>
+            <param name="e"></param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.loadShapesToToolbar">
+            <summary>
+            Метод загрузки примитивов в панель инструментов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.rebuildShapesToToolbar">
+            <summary>
+            Перестроить список в тулбаре
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.SetDocumentInfo(System.Nullable{NsgSoft.Tools.TableEditorLib.DocumentInitInfo})">
+            <summary>
+            Задать инициализационные размеры для документа
+            </summary>
+            <param name="documentInit">
+            Информация для инициализации документа.
+            Если == null, то размер не задан идет растяжение
+            </param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.DoLoad">
+            <summary>
+            Запустить механизм загрузки схемы
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.DoSave">
+            <summary>
+            Запустить механизм сохранения схемы
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.SetEditorMode(System.Boolean,NsgSoft.Tools.TableEditorLib.DocumentMode)">
+            <summary>
+            Установить режим работы 
+            </summary>
+            <param name="visibleToolbar">true = показать ToolBar</param>
+            <param name="mode">Режим в который нужно переключить весь редактор</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.CreateDocument">
+            <summary>
+            Создать новый документ
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.SetShapeMgr(NsgSoft.Tools.TableEditorLib.IShapeMgr)">
+            <summary>
+            Установить 
+            </summary>
+            <param name="shapeCounter"></param>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.Editor.components">
+            <summary> 
+            Требуется переменная конструктора.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.Dispose(System.Boolean)">
+            <summary> 
+            Освободить все используемые ресурсы.
+            </summary>
+            <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.Editor.InitializeComponent">
+            <summary> 
+            Обязательный метод для поддержки конструктора - не изменяйте 
+            содержимое данного метода при помощи редактора кода.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.SaveImage">
+            <summary>
+            Делегат для вызова метода сохранения изображения
+            </summary>
+            <param name="key">Ключ изображения</param>
+            <param name="image">Изображение для сохранения</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.LoadImage">
+            <summary>
+            Делегат для вызова метода загрузки изображения
+            </summary>
+            <param name="key">Ключ изображения</param>
+            <returns>Считанное изображение</returns>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.CreateShapeDlg">
+            <summary>
+            Делегат на создание примитива
+            </summary>
+            <param name="type">Тип примитива</param>
+            <returns>Созданный экземпляр</returns>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.DocumentMode">
+            <summary>
+            Режим работы документа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentMode.None">
+            <summary>
+            Не задан
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentMode.Edit">
+            <summary>
+            Редактирование
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.DocumentMode.View">
+            <summary>
+            Просмотр
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.EBgMode">
+            <summary>
+            Тип фона
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.EBgMode.Color">
+            <summary>
+            Цвет
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.EBgMode.Image">
+            <summary>
+            Изображение
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.EClickMode">
+            <summary>
+            Режим клика
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.EClickMode.OneClick">
+            <summary>
+            Одинарный клик
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.EClickMode.DoubleClick">
+            <summary>
+            Двойной клик
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.HandleMode">
+            <summary>
+            Перечисление узлов рамки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleMode.None">
+            <summary>
+            Не задан
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleMode.Move">
+            <summary>
+            Перемещение
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleMode.Resize">
+            <summary>
+            Изменение размера
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.HandleType">
+            <summary>
+            Перечисление узлов рамки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleType.None">
+            <summary>
+            Не задан
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleType.TopLeft">
+            <summary>
+            Верхний левый
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleType.TopRight">
+            <summary>
+            Верхний правый
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleType.BottomRight">
+            <summary>
+            Нижний правый
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleType.BottomLeft">
+            <summary>
+            Нижний левый
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.HandleType.Move">
+            <summary>
+            Область для перемещения
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ScaleMode">
+            <summary>
+            Режим масштабирования
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ScaleMode.Disabled">
+            <summary>
+            Выключено
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ScaleMode.ScaleToPanel">
+            <summary>
+            Подогнать под размер контейнера
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ScaleMode.ScaleProportionalMin">
+            <summary>
+            Масштабировать пропорционально по минимальной стороне
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ScaleMode.ScaleProportionalMax">
+            <summary>
+            Масштабировать пропорционально по максимальной стороне
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.SelectShapeMode">
+            <summary>
+            Перечисление для определения режима выбора примитива
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.SelectShapeMode.None">
+            <summary>
+            Ничего не выбрано
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.SelectShapeMode.One">
+            <summary>
+            Выбран один элемент
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeAttributes">
+            <summary>
+            Флаги поддерживаемых аттрибутов шейпа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeAttributes.None">
+            <summary>
+            Не задан
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeAttributes.Font">
+            <summary>
+            Поддержка редактирования шрифтов
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeAttributes.Text">
+            <summary>
+            Поддержка редактировани текста
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeAttributes.Brush">
+            <summary>
+            Поддержка редактирования заливки
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ShapeCounterMode">
+            <summary>
+            Режим работы класса счетчика объектов
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeCounterMode.SingleMode">
+            <summary>
+            SingleMode = Описание общего кол-ва и типов примитивов, по которым ведется единый подсчет кол-ва экземпляров на листе.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeCounterMode.MultiMode">
+            <summary>
+            MultiMode = Описание типов примитивов, которые могут независимо вести подсчет.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.ShapeCounterMode.UnlimMode">
+            <summary>
+            UnlimMode = Описание типов примитивов, по которым подсчет не нужен (перегородки и прочее).
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.UserHanlding">
+            <summary>
+            Перечень режимов для ответной реакции примитива
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.UserHanlding.None">
+            <summary>
+            Не задан
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TableEditorLib.UserHanlding.ОneLeftMouseClick">
+            <summary>
+            Одинарный клик левой кнпкой мыши
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.IShapeMgr">
+            <summary>
+            Интерфейс для обмена информации с внешней средой, 
+            которая регулирует количество примитивов.
+            SingleMode = Описание общего кол-ва и типов примитивов, по которым ведется единый подсчет кол-ва экземпляров на листе.
+            MultiMode = Описание типов примитивов, которые могут независимо вести подсчет.
+            UnlimMode = Описание типов примитивов, по которым подсчет не нужен (перегородки и прочее).
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.GetSingleModeShapes">
+            <summary>
+            Описание общего кол-ва и типов примитивов, по которым ведется единый подсчет кол-ва экземпляров на листе.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.GetMultiModeShapes">
+            <summary>
+            Описание типов примитивов, которые могут независимо вести подсчет.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.GetUnlimModeShapes">
+            <summary>
+            Описание типов примитивов, по которым подсчет не нужен (перегородки и прочее).
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.UpdateToolbarItems(System.Boolean,System.Boolean,NsgSoft.Tools.TableEditorLib.SelectShapesEventArgs,System.Windows.Forms.ToolStrip)">
+            <summary>
+            Обновить кнопки тулбара
+            </summary>
+            <param name="isDocumentCreated">true= Документ создан (есть экземпляр у редактора)</param>
+            <param name="isEditMode">true= Режим редактирования, иначе просмотр</param>
+            <param name="args">Аргументы при выделении (снятии с выделения примитива)</param>
+            <param name="toolStrip">Сам Toolstrip</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.SaveImage(System.String,System.Drawing.Image)">
+            <summary>
+            Делегат для вызова метода сохранения изображения
+            </summary>
+            <param name="key">Ключ изображения</param>
+            <param name="image">Изображение для сохранения</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.LoadImage(System.String)">
+            <summary>
+            Делегат для вызова метода загрузки изображения
+            </summary>
+            <param name="key">Ключ изображения</param>
+            <returns>Считанное изображение</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.SaveShema(System.Action{System.IO.Stream})">
+            <summary>
+            Делегат для сохранения схемы
+            </summary>
+            <param name="writableStream">Поток в который можно писать Xml</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.LoadShema(System.Action{System.IO.Stream})">
+            <summary>
+            Делегат для загрузки схемы
+            </summary>
+            <param name="readableStream">Поток из которого можно прочитать Xml</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.AfterUserShapeAdd(NsgSoft.Tools.TableEditorLib.ShapeBase,NsgSoft.Tools.TableEditorLib.ShapeCounterMode,System.Int32)">
+            <summary>
+            Вызов метода, после добавления примитива пользователем на схему.
+            </summary>
+            <param name="shape">Примитив</param>
+            <param name="shapeCounterMode">Режим из которого сам примитив</param>
+            <param name="count">Оставшееся количество примтива или примитивов</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.AfterUserShapeRemove(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Вызов метода, после удаления пользователем примитива
+            </summary>
+            <param name="shape">примтив</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.AfterXmlShapeRestore(NsgSoft.Tools.TableEditorLib.ShapeBase)">
+            <summary>
+            Вызов метода, после загрзки примитива из потока чтения.
+            </summary>
+            <param name="shape">примитив</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.GetRestoredType(System.String)">
+            <summary>
+            В случае, если тип на схеме не из родной сборки, то этот метод должен вернуть тип по его строковому описанию.
+            </summary>
+            <param name="type">Строковое описание (FullName)</param>
+            <returns>Тип .Net</returns>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.IShapeMgr.ShapeCallback(System.Object,NsgSoft.Tools.TableEditorLib.ShapeCallbackEventArgs)">
+            <summary>
+            Обработчик клика по примитиву (обратное действие)
+            </summary>
+            <param name="sender">Редактор</param>
+            <param name="e">Аргумент события</param>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditorLib.ISizeable">
+            <summary>
+            Интерфейс для работы с объектами, умеющими изменять размер
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TableEditorLib.ISizeable.GetSize">
+            <summary>
+            Получить размер
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:NsgSoft.Tools.TableEditor.ImgResources.ImgResources">
+            <summary>
+              A strongly-typed resource class, for looking up localized strings, etc.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditor.ImgResources.ImgResources.ResourceManager">
+            <summary>
+              Returns the cached ResourceManager instance used by this class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditor.ImgResources.ImgResources.Culture">
+            <summary>
+              Overrides the current thread's CurrentUICulture property for all
+              resource lookups using this strongly typed resource class.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditor.ImgResources.ImgResources.Peregorodka">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditor.ImgResources.ImgResources.TableCirc">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Tools.TableEditor.ImgResources.ImgResources.TableRect">
+            <summary>
+              Looks up a localized resource of type System.Drawing.Bitmap.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TouchScreen.Keyboardcontrol.components">
+            <summary> 
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TouchScreen.Keyboardcontrol.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TouchScreen.Keyboardcontrol.InitializeComponent">
+            <summary> 
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Tools.TouchScreen.TouchPanel.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Tools.TouchScreen.TouchPanel.Dispose(System.Boolean)">
+            <summary>
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Tools.TouchScreen.TouchPanel.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify 
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,790 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NsgSoft.FormsComponents</name>
+    </assembly>
+    <members>
+        <member name="T:NsgSoft.Forms.NsgBackgroundWorker">
+            <summary>
+            Компонент фонового обработчика.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Forms.NsgBackgroundWorker.ClassDesigner">
+            <summary>
+            Класс дизайнера компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.ClassDesigner.Initialize(System.ComponentModel.IComponent)">
+            <summary>
+            Переопределение метода инициализации дизайнера.
+            </summary>
+            <param name="component">Компонент для дизайна.</param>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.EventGeneratorObject">
+            <summary>
+            Объект, передающийся в DoWork и DoWorkCompleated как источник события. Используется, например, в NsgButton для правильной генерации асинхронного клика
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgBackgroundWorker.ownerForm">
+            <summary>
+            Форма-владелец компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.#ctor">
+            <summary>
+            Конструктор компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Конструктор компонента.
+            </summary>
+            <param name="container">Контейнер компонента.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.MessageOnError">
+            <summary>
+            Флаг вывода сообщений при ошибках.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.ExecuteChildThread">
+            <summary>
+            Запускать дочерний фоновый поток из другого фонового потока.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.ProgressBar">
+            <summary>
+            Контрол прогресса для отображения. Задается опционально.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.ThreadType">
+            <summary>
+            Получение и установка типа потока (приоритет).
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.Name">
+            <summary>
+            Получение и установка имени.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.Data">
+            <summary>
+            Получение и установка данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.Description">
+            <summary>
+            Получение и установка описания.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.IsLockOwnerForm">
+            <summary>
+            Блокировать или не форму-владельца 
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgBackgroundWorker.RunWorkerCompleted">
+            <summary>
+            Событие, вызываемое при завершении обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.OnRunWorkerCompleted(System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Вызывает генерацию события Completed.
+            </summary>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgBackgroundWorker.DoWork">
+            <summary>
+            Событие, вызываемое при начале выполнения потока. 
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.OnDoWork(System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Вызывает генерацию события DoWork.
+            </summary>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.CreateThread">
+            <summary>
+            Метод создания потока.
+            </summary>
+            <returns>Возвращает созданный поток.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.ThreadDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Метод работы потока.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.ThreadRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Обработчик события от потока - изменение прогресса. Вызывается с переносом на основной поток.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.lockOwnerForm">
+            <summary>
+            Метод блокировки формы-владельца.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.unlockOwnerForm">
+            <summary>
+            Метод разблокировки формы-владельца.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.Run">
+            <summary>
+            Метод запуска обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.Cancel">
+            <summary>
+            Метод остановки обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.GetNsgType">
+            <summary>
+            Метод получения базового NSG-типа.
+            </summary>
+            <returns>Базовый NSG-тип.</returns>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.ID">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.ExecuteTime">
+            <summary>
+            Получение и установка типа запуска на исполнение.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.OwnerForm">
+            <summary>
+            Получение и установка формы-владелеца компонента.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.IsProcessing">
+            <summary>
+            Флаг запущенной обработки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.RunningThreads">
+            <summary>
+            Список исполняющихся потоков.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.NsgSoft#Design#INsgLongOperation#OperationDescription">
+            <summary>
+            Получение описания операции.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgBackgroundWorker.CancelForbidden">
+            <summary>
+            Запретить отмену потока пользователем
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgBackgroundWorker.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgBackgroundWorker.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Forms.NsgComponent">
+            <summary>
+            Класс базового компонента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgComponent.#ctor">
+            <summary>
+            Конструктор по умолчанию.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgComponent.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Конструктор класса.
+            </summary>
+            <param name="container">Контейнер, в который добавляется компонент.</param>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgComponent.IsDisposed">
+            <summary>
+            Флаг определяет уничтожен объект или нет.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgComponent.GetDesignerHost">
+            <summary>
+            Метод получения хоста дизайнера.
+            </summary>
+            <returns>Возвращает хост дизайнера.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgComponent.IsDesignMode">
+            <summary>
+            Метод проверки режима компонента.
+            </summary>
+            <returns>Возвращает тип режима.</returns>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgComponent.invoker">
+            <summary>
+            Переменная объекта переноса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgComponent.Invoker">
+            <summary>
+            Объект переноса исполнения событий на основной поток.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgComponent.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgComponent.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgComponent.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Forms.NsgProcessingComponent">
+            <summary>
+            Компонент фоновой обработки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgProcessingComponent.Thread">
+            <summary>
+            Поток.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="container">Контейнер.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.Run">
+            <summary>
+            Метод запуска обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.Cancel">
+            <summary>
+            Метод остановки обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.CreateThread">
+            <summary>
+            Метод создания потока.
+            </summary>
+            <returns>Возвращает созданный поток.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.ThreadDoWork(System.Object,System.ComponentModel.DoWorkEventArgs)">
+            <summary>
+            Метод работы потока.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.ThreadProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Обработчик события от потока - изменение прогресса.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.ThreadRunWorkerCompleted(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Обработчик события от потока - изменение прогресса. Вызывается с переносом на основной поток.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.ThreadRunWorkerCompletedSync(System.Object,System.ComponentModel.RunWorkerCompletedEventArgs)">
+            <summary>
+            Обработчик события от потока - синхронное завершение потока. Вызывается на самом потоке.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProcessingComponent.NsgSoft#Design#INsgLongOperation#ID">
+            <summary>
+            Идентификатор.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProcessingComponent.NsgSoft#Design#INsgLongOperation#OperationDescription">
+            <summary>
+            Получение описания операции.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgProcessingComponent.BeginOperation">
+            <summary>
+            Событие о начале операции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.OnBeginOperation(System.Object,System.EventArgs)">
+            <summary>
+            Метод вызова события о начале операции.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgProcessingComponent.EndOperation">
+            <summary>
+            Событие об окончании операции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.OnEndOperation(System.Object,System.EventArgs)">
+            <summary>
+            Метод вызова события об окончании операции.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.NsgSoft#Design#INsgLongOperation#CancelOperation(System.Object)">
+            <summary>
+            Метод отмены операции.
+            </summary>
+            <param name="sender">Источник.</param>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgProcessingComponent.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProcessingComponent.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Forms.NsgProgressProviderComponent">
+            <summary>
+            Компонент провайдера изменения прогресса.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgProgressProviderComponent.InitProcent">
+            <summary>
+            Начальный процент. Используется для задания интервала изменения процента.
+             Метод CalculateProcent использует данный параметр для расчета текущего процента.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgProgressProviderComponent.MaxProcent">
+            <summary>
+            Максимальный процент. Используется для задания интервала изменения процента.
+             Метод CalculateProcent использует данный параметр для расчета текущего процента.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="container">Контейнер.</param>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgProgressProviderComponent.ProgressChanged">
+            <summary>
+            Событие, вызываемое при изменении прогресса
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.ThreadProgressChanged(System.Object,System.ComponentModel.ProgressChangedEventArgs)">
+            <summary>
+            Обработчик события от потока - изменение прогресса.
+            </summary>
+            <param name="sender">Источник события.</param>
+            <param name="e">Параметры события.</param>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgProgressProviderComponent.Started">
+            <summary>
+            Событие, вызываемое при старте обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.OnStarted(System.Object,System.EventArgs)">
+            <summary>
+            Метод вызова события о старте прогресса.
+            </summary>
+        </member>
+        <member name="E:NsgSoft.Forms.NsgProgressProviderComponent.Stoped">
+            <summary>
+            Событие, вызываемое при остановке обработки.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.OnStoped(System.Object,System.EventArgs)">
+            <summary>
+            Метод вызова события об остановке обработки.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProgressProviderComponent.ProgressEventType">
+            <summary>
+            Тип сообщений о изменении прогресса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProgressProviderComponent.MaxProgressValue">
+            <summary>
+            Максимальное значение прогресса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProgressProviderComponent.CurrentProgressValue">
+            <summary>
+            Текущее значение прогресса. Приводится к проценту исполнения 
+             относительно заданного максимального значения прогресса.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProgressProviderComponent.ProgressProcentage">
+            <summary>
+            Процент выполненной работы. При его присвоении автоматически будет
+             сгенерировано сообщение ProgressChanged.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Forms.NsgProgressProviderComponent.ProgressObject">
+            <summary>
+            Любой объект, характеризующий состояние потока
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.ReportProgress">
+            <summary>
+            Метод вызывает генерацию события ProgressChanged.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.ReportProgress(System.Object)">
+            <summary>
+            Метод вызывает генерацию события ProgressChanged.
+            </summary>
+            <param name="progressObject">Пользовательский объект.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.ReportProgress(System.Int32)">
+            <summary>
+            Метод вызывает генерацию события ProgressChanged.
+            </summary>
+            <param name="progressProcentage">Текущее значение прогресса.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.ReportProgress(System.Int32,System.Object)">
+            <summary>
+            Метод задания текущего состояния прогресса.
+            </summary>
+            <param name="percentProgress">Текущее значение для прогресса.</param>
+            <param name="progressObject">Состояние пользовательского объекта.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.NsgSoft#Common#INsgProgressProvider#CalculateProcent(System.Int32)">
+            <summary>
+            Метод подсчета процента с учетом начального и маскимального.
+            </summary>
+            <param name="proc">Процент прогресса.</param>
+            <returns>Возвращает обсчитанный процент.</returns>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgProgressProviderComponent.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgProgressProviderComponent.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Forms.NsgZipService">
+            <summary>
+            Класс сервиса упаковки данных.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgZipService.COMMENT_MAXSIZE">
+            <summary>
+            Максимальная длина комментария к архиву (описание).
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgZipService.FileCopyBufferSize">
+            <summary>
+            Размер буфера для копирования файлов. По умолчанию 50 МГб.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgZipService.ZipCompressLevel">
+            <summary>
+            Уровень сжатия для архива (от 0 - без сжатия, до 9 - маскимальное сжатие).
+             Чем выше уровень, тем медленнее идет сжатие.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.#ctor">
+            <summary>
+            Конструктор.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.#ctor(System.ComponentModel.IContainer)">
+            <summary>
+            Конструктор.
+            </summary>
+            <param name="container">Контейнер.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String,System.Boolean)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String,System.String)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String,System.Boolean,System.String)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String[])">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String[],System.Boolean)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String[],System.String)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.String,System.String[],System.Boolean,System.String)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String,System.String)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String,System.Boolean,System.String)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String,System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Метод упаковки папки в архив. Исполняется синхронно.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="directory">Папка для полного архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <param name="description">Описание архива.</param>
+            <param name="closeAfterUnzip">Закрыть поток после упаковки.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String[])">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String[],System.Boolean)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String[],System.String)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String[],System.Boolean,System.String)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+             Закрывает поток после упаковки.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Zip(System.IO.Stream,System.String[],System.Boolean,System.String,System.Boolean)">
+            <summary>
+            Метод упаковки указанных файлов в архив. Исполняется синхронно.
+            </summary>
+            <param name="stream">Поток для создания архива.</param>
+            <param name="files">Список файлов для архивирования.</param>
+            <param name="deleteAfterZip">Удалить файлы после упаковки.</param>
+            <param name="description">Описание архива.</param>
+            <returns>Возвращает булевый результат операции.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Unzip(System.String)">
+            <summary>
+            Метод распаковки архива в папку архива. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла архива.</param>
+            <returns>Возвращает список распакованных файлов.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Unzip(System.String,System.String)">
+            <summary>
+            Метод распаковки архива в указанную папку. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла архива.</param>
+            <param name="directory">Папка для файлов из архива. Если не указана, то в папку архива.</param>
+            <returns>Возвращает список распакованных файлов.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Unzip(System.String,System.String,System.Boolean)">
+            <summary>
+            Метод распаковки архива. Исполняется синхронно.
+            </summary>
+            <param name="zipFileName">Имя файла архива.</param>
+            <param name="directory">Папка для файлов из архива. Если не указана, то в папку архива.</param>
+            <param name="deleteAfterUnzip">Удалить архив после распаковки.</param>
+            <returns>Возвращает список распакованных файлов.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Unzip(System.IO.Stream)">
+            <summary>
+            Метод распаковки архива в текущую папку. Исполняется синхронно.
+             Поток архива закрывается после распаковки.
+            </summary>
+            <param name="stream">Поток с архивом.</param>
+            <returns>Возвращает список распакованных файлов.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Unzip(System.IO.Stream,System.String)">
+            <summary>
+            Метод распаковки архива в указанную папку. Исполняется синхронно.
+             Поток архива закрывается после распаковки.
+            </summary>
+            <param name="stream">Поток с архивом.</param>
+            <param name="directory">Папка для файлов из архива. Если не указана, то текущая.</param>
+            <returns>Возвращает список распакованных файлов.</returns>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Unzip(System.IO.Stream,System.String,System.Boolean)">
+            <summary>
+            Метод распаковки архива. Исполняется синхронно.
+            </summary>
+            <param name="stream">Поток с архивом.</param>
+            <param name="directory">Папка для файлов из архива. Если не указана, то текущая.</param>
+            <param name="closeAfterUnzip">Закрыть поток после распаковки.</param>
+            <returns>Возвращает список распакованных файлов.</returns>
+        </member>
+        <member name="F:NsgSoft.Forms.NsgZipService.components">
+            <summary>
+            Required designer variable.
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.Dispose(System.Boolean)">
+            <summary> 
+            Clean up any resources being used.
+            </summary>
+            <param name="disposing">true if managed resources should be disposed; otherwise, false.</param>
+        </member>
+        <member name="M:NsgSoft.Forms.NsgZipService.InitializeComponent">
+            <summary>
+            Required method for Designer support - do not modify
+            the contents of this method with the code editor.
+            </summary>
+        </member>
+    </members>
+</doc>

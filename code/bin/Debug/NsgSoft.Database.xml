@@ -1,0 +1,2775 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>NsgSoft.Database</name>
+    </assembly>
+    <members>
+        <member name="T:NsgSoft.Database.NsgDatabaseIndex">
+            <summary>
+            Класс индекса БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseIndex.Name">
+            <summary>
+            Имя индекса
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseIndex.IsUnique">
+            <summary>
+            Уникальность
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseIndex.IsClustered">
+            <summary>
+            Тип реализации индекса
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseIndex.isPrimary">
+            <summary>
+            Признак первичного ключа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseIndex.Columns">
+            <summary>
+            Столбец или столбцы, на которых основан индекс
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseIndex.State">
+            <summary>
+            Состояние индекса
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseIndex.#ctor(System.String,System.Boolean)">
+            <summary>
+            Конструктор создания индекса БД
+            </summary>
+            <param name="inName"></param>
+            <param name="inIsUnique"></param>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseIndex.IsPrimary">
+            <summary>
+            Признак первичного ключа
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseIndex.CloneObject">
+            <summary>
+            Получение клона объекта
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDatabaseManager">
+            <summary>
+            Абстрактный класс менеджера БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.dataBaseManagerInfo">
+            <summary>
+            Структура хранящая информацию о текущей БД и ее пользоваетеле
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.cursorNumber">
+            <summary>
+            Номер последнего курсора
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.mdVersion">
+            <summary>
+            Версия метаданных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.isExistSysObject">
+            <summary>
+            Признак существования системного объекта NsgSystemObject.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.checkSysObject">
+            <summary>
+            Флаг проверки наличия системного объекта NsgSystemObject.
+             Изначальное состояние false, т.е. не проверять.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.CheckDBVersion">
+            <summary>
+            Флаг проверки версии в БД и установленной в менеджере.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.enabled">
+            <summary>
+            Флаг проверки активности менеджера. Если false, то команды не выполняются
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManager.NsgDBTemplate">
+            <summary>
+            Список шаблонов, для формирования SQL команд
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.DBJustCreated">
+            <summary>
+            Флаг создания БД. True для созданной, но не обновленной БД.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.MaxCountRec">
+            <summary>
+            Максимальное количество записей для DEMO режима
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.MaxUsersCount">
+            <summary>
+            Максимальное количество пользователей.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.MDVersion">
+            <summary>
+            Версия МД
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.TypeName">
+            <summary>
+            Получение имени типа объекта.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.ManagerInfo">
+            <summary>
+            Получение информации о менеджере данных.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.MaxParameters">
+            <summary>
+            Максимальное число параметров для передачи в хранимую процедуру
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.MaxLengthChar">
+            <summary>
+            Максимальная длина в БД для поля типа "char".
+            </summary>
+            <returns>Возвращает маскимальную длину в виде строки</returns>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.MaxLengthTableName">
+            <summary>
+            Максимальная длина имени таблицы БД
+            </summary>
+            <returns>Возвращает маскимальную длину в виде строки</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.#ctor(NsgSoft.Database.NsgDatabaseManagerInfo,System.Boolean)">
+            <summary>
+            Конструктор базового класса управления БД 
+            </summary>
+            <param name="DatabaseInfo">Информация о БД</param>
+            <param name="fOpen">Флаг открытия соединения с БД. Если true, то создается и 
+            открывается соединение с БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CorrectHierarchy(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод исправления иерархии справочника
+            </summary>
+            <param name="tableName">Имя таблицы справочника</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetName">
+            <summary>
+            Метод получения имени менеджера БД
+            </summary>
+            <returns>Возвращает имя</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CheckDBAccessForCurrentThread">
+            <summary>
+            Метод проверки доступа к БД для текущего потока.
+            </summary>
+            <returns>Возвращает true, если доступ разрешен, иначе false.</returns>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.IsDemoMode">
+            <summary>
+            Признак того, что программа работает в демо-режиме
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CheckLicenseAgain">
+            <summary>
+            Сбрасывает предыдущую информацию о найденной лицензии и проводит её поиск заного
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.ExpireDate">
+            <summary>
+            Возвращает последний день, когда программа еще будет работать.
+            После этого дня произойдет переход в демонстрационный режим
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManager.ExpireCount">
+            <summary>
+            Количество оставшихся запусков программы. После исчерпания количества запусков, программа перейдет в ДЕМО режим
+            -1 - количество запусков не ограничено
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CheckActiveUsersLimit(System.Data.IDbConnection,System.Boolean)">
+            <summary>
+            Метод проверки ограничения на маскимальное количество 
+             одновременно работающих пользователей.
+            </summary>
+            <param name="connection">Соединение с БД.</param>
+            <param name="throwOnError">Бросать исключение при негативном результате.</param>
+            <returns>Возвращает true, если маскимальное количество одновременно работающих
+             пользователей не превышено, иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetSystemObjectDB(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод загрузки метаданных
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.SaveSystemDBObject(System.String,System.IO.MemoryStream,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод сохранения системных объектов
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetActiveUsers">
+            <summary>
+            Абстрактный метод получения информации об активных пользователях
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetActiveUsersCount">
+            <summary>
+            Метод получения количества активных пользователей.
+            </summary>
+            <returns>Возвращает количество активных пользователей в БД.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetActiveUsersCount(System.Data.IDbConnection)">
+            <summary>
+            Абстрактный метод получения количества активных пользователей.
+            </summary>
+            <param name="connection">Соединение с БД.</param>
+            <returns>Возвращает количество активных пользователей в БД.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetAll(System.Int64,System.String)">
+            <summary>
+            Абстрактный метод получения всех строк таблицы
+            </summary>
+            <param name="count">Количество строк</param>
+            <param name="tableName">Имя таблицы</param>
+            <returns>Список строк таблицы</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetRest(System.DateTime,NsgSoft.Database.NsgRestParam,NsgSoft.Database.NsgRegisterSumParams,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод получения остатков на указанный период(только для регистров)
+            </summary>
+            <param name="date">Период</param>
+            <param name="param">Параметры</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Возвращает массив строк полей объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetActualPoint(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод получения точки актуальности(т.е. ближайший срез)
+            </summary>
+            <param name="tableName">Имя соответсвующей таблицы</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Дата актуальных остатков</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetCirculate(NsgSoft.Database.NsgRestParam,System.Collections.Generic.Queue{NsgSoft.Database.NsgRegisterSumParams},System.Data.IDbTransaction,System.String,System.String)">
+            <summary>
+            Абстрактный метод получения оборотов 
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateGroupInQuery(NsgSoft.Database.NsgDBField,System.String@,System.String@)">
+            <summary>
+            Абстрактный метод создания запроса для проверки вхождения элемента в иерархию
+            </summary>
+            <param name="curCond">Условие для которого формируются запросы</param>
+            <param name="startQuery">Запрос для создания  временных таблиц</param>
+            <param name="endQuery">Запрос для уничтожения временных таблиц</param>
+            <returns>Скрипт запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateGroupFromQuery(NsgSoft.Database.NsgDBField,System.String@,System.String@)">
+            <summary>
+            Абстрактный метод создания запроса для получения иерархии заданного элемента справочника
+            </summary>
+            <param name="curCond">Условие для которого формируются запросы</param>
+            <param name="startQuery">Запрос для создания временных таблиц</param>
+            <param name="endQuery">Запрос для уничтожения временных таблиц</param>
+            <returns>Скрипт запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateNewDatabase">
+            <summary>
+            Абстрактный метод создания БД
+            </summary>
+            <param name="name">Путь к файлу БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.BackupDatabase(System.String)">
+            <summary>
+            Абстрактный метод создания бэкапа БД
+            </summary>
+            <param name="puth">Путь к файлу бэкапа</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.RestoreDatabase(System.String)">
+            <summary>
+            Абстрактный метод восстановления БД из бэкапа
+            </summary>
+            <param name="path">Путь к файлу бэкапа</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.AttachDatabase(System.String)">
+            <summary>
+            Абстрактный метод добавления существующей БД
+            </summary>
+            <param name="path">Путь к основному файлу БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CheckExistDB(System.String)">
+            <summary>
+            Абстрактый метод проверки существования БД
+            </summary>
+            <param name="dbName">Имя БД</param>
+            <returns>True - если существует. Иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CheckExistTable(System.String)">
+            <summary>
+            Абстрактый метод проверки существования таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <returns>True - если существует. Иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CheckExistTable(System.String,System.Data.IDbConnection)">
+            <summary>
+            Метод проверки существования таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="connection">Соединение с БД</param>
+            <returns>True - если существует. Иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetDBNames">
+            <summary>
+            Абстрактный метод получения имен всех БД сервера
+            </summary>
+            <returns>Список имен баз данных</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.IsNewBase(System.String)">
+            <summary>
+            Абстрактный метод проверки наличия таблиц в БД
+            </summary>
+            <param name="dbName">Имя БД</param>
+            <returns>True - если таблиц в БД нет</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateAnalizeDBObjects(System.Data.IDbTransaction)">
+            <summary>
+            Метод создания объектов для анализа БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.PrepareDB(System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод создания всех глобальных объектов БД
+            </summary>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateRegisterTrigger(NsgSoft.Database.NsgDatabaseTable,System.Collections.Generic.List{NsgSoft.Database.NsgDatabaseTable},System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод создания триггера для регистра
+            </summary>
+            <param name="moveTable">Таблица движений</param>
+            <param name="accumTables">Таблицы накоплений</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateDataBaseTable(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод создания таблицы БД
+            </summary>
+            <param name="table">Структура таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.DropDatabaseTable(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод удаления таблицы БД
+            </summary>
+            <param name="name">Имя таблицы</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.AlterTable(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Абcтрактный метод изменения таблицы
+            </summary>
+            <param name="table">Структура таблицы БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateIndexDBTable(System.String,NsgSoft.Database.NsgDatabaseIndex,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод создания индекса для таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="index">Индекс БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.LoadTableStructDB(System.Data.IDbTransaction,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Абстрактный метод загрузки структуры БД
+            </summary>
+            <param name="transaction">Транзакция</param>
+            <param name="fullNamesTables">Полные имена таблиц</param>
+            <returns>Структуру каждой таблицы БД</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.FindAllIndexes(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод поиска огранчений таблицы
+            </summary>
+            <param name="table">Таблица</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Возвращает</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateStoredProcedure(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод создания хранимых процедур
+            </summary>
+            <param name="table">Объект таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateRegisterStoredProcedure(NsgSoft.Database.NsgDatabaseTable,System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод создания хранимых процедур для регистра
+            </summary>
+            <param name="table">Объект таблицы БД</param>
+            <param name="movementTableName">Имя таблицы движения</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetDBType(NsgSoft.Common.NsgSimpleLogicTypes)">
+            <summary>
+            Абстрактный метод получения типа данных БД, соответствующего типу простого логического объекта
+            </summary>
+            <param name="curType">Тип простого логического типа</param>
+            <returns>Возвращает тип данных БД в виде строки</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.IsNull(System.String,System.String)">
+            <summary>
+            Абстрактный метод получения SQL метода проверки на NULL.
+            </summary>
+            <param name="condition1">Выражение для проверки.</param>
+            <param name="condition2">Выражение используется если condition1 = null.</param>
+            <returns>Возвращает выражение SQL для проверки.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CastTo(System.String,NsgSoft.Common.NsgSimpleLogicTypes)">
+            <summary>
+            Абстрактный метод получения строкового выражения преобразования поля к заданному типу.
+            </summary>
+            <param name="fieldName">Поле БД для преобразования в формате - ИМЯ_ТАБЛИЦЫ.ИМЯ_ПОЛЯ.</param>
+            <param name="toType">Тип для преобразования.</param>
+            <returns>Возвращает строковое выражение преобразования.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.DataWillBeLost(System.String,System.String)">
+            <summary>
+            Абстрактный метод определения степени потери данных при конвертации типа поля
+            </summary>
+            <param name="prevType">Предыдущий тип</param>
+            <param name="newType">Новый тип</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.DataWillBeLost(NsgSoft.Common.NsgSimpleLogicTypes,NsgSoft.Common.NsgSimpleLogicTypes)">
+            <summary>
+            Абстрактный метод определения степени потери данных при конвертации типа поля
+            </summary>
+            <param name="prevType">Предыдущий тип</param>
+            <param name="newType">Новый тип</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetNewCode(System.String,System.Data.IDbTransaction,System.String,System.Int64,System.DateTime,System.Int64)">
+            <summary>
+            Абстрактный метод получения кода документа
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+            <param name="prefix">Префикс</param>
+            <param name="resCount">Желаемое кол-во кодов с заданным префиксом</param>
+            <param name="period">Период</param>
+            <param name="inCodeNumber">Номер кода с которого, должны получаться последущие коды</param>
+            <returns>Возвращает код. В случае запроса нескольких кодов, возвращается первый из последователности.
+            Остальные вычисляются от него по порядку.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetNewCode(System.String,System.Data.IDbTransaction,System.String,System.Int64,System.DateTime)">
+            <summary>
+            Абстрактный метод получения кода документа
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+            <param name="prefix">Префикс</param>
+            <param name="resCount">Желаемое кол-во кодов с заданным префиксом</param>
+            <param name="period">Период</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ReleaseCode(System.String,System.Data.IDbTransaction,System.String,System.Int64,System.DateTime,NsgSoft.Common.NsgPeriod,System.Boolean)">
+            <summary>
+            Абстрактный метод освобождения кода документа
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+            <param name="prefix">Префикс</param>
+            <param name="lastCode">Последний зарезервированный код</param>
+            <param name="begPeriod">Дата начала периода нумерации документов</param>
+            <param name="period">Периодичность документа(справочника)</param>
+            <param name="isDoc">Признак что это документ</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CursorNonQuery(System.String,System.String,System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            Выполнение запроса курсора к БД без возврата значениия
+            </summary>
+            <param name="name">Имя курсора</param>
+            <param name="query">Запрос</param>
+            <param name="connection">соединение с БД</param>
+            <param name="transaction">транзакция, в которой идет выполнение операции</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CursorQuery(System.String,System.String,System.Data.IDbConnection,System.Data.IDbTransaction,NsgSoft.Database.NsgDBField[])">
+            <summary>
+            Выполнение запроса курсора к БД
+            </summary>
+            <param name="name">Имя курсора</param>
+            <param name="query">Запрос</param>
+            <param name="connection">соединение с БД</param>
+            <param name="transaction">транзакция, в которой идет выполнение операции</param>
+            <param name="param">Параметры</param>
+            <returns>Возвращает массив полей типа DBField</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateCursor(System.String,NsgSoft.Database.NsgDBField[],System.Windows.Forms.TreeNode,System.Int64,System.Int64,System.Data.IDbTransaction)">
+            <summary>
+            Создание курсора 
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="requisits">Массив реквизитов</param> 
+            <param name="order">Массив полей, по которым производится упорядочивание выборки</param>
+            <param name="row_start">Индекс первой строки которая должна быть выбрана в курсоре</param>
+            <param name="row_сount">Количество строк в курсоре, которое должно быть выбрано</param>
+            <param name="transaction">транзакция, в которой идет выполнение операции</param>
+            <returns>Возвращает имя и количество выбранных записей</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Lock(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод блокировки ресурса
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Блокировка установлена успешно (true)</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.LockWithWait(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод блокировки ресурса с ожиданием
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Блокировка установлена успешно (true)</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.UnLock(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод разблокировки ресурса
+            </summary>
+            <param name="resource">Ресурс</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.IsLock(System.String)">
+            <summary>
+            Абстрактный метод проверки блокировки ресурса
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <returns>Блокировка установлена (true).Иначе (false)</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.OwnerLock(System.String)">
+            <summary>
+            Абстрактный метод определения владельца блокировки
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <returns>Возвращает имя пользователя</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Connect">
+            <summary>
+            Абстрактный метод создания соединения с БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.TestConnect">
+            <summary>
+            Абстрактный метод проверки соединения с сервером
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Disconnect">
+            <summary>
+            Абстрактный метод закрытия соединения с БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetConnection">
+            <summary>
+            Возвращает свободное соединение. Если свободных соединений нет - создает новое.
+            </summary>
+            <returns>Свободное соединение</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ReleaseConnection(System.Data.IDbConnection)">
+            <summary>
+            Возвращает соединение в список свободных. Должен вызываться каждый раз после getConnection
+            </summary>
+            <param name="connection">Освобождаемое соединение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.RemoveConnection(System.Data.IDbConnection)">
+            <summary>
+            Удаляет соединение из списка доступных.
+            </summary>
+            <param name="connection">Удаляемое соединение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.RemoveConnection(System.Int32)">
+            <summary>
+            Удаляет соединение из списка доступных.
+            </summary>
+            <param name="hashCodeConnect"> Хеш-код удаляемого соединения</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Post(NsgSoft.Database.NsgDatabaseTable@,System.Windows.Forms.TreeNode,System.Data.IDbTransaction,System.String,System.String,System.Int32)">
+            <summary>
+            Абстрактный метод сохранения сложного логического объекта в БД
+            </summary>
+            <param name="table">Образ таблицы БД</param>
+            <param name="condition">Условия запроса</param>
+            <param name="transaction">Текущая транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Post(System.String,NsgSoft.Database.NsgDBQuery,System.Data.IDbTransaction,System.Collections.Generic.Queue{NsgSoft.Database.NsgDBField}[])">
+            <summary>
+            Абстрактный метод сохранения набора  сложных объектов
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="type">Тип запроса</param>
+            <param name="transaction">Текущая транзакция</param>
+            <param name="dbFields">Поля сложного логического объекта</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Post(System.String,NsgSoft.Database.NsgDBQuery,System.Data.IDbTransaction,System.Collections.Generic.Queue{NsgSoft.Database.NsgDBField}[],System.Guid,System.DateTime)">
+            <summary>
+            Абстрактный метод сохранения набора  сложных объектов
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="type">Тип запроса</param>
+            <param name="transaction">Текущая транзакция</param>
+            <param name="dbFields">Поля сложного логического объекта</param>
+            <param name="regID">ID регистра в котором было движение(Только для регистров)</param>
+            <param name="minDate">Актуальная дата</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.SetDeleteMark(System.Xml.XmlDocument,System.Int64,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод установки метки на удаление
+            </summary>
+            <param name="doc">Список элементов</param>
+            <param name="docState">Состояние</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetOwnersHierarchy(System.String,NsgSoft.Database.NsgDBField[],System.Windows.Forms.TreeNode,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод получения иерархии владельцев для заданных элементов справочника
+            </summary>
+            <param name="tableName">Имя таблицы справочника</param>
+            <param name="ids">Идентификаторы элементов справочника</param>
+            <param name="orderFields">Реквизиты, по котором будет упорядочена иерархия</param>
+            <param name="transaction">Транзакция</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Find(System.String,NsgSoft.Database.NsgFindParam@,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод поиска данных сложного логического объекта по его реквизиту 
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="parameters">Параметры поиска</param>
+            <param name="transaction">Внешняя транзакция</param>
+            <returns>Возвращает массив строк полей объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Begin_Transaction(System.Int32@)">
+            <summary>
+            Абстрактный метод создания транзакции
+            </summary>
+            <returns>Cозданная транзакция</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Begin_Transaction(System.Data.IsolationLevel,System.Int32@)">
+            <summary>
+            Абстрактный метод создания транзакции
+            </summary>
+            <returns>Созданная транзакция</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.Delete(System.String,System.Windows.Forms.TreeNode,System.Collections.Generic.List{System.String},System.Data.IDbTransaction,System.String,System.String,System.Int32)">
+            <summary>
+            Абстрактный метод удаления строк таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="condition">Критерии для удаления строк таблицы</param>
+            <param name="tableParts">Имена табличных частей</param>
+            <param name="transaction">Транзакция</param>
+            <param name="countToDelete">Ограничивает количество удаляемых строк. Если 0 - неограниченное количество</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.DeleteMovements(System.String[],System.Guid,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод удаления строк табличной части
+            </summary>
+            <param name="tablesNames">Имена таблиц</param>
+            <param name="owner">Владелец табличной части</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ExecuteQuery(System.String)">
+            <summary>
+            Абстрактный метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ExecuteQuery(System.String,System.Data.IDbConnection)">
+            <summary>
+            Метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ExecuteQuery(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ExecuteQuery(System.String,System.Data.IDbTransaction,System.Data.IDbConnection)">
+            <summary>
+            Абстрактный метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.NsgComparisonToString(NsgSoft.Database.NsgDBField)">
+            <summary>
+            Абстрактный метод возврата строкового эквивалента оператора сравнения
+            </summary>
+            <param name="field">Колонка таблицы</param>
+            <returns>Оператор сравнения в виде строки</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.prepareFullTextQuery(System.String)">
+            <summary>
+            Абстрактный метод подготовки текста полнотекстового запроса, удаляет лишние 
+            пробелы, вставляет условия для расширения поиска.
+            </summary>
+            <param name="userQuery">Строка поиска введенная пользователем.</param>
+            <returns>Строка подготовленная к запросу</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.createAdditionalCompare(NsgSoft.Database.NsgDBField[])">
+            <summary>
+            Генерирует дополнительные параметры выборки для курсора по списку сортировки.
+            </summary>
+            <param name="nsgDBField">Список параметров сортировки.</param>
+            <returns>Строка содержащая условия выборки.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.getCompareValue(System.Object,NsgSoft.Database.NsgComparison)">
+            <summary>
+            Для поиска по частичному совпадению добавляет к значению % в зависимости
+            от условия поиска.
+            </summary>
+            <param name="value">Искомое значение</param>
+            <param name="comp">Условие поиска</param>
+            <returns>Значение подготовленное к поиску по частичному совпадению</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateSystemDBProcedure(System.Data.IDbTransaction)">
+            <summary>
+            
+            </summary>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.EnableFullText(System.Boolean)">
+            <summary>
+            
+            </summary>
+            <param name="state"></param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.FillAccumTabls(System.String,System.Data.IDbTransaction)">
+            <summary>
+            
+            </summary>
+            <param name="tableName"></param>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.FillAccumTable(System.String,System.Data.IDbTransaction)">
+            <summary>
+            
+            </summary>
+            <param name="tableName"></param>
+            <param name="transaction"></param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetCurrentTime">
+            <summary>
+            Возвращает текущее время с сервера
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.GetAggregate(System.String,System.Windows.Forms.TreeNode,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},NsgSoft.Common.NsgAggregateResult,System.Data.IDbTransaction,System.String,System.String)">
+            <summary>
+            Запрашивает агрегатные значения по переданным параметрам.
+            </summary>
+            <param name="tableName">Из какой таблицы будет запрос.</param>
+            <param name="condition">Условия выборки.</param>
+            <param name="aggrReq">Список реквизитов по которым получать агрегатные значения.</param>
+            <param name="groupBy">Список реквизитов для группировки.</param>
+            <param name="transaction">Транзакция.</param>
+            <param name="startQuery">Подзапрос, выполнящийся до основного запроса</param>
+            <param name="endQuery">Подзапрос, выполнящийся после основного запроса</param>
+            <returns>Массив очередей с данными.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.AlterDBAccess(NsgSoft.Database.DatabaseMode,System.Boolean)">
+            <summary>
+            Абстрактный метод смены режима доступа к БД
+            </summary>
+            <param name="mode">Режим доступа</param>
+            <param name="isImmediately">Если = true, то выполняется незамедлительно.
+            Иначе получаем сообщение о невозможности выполнения данной операции</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CreateQueryParams(NsgSoft.Database.NsgDatabaseTable@)">
+            <summary>
+            Абстрактный метод создания парметров по шаблону для SQL команды
+            </summary>
+            <param name="table">Образ таблицы</param>
+            <returns>Возвращает строку для использования ее в SQL команде</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.CopyColumns(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Windows.Forms.TreeNode,System.Data.IDbTransaction)">
+            <summary>
+            Абстрактный метод копирования данных строк таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="columns">Копируемые колонки(Источник --> Приемник)</param>
+            <param name="condition">Условия, которому должны удовлетворять копирумые строки</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManager.ActivateTrigger(System.String,System.Boolean,System.Data.IDbTransaction)">
+            <summary>
+            Отключение-включение триггера
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="active">Флаг активности тригера</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="T:NsgSoft.Database.DatabaseType">
+            <summary>
+            Тип БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseType.MsSQL">
+            <summary>
+            MS SQL Server 2005
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseType.MsSQLCE">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseType.MySQL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseType.PgSQL">
+            <summary>
+            PostGre SQL
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseType.OracleSQL">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseType.FireBirdSQL">
+            <summary>
+            FireBird 2.0
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDatabaseManagerInfo">
+            <summary>
+            Структура -- Информация о БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.BaseType">
+            <summary>
+            Тип БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.Database">
+            <summary>
+            Имя БД 
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.DataSource">
+            <summary>
+            Имя сервера БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.UserName">
+            <summary>
+            Имя пользователя БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.UserPassword">
+            <summary>
+            Пароль пользователя БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.Name">
+            <summary>
+            Имя менеджера БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.DataBasePath">
+            <summary>
+            Путь к файлам БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.PrefixDB">
+            <summary>
+            Префикс БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerInfo.IntegratedSecurity">
+            <summary>
+            Использовать проверку по учетной записи Windows
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerInfo.#ctor(NsgSoft.Database.DatabaseType,System.String,System.String,System.String,System.String,System.String)">
+            <summary>
+            Конструктор структры.
+            </summary>
+            <param name="aBaseType">Тип БД</param>
+            <param name="aDatabase">Имя базы по умолчанию  </param>
+            <param name="aDataSource">Имя сервера БД</param>
+            <param name="aName">Имя менеджера БД</param>
+            <param name="aDataBasePath">Путь к файлу БД</param>
+            <param name="aPfxBD">Префикс БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerInfo.#ctor(System.Xml.XmlReader)">
+            <summary>
+            Конструктор структры из XML.
+            </summary>
+            <param name="reader">Объект чтения XML.</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerInfo.SetUserLogin(System.String,System.String)">
+            <summary>
+            Метод установки данных пользователя для доступа к базе данных.
+            </summary>
+            <param name="aUserName">Имя пользователя БД</param>
+            <param name="aUserPassword">Пароль пользователя БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerInfo.Save(System.Xml.XmlWriter)">
+            <summary>
+            Метод сохранения данных в XML.
+            </summary>
+            <param name="writer">Объект записи XML.</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerInfo.ToString">
+            <summary>
+            Метод получения строкового представления объекта.
+            </summary>
+            <returns>Возвращает строковое представление объекта.</returns>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDatabaseManagerList">
+            <summary>
+            Класс списка мененджеров БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseManagerList.databaseManagerList">
+            <summary>
+            Менеджеры БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerList.#ctor">
+             <summary>
+            Конструктор.
+             </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManagerList.Count">
+            <summary>
+            Количесво менеджеров БД
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseManagerList.All">
+            <summary>
+            Метод получения всех менеджеров БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerList.Delete(System.String)">
+            <summary>
+            Удалить БД из списка по имени
+            </summary>
+            <param name="Name">имя удаляемой базы</param>
+            <returns>В случае успеха возвращает 1</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerList.Find(System.String)">
+            <summary>
+            Найти менеджер базы данных по именм
+            </summary>
+            <param name="Name">Имя менеджера БД</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerList.Add(NsgSoft.Database.NsgDatabaseManager)">
+             <summary>
+            Метод добавления менеджера БД в список 
+             </summary>
+             <param name="databaseManager">Менеджер БД</param>
+             <returns>Если все удачно - возвращает 1</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseManagerList.Clear">
+            <summary>
+            Очистка списка менеджеров БД
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDatabaseMsSQL">
+            <summary>
+            Класс менеджера управления сервером MS SQL
+            </summary>
+            <summary>
+            Класс менеджера БД MS SQL
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseMsSQL.connectionStack">
+            <summary>
+            Стэк свободных соединений. Выдаются по запросу getConnection
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDatabaseMsSQL.connectionList">
+            <summary>
+            Список соединений.
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseMsSQL.MaxParameters">
+            <summary>
+            Максимальное число параметров для передачи в хранимую процедуру
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseMsSQL.MaxLengthChar">
+            <summary>
+            Максимальная длина в БД для поля типа "char"
+            </summary>
+            <returns>Возвращает маскимальную длину в виде строки</returns>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseMsSQL.MaxLengthTableName">
+            <summary>
+            Максимальная длина имени таблицы БД
+            </summary>
+            <returns>Возвращает маскимальную длину в виде строки</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.#ctor(NsgSoft.Database.NsgDatabaseManagerInfo,System.Boolean)">
+            <summary>
+            Конструктор класса менеджера управления сервером MS SQL
+            </summary>
+            <param name="DataBaseInfo">Информация о БД</param>
+            <param name="fOpen">Флаг открытия соединения с БД. Если true, то создается и 
+            открывается соединение с БД </param>
+            <param name="inMetadataVersion">Версия метаданных</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.connect(System.String)">
+            <summary>
+            Метод создания и открытия соединения с БД
+            </summary>
+            <param name="databaseName">Имя БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Connect">
+            <summary>
+            Метод создания и открытия соединения с БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.TestConnect">
+            <summary>
+            Метод проверки соединения с сервером
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Disconnect">
+            <summary>
+            Метод закрытия соединения с БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CheckExistDB(System.String)">
+            <summary>
+            Метод проверки существования БД
+            </summary>
+            <param name="dbName">Имя БД</param>
+            <returns>True - если существует. Иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CheckExistTable(System.String)">
+            <summary>
+            Метод проверки существования таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <returns>True - если существует. Иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CheckExistTable(System.String,System.Data.IDbConnection)">
+            <summary>
+            Метод проверки существования таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="connection">Соединение с БД</param>
+            <returns>True - если существует. Иначе false.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetDBNames">
+            <summary>
+            Метод получения имен всех БД сервера
+            </summary>
+            <returns>Список имен баз данных</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.IsNewBase(System.String)">
+            <summary>
+            Метод проверки наличия таблиц в БД
+            </summary>
+            <param name="dbName">Имя БД</param>
+            <returns>True - если таблиц в БД нет</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.BackupDatabase(System.String)">
+            <summary>
+            Метод создания бэкапа БД
+            </summary>
+            <param name="puth">Путь к файлу бэкапа</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.RestoreDatabase(System.String)">
+            <summary>
+            Абстрактный метод восстановления БД из бэкапа
+            </summary>
+            <param name="path">Путь к файлу бэкапа</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.AttachDatabase(System.String)">
+            <summary>
+            Метод добавления существующей БД
+            </summary>
+            <param name="path">Путь к основному файлу БД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateNewDatabase">
+            <summary>
+            Метод создания БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.AlterDBAccess(NsgSoft.Database.DatabaseMode,System.Boolean)">
+            <summary>
+            Абстрактный метод смены режима доступа к БД
+            </summary>
+            <param name="mode">Режим доступа</param>
+            <param name="isImmediately">Если = true, то выполняется незамедлительно.
+            Иначе получаем сообщение о невозможности выполнения данной операции</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetActiveUsers">
+            <summary>
+            Метод получения информации об активных пользователях
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetActiveUsersCount(System.Data.IDbConnection)">
+            <summary>
+            Метод получения количества активных пользователей.
+            </summary>
+            <param name="connection">Соединение с БД.</param>
+            <returns>Возвращает количество активных пользователей в БД.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.DropDatabaseTable(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод удаления таблицы БД
+            </summary>
+            <param name="name">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateDataBaseTable(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Метод создания таблицы БД
+            </summary>
+            <param name="table">Структура таблицы</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.AlterTable(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Метод изменения структуры таблицы
+            </summary>
+            <param name="table">Таблица БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.LoadTableStructDB(System.Data.IDbTransaction,System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Метод загрузки структуры БД 
+            </summary>
+            <param name="transaction">Транзакция</param>
+            <param name="fullNamesTables">Полные имена таблиц из метаданных</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.ExecuteQuery(System.String)">
+            <summary>
+            Метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.ExecuteQuery(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.ExecuteQuery(System.String,System.Data.IDbConnection)">
+            <summary>
+            Метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.ExecuteQuery(System.String,System.Data.IDbTransaction,System.Data.IDbConnection)">
+            <summary>
+            Метод выполнения SQL запроса к БД
+            </summary>
+            <param name="sql">SQL запрос</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Элементы сложного логического объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Post(NsgSoft.Database.NsgDatabaseTable@,System.Windows.Forms.TreeNode,System.Data.IDbTransaction,System.String,System.String,System.Int32)">
+            <summary>
+            Метод сохранения сложного логического объекта в БД
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="type">Тип запроса</param>
+            <param name="transaction">Транзакция</param>
+            <param name="dbFields">Поля объекта(реквизиты)</param>
+            /// <param name="lockWaitTime">Максимальное время ожидания снятия блокировки</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Post(System.String,NsgSoft.Database.NsgDBQuery,System.Data.IDbTransaction,System.Collections.Generic.Queue{NsgSoft.Database.NsgDBField}[])">
+            <summary>
+            Абстрактный метод массового сохранения сложных логических объектов в БД
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="type">Тип запроса</param>
+            <param name="transaction">Транзакция</param>
+            <param name="dbFields">Поля объектов(реквизиты)</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.joinFromTreeNode(System.Windows.Forms.TreeNode,NsgSoft.Database.NsgDBField,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}},System.Int32@)">
+            <summary>
+            Рекурсивный метод 
+            </summary>
+            <param name="tree">Дерево параметров для условия SQL запроса.
+            Каждый уровень дерева соответствует таблице, которую необходимо присоединить</param>
+            <param name="dbf">Параметр(он же реквизит сложного объекта)</param>
+            <param name="command">Объект SQL комманды</param>
+            <param name="joinTables">Имена и алиасы присоединяемых таблиц</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.conditionFromTreeNode(System.Windows.Forms.TreeNode,System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Рекурсивный метод формирования условий в SQL запросе
+            </summary>
+            <param name="tree">Дерево параметров для условия SQL запроса.
+            Каждый уровень дерева соответствует таблице, которую необходимо присоединить</param>
+            <param name="command">Объект SQL комманды</param>
+            <returns>Возвращает условную часть SQL запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.conditionFromTreeNode(System.Windows.Forms.TreeNode,System.Data.SqlClient.SqlCommand,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Рекурсивный метод формирования условий в SQL запросе
+            </summary>
+            <param name="tree">Дерево параметров для условия SQL запроса.
+            Каждый уровень дерева соответствует таблице, которую необходимо присоединить</param>
+            <param name="command">Объект SQL комманды</param>
+            <param name="joinTables">Имена и алиасы присоединяемых таблиц</param>
+            <returns>Возвращает условную часть SQL запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetOwnersHierarchy(System.String,NsgSoft.Database.NsgDBField[],System.Windows.Forms.TreeNode,System.Data.IDbTransaction)">
+            <summary>
+            Метод получения иерархии владельцев для заданных элементов справочника
+            </summary>
+            <param name="tableName">Имя таблицы справочника</param>
+            <param name="dbFields">Реквизиты элементов справочника</param>
+            <param name="orderFields">Реквизиты, по котором будет упорядочена иерархия</param>
+            <param name="transaction">Транзакция</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Find(System.String,NsgSoft.Database.NsgFindParam@,System.Data.IDbTransaction)">
+            <summary>
+             Метод поиска данных сложного логического объекта по его реквизитам
+            </summary>
+            <param name="tableName">Имя таблицы</param>.
+            <param name="parameters">Параметры поиска</param>
+            <param name="transaction">Внешняя транзакция</param>
+            <returns>В случае удачного поиска возвращает массив строк полей объекта.
+            Иначе null</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.parseTblRefs(System.Windows.Forms.TreeNode,System.Collections.Generic.List{System.Collections.Generic.Dictionary{System.String,System.Boolean}})">
+            <summary>
+             Метод релевантного поиска данных сложного логического объекта по строке.
+             Сначала будут возвращены значения точно совпадающие со строкой, затем, точно содержащие строку,
+             затем, элементы, разбитые по словам и т.д.
+            </summary>
+            <param name="tableName">Имя таблицы</param>.
+            <param name="parameters">Параметры поиска</param>
+            <param name="transaction">Внешняя транзакция</param>
+            <returns>В случае удачного поиска возвращает массив строк полей объекта.
+            Иначе null</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetAll(System.Int64,System.String)">
+            <summary>
+            Метод получения всех строк таблицы
+            </summary>
+            <param name="count">Количество строк</param>
+            <param name="tableName">Имя таблицы</param>
+            <returns>Список строк таблицы</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.getCompareValue(System.Object,NsgSoft.Database.NsgComparison)">
+            <summary>
+            Метод получения значения для сравнения в SQL запросе
+            </summary>
+            <param name="value">Значение</param>
+            <param name="comp">Оператор сравнения</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.createAdditionalCompare(NsgSoft.Database.NsgDBField[])">
+            <summary>
+            Метод создания дополнительных условий сравнения
+            </summary>
+            <param name="nsgDBField">Массив полей для условий сравнения</param>
+            <returns>Возваращает строку для использования в SQL запросе</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateStoredProcedure(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Метод создания хранимых процедур
+            </summary>
+            <param name="table">Структура таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateRegisterStoredProcedure(NsgSoft.Database.NsgDatabaseTable,System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод создания хранимых процедур для регистра
+            </summary>
+            <param name="table">Объект таблицы БД</param>
+            <param name="movementTableName">Имя таблицы движения</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetDBType(NsgSoft.Common.NsgSimpleLogicTypes)">
+            <summary>
+            Метод получения типа данных БД, соответствующего типу простого логического объекта
+            </summary>
+            <param name="objType">Объект простого логического типа</param>
+            <returns>Возвращает тип данных БД в виде строки</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.DataWillBeLost(System.String,System.String)">
+            <summary>
+            Метод определения степени потери данных при изменении типа объекта
+            </summary>
+            <param name="prevType">Предыдущий тип</param>
+            <param name="newType">Новый тип</param>
+            <returns>Степень потери данных</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.DataWillBeLost(NsgSoft.Common.NsgSimpleLogicTypes,NsgSoft.Common.NsgSimpleLogicTypes)">
+            <summary>
+            Метод определения степени потери данных при изменении типа объекта
+            </summary>
+            <param name="prevType">Предыдущий тип</param>
+            <param name="newType">Новый тип</param>
+            <returns>Степень потери данных</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateAnalizeDBObjects(System.Data.IDbTransaction)">
+            <summary>
+            Метод создания объектов для анализа  БД
+            </summary>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.PrepareDB(System.Data.IDbTransaction)">
+            <summary>
+            Метод создания всех глобальных объектов БД
+            </summary>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.execSQLFromTemplate(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод выполнения SQL команд из шаблонов
+            </summary>
+            <param name="path">Путь к шаблону</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.execSQLTemplate(System.String,NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Метод выполнения SQL команд из шаблонов
+            </summary>
+            <param name="path">Путь к шаблону</param>
+            <param name="table">Структура таблицы</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateIndexDBTable(System.String,NsgSoft.Database.NsgDatabaseIndex,System.Data.IDbTransaction)">
+             <summary>
+             Метод создания индекса для таблицы БД
+             </summary>
+             <param name="tableName">Имя таблицы</param>
+             <param name="index">Объект индекса БД</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.execute(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод выполнения пакета SQL команд из шаблонов 
+            </summary>
+            <param name="sql">SQL скрипт</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.replaceTemplate(System.Collections.Generic.Dictionary{System.String,System.String},System.String)">
+            <summary>
+            Метод замены шаблонов в SQL команде на соответствующие параметры
+            </summary>
+            <param name="parameters">Параметры</param>
+            <param name="sql">SQL скрипт</param>
+            <returns>SQL команду</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Lock(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод установки блокировки ресурса
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.LockWithWait(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод установки блокировки ресурса с ожиданием
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.getAppLock(System.String,System.Data.IDbTransaction,System.Int32)">
+            <summary>
+            Метод установки блокировки ресурса
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <param name="transaction">Транзакция</param>
+            <param name="timeOut">Максимальное время ожидания установки блокировки</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.UnLock(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод разблокировки ресурса
+            </summary>
+            <param name="resource">Ресурс</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.IsLock(System.String)">
+            <summary>
+            Метод проверки блокировки ресурса
+            </summary>
+            <param name="resource">Ресурс</param>
+            <returns>Возвращает true если объект заблокирован. Иначе false</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.OwnerLock(System.String)">
+            <summary>
+            Метод определения владельца блокировки
+            </summary>
+            <param name="resource">Блокируемый ресурс</param>
+            <returns>Возвращает имя пользователя</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Begin_Transaction(System.Int32@)">
+            <summary>
+            Метод создания транзакции
+            </summary>
+            <returns>созданная транзакция</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Begin_Transaction(System.Data.IsolationLevel,System.Int32@)">
+            <summary>
+            Метод создания транзакции
+            </summary>
+            <returns>созданная транзакция</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Commit_Transaction(System.Data.IDbTransaction)">
+            <summary>
+            Метод завершения транзакции
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetNewCode(System.String,System.Data.IDbTransaction,System.String,System.Int64,System.DateTime)">
+            <summary>
+            Метод получения кода документа
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+            <param name="prefix">Префикс</param>
+            <param name="resCount">Желаемое кол-во кодов с заданным префиксом</param>
+            <param name="period">Дата начала периода нумерации документов</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetNewCode(System.String,System.Data.IDbTransaction,System.String,System.Int64,System.DateTime,System.Int64)">
+            <summary>
+            Метод получения кода документа
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+            <param name="prefix">Префикс</param>
+            <param name="resCount">Желаемое кол-во кодов с заданным префиксом</param>
+            <param name="period">Дата начала периода нумерации документов</param>
+            <param name="inCodeNumber">Номер кода с которого, должны получаться последущие коды</param>
+            <returns>Возвращает код. В случае запроса нескольких кодов, возвращается первый из последователности.
+            Остальные вычисляются от него по порядку.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.ReleaseCode(System.String,System.Data.IDbTransaction,System.String,System.Int64,System.DateTime,NsgSoft.Common.NsgPeriod,System.Boolean)">
+            <summary>
+            Метод освобождения кода документа
+            </summary>
+            <param name="tableName">Имя таблицы БД</param>
+            <param name="transaction">Транзакция</param>
+            <param name="prefix">Префикс</param>
+            <param name="lastCode">Последний зарезервированный код</param>
+            <param name="begPeriod">Дата начала периода нумерации документов</param>
+            <param name="period">Периодичность документа(справочника)</param>
+            <param name="isDoc">Признак что это документ</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CursorNonQuery(System.String,System.String,System.Data.IDbConnection,System.Data.IDbTransaction)">
+            <summary>
+            Выполнение запроса курсора к БД без возврата значениия
+            </summary>
+            <param name="name">Имя курсора</param>
+            <param name="query">Запрос</param>
+            <param name="connection">соединение с БД</param>
+            <param name="transaction">транзакция, в которой идет выполнение операции</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CursorQuery(System.String,System.String,System.Data.IDbConnection,System.Data.IDbTransaction,NsgSoft.Database.NsgDBField[])">
+            <summary>
+            Выполнение запроса курсора к БД
+            </summary>
+            <param name="name">Имя курсора</param>
+            <param name="query">Запрос</param>
+            <param name="connection">соединение с БД</param>
+            <param name="transaction">транзакция, в которой идет выполнение операции</param>
+            <param name="param">Параметры</param>
+            <returns>Возвращает массив полей типа DBField</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateCursor(System.String,NsgSoft.Database.NsgDBField[],System.Windows.Forms.TreeNode,System.Int64,System.Int64,System.Data.IDbTransaction)">
+            <summary>
+            Создание курсора 
+            /// </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="requisits">Массив реквизитов</param> 
+            <param name="order">Массив полей, по которым производится упорядочивание выборки</param>
+            <param name="row_start">Индекс первой строки которая должна быть выбрана в курсоре</param>
+            <param name="row_count">Количество строк в курсоре, которое должно быть выбрано</param>
+            <param name="transaction">транзакция, в которой идет выполнение операции</param>
+            <returns>Возвращает имя и количество выбранных записей</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.createOrderParams(System.Windows.Forms.TreeNode)">
+            <summary>
+            Метод создание параметров упорядочивания выборки
+            </summary>
+            <param name="tree">Параметры</param>
+            <returns>Список параметров в виде строки(для SQL запроса)</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.createOrderParams(System.Windows.Forms.TreeNode,System.Collections.Generic.Dictionary{System.String,System.Collections.Generic.Dictionary{System.String,System.String}})">
+            <summary>
+            Метод создание параметров упорядочивания выборки
+            </summary>
+            <param name="tree">Параметры</param>
+            <param name="joinTables">Присоединенные таблицы</param>
+            <returns>Список параметров в виде строки(для SQL запроса)</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetConnection">
+            <summary>
+            Возвращает свободное соединение. Если свободных соединений нет - создает новое.
+            </summary>
+            <returns>Свободное соединение</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.ReleaseConnection(System.Data.IDbConnection)">
+            <summary>
+            Возвращает соединение в список свободных. Должен вызываться каждый раз после getConnection
+            </summary>
+            <param name="connection">Освобождаемое соединение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.RemoveConnection(System.Data.IDbConnection)">
+            <summary>
+            Удаляет соединение из списка доступных.
+            </summary>
+            <param name="connection">Удаляемое соединение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.RemoveConnection(System.Int32)">
+            <summary>
+            Удаляет соединение из списка доступных.
+            </summary>
+            <param name="hashCodeConnect"> Хеш-код удаляемого соединения</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.Delete(System.String,System.Windows.Forms.TreeNode,System.Collections.Generic.List{System.String},System.Data.IDbTransaction,System.String,System.String,System.Int32)">
+            <summary>
+            Удаление строк таблицы
+            </summary>
+            <param name="tableName">Имя таблицы лог.объекта</param>
+            <param name="condition">Критерии для удаления строк таблицы</param>
+            <param name="tableParts">Имена табличных частей</param>
+            <param name="transaction">Транзакция</param>
+            <param name="startQuery">Операторы выполняющиеся до основного запроса</param>
+            <param name="endQuery">Операторы выполняющиеся после основного запроса</param>
+            <param name="countToDelete">Ограничивает количество удаляемых строк. Если 0 - неограниченное количество</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.DeleteMovements(System.String[],System.Guid,System.Data.IDbTransaction)">
+            <summary>
+            Метод удаления строк табличной части
+            </summary>
+            <param name="tablesNames">Имена таблиц</param>
+            <param name="owner">Владелец табличной части</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.SetDeleteMark(System.Xml.XmlDocument,System.Int64,System.Data.IDbTransaction)">
+            <summary>
+            Метод установки метки на удаление
+            </summary>
+            <param name="doc">Список элементов</param>
+            <param name="docState">Состояние</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.NsgComparisonToString(NsgSoft.Database.NsgDBField)">
+            <summary>
+            Метод возврата строкового эквивалента оператора сравнения
+            </summary>
+            <param name="field">Образ поля базы данных</param>
+            <returns>Оператор сравнения в виде строки</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.FindAllIndexes(NsgSoft.Database.NsgDatabaseTable,System.Data.IDbTransaction)">
+            <summary>
+            Метод поиска всех индексов таблицы
+            </summary>
+            <param name="table">Структура таблицы</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Индексы и поля из которых они состоят</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.prepareFullTextQuery(System.String)">
+            <summary>
+            Метод подготовки текста полнотекстового запроса, удаляет лишние 
+            пробелы, вставляет условия для расширения поиска.
+            </summary>
+            <param name="userQuery">Строка поиска введенная пользователем.</param>
+            <returns>Строка подготовленная к запросу.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteReader(System.Data.SqlClient.SqlCommand)">
+            <summary>
+            Ассинхронное выполнение команды
+            </summary>
+            <param name="command">Команда</param>
+            <returns>Курсор к результату запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(System.Data.SqlClient.SqlCommand,System.Boolean)">
+            <summary>
+            Метод ассинхронного выполнения SQL команды 
+            </summary>
+            <param name="command">SQL команда</param>
+            <param name="noOutTransaction">Признак отсутствия внешней транзакции</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateRegisterTrigger(NsgSoft.Database.NsgDatabaseTable,System.Collections.Generic.List{NsgSoft.Database.NsgDatabaseTable},System.Data.IDbTransaction)">
+            <summary>
+            Метод создания триггера для регистра
+            </summary>
+            <param name="moveTable">Таблица движений</param>
+            <param name="tables">Таблицы накоплений</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetActualPoint(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод получения точки актуальности(т.е. ближайший срез)
+            </summary>
+            <param name="tableName">Имя соответствующей таблицы</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Дата актуальных остатков</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetSystemObjectDB(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод получение системного объекта
+            </summary>
+            <param name="name">Имя объекта</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Возвращает объект в виде бинарного потока</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.SaveSystemDBObject(System.String,System.IO.MemoryStream,System.Data.IDbTransaction)">
+            <summary>
+            Метод сохранения системного объекта в бинарном виде
+            <param name="name">Имя объекта</param>
+            <param name="stream">Поток данных</param>
+            <param name="transaction">Транзакция</param>
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.EnableFullText(System.Boolean)">
+            <summary>
+            Метод включения(выключения) полнотекстового поиска 
+            </summary>
+            <param name="state">Состояние</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CastTo(System.String,NsgSoft.Common.NsgSimpleLogicTypes)">
+            <summary>
+            Метод получения строкового выражения преобразования поля к заданному типу.
+            </summary>
+            <param name="fieldName">Поле БД для преобразования в формате - ИМЯ_ТАБЛИЦЫ.ИМЯ_ПОЛЯ.</param>
+            <param name="toType">Тип для преобразования.</param>
+            <returns>Возвращает строковое выражение преобразования.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.IsNull(System.String,System.String)">
+            <summary>
+            Метод получения SQL метода проверки на NULL.
+            </summary>
+            <param name="condition1">Выражение для проверки.</param>
+            <param name="condition2">Выражение используется если condition1 = null.</param>
+            <returns>Возвращает выражение SQL для проверки.</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.FillAccumTabls(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод заполнения таблиц накоплений
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.FillAccumTable(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод заполнения таблиц накоплений
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CopyColumns(System.String,System.Collections.Generic.Dictionary{System.String,System.String},System.Windows.Forms.TreeNode,System.Data.IDbTransaction)">
+            <summary>
+            Метод копирования данных строк таблицы БД
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="columns">Копируемые колонки(Источник --> Приемник)</param>
+            <param name="condition">Условия, которому должны удовлетворять копирумые строки</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateQueryParams(NsgSoft.Database.NsgDatabaseTable@)">
+            <summary>
+            Метод создания парметров по шаблону для SQL команды
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <returns>Возвращает строку для использования ее в SQL команде</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CorrectHierarchy(System.String,System.Data.IDbTransaction)">
+            <summary>
+            Метод исправления иерархии справочника
+            </summary>
+            <param name="tableName">Имя таблицы справочника</param>
+            <param name="transaction">Транзакция</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetCirculate(NsgSoft.Database.NsgRestParam,System.Collections.Generic.Queue{NsgSoft.Database.NsgRegisterSumParams},System.Data.IDbTransaction,System.String,System.String)">
+            <summary>
+            Метод получения оборотов со срезами по времени
+            </summary>
+            <param name="restParams">Парамеры по срезам времени</param>
+            <param name="periods">Срезы времени</param>
+            <param name="transaction">Транзакция</param>
+            <param name="inStartQuery">Операторы выполняющиеся до основного запроса</param>
+            <param name="inEndQuery">Операторы выполняющиеся после основного запроса</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.buildCirculateQuery(NsgSoft.Database.NsgRestParam,System.String,NsgSoft.Database.NsgRegisterSumParams,NsgSoft.Database.NsgRegisterSumParams,System.Data.SqlClient.SqlCommand,System.Collections.Generic.Dictionary{System.String,System.Text.StringBuilder})">
+            <summary>
+            Создает готовый запрос к базе для получения оборотов и остатков в зависимости от 
+            параметров.
+            </summary>
+            <param name="start_param"></param>
+            <param name="end_param"></param>
+            <param name="suffix">суффикс для даты начала периода</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.getCirculateQuery(NsgSoft.Database.NsgRestParam,NsgSoft.Common.NsgRegisterResult,NsgSoft.Database.NsgRegisterSumParams,NsgSoft.Database.NsgRegisterSumParams,System.String,System.Data.SqlClient.SqlCommand,System.Collections.Generic.Dictionary{System.String,System.Text.StringBuilder})">
+            <summary>
+            Создает запрос для получения прихода или расхода
+            </summary>
+            <param name="restParam">параметры запроса</param>
+            <param name="type">определяет получать приход или расход</param>
+            <param name="suffix">суффикс для параметров запроса</param>
+            <param name="allCond">Условия выборки значений измерений</param>
+            <returns>запрос для получения прихода или расхода</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.mergeCreditDebit(System.String,System.String,NsgSoft.Database.NsgRestParam)">
+            <summary>
+            Создает запрос для получения прихода и расхода
+            </summary>
+            <param name="sqlCredit">запрос для получения прихода</param>
+            <param name="sqlDebit">запрос для получения расхода</param>
+            <param name="param">параметры запроса</param>
+            <returns>запрос для получения прихода и расхода</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.mergeBeginEnd(System.String,System.String,NsgSoft.Database.NsgRestParam)">
+            <summary>
+            Создает запрос для получения остатков на начало и конец
+            </summary>
+            <param name="sqlBegin">запрос для получения начальных остатков</param>
+            <param name="sqlEnd">запрос для получения конечных остатков</param>
+            <param name="param">параметры запроса</param>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.getRestQuery(NsgSoft.Database.NsgRestParam,NsgSoft.Common.NsgRegisterResult,NsgSoft.Database.NsgRegisterSumParams,System.Boolean,System.String,System.Data.SqlClient.SqlCommand,System.Collections.Generic.Dictionary{System.String,System.Text.StringBuilder})">
+            <summary>
+            Создает запрос для получения остатков
+            </summary>
+            <param name="param">параметры запроса</param>
+            <param name="type">запрос на начало периода или конец, по умолчанию начало</param>
+            <param name="needPrefix">необходима генерация префикса before или after</param>
+            <param name="suffix">суффикс для параметров</param>
+            <param name="allCond">Условия выборки значений измерений</param>
+            <returns>запрос для получения остатков</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetCurrentTime">
+            <summary>
+            Метод возвращает текущее время с сервера
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.getConditions(System.Windows.Forms.TreeNode,System.Data.SqlClient.SqlCommand,System.Int32@)">
+            <summary>
+            Формирует сроку условий для запроса
+            </summary>
+            <param name="condition">параметры запроса</param>
+            <returns>SQL строку с условиями запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateGroupInQuery(NsgSoft.Database.NsgDBField,System.String@,System.String@)">
+            <summary>
+            Создает дополнительные запросы, например для создания и уничтожения временных таблиц.
+            </summary>
+            <param name="curCond">Условие для которого формируются запросы</param>
+            <param name="startQuery">Запрос для создания</param>
+            <param name="endQuery">Запрос для уничтожения</param>
+            <returns>Использование временной таблицы</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.CreateGroupFromQuery(NsgSoft.Database.NsgDBField,System.String@,System.String@)">
+            <summary>
+            Метод создания запроса для получения иерархии заданного элемента справочника
+            </summary>
+            <param name="curCond">Условие для которого формируются запросы</param>
+            <param name="startQuery">Запрос для создания временных таблиц</param>
+            <param name="endQuery">Запрос для уничтожения временных таблиц</param>
+            <returns>Скрипт запроса</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetRest(System.DateTime,NsgSoft.Database.NsgRestParam,NsgSoft.Database.NsgRegisterSumParams,System.Data.IDbTransaction)">
+            <summary>
+            Метод получения остатков на указанный период(только для регистров)
+            </summary>
+            <param name="date">Период</param>
+            <param name="transaction">Транзакция</param>
+            <returns>Возвращает массив строк полей объекта</returns>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseMsSQL.GetAggregate(System.String,System.Windows.Forms.TreeNode,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},NsgSoft.Common.NsgAggregateResult,System.Data.IDbTransaction,System.String,System.String)">
+            <summary>
+            Запрашивает агрегатные значения по переданным параметрам.
+            </summary>
+            <param name="tableName">Из какой таблицы будет запрос.</param>
+            <param name="condition">Условия выборки.</param>
+            <param name="aggrReq">Список реквизитов по которым получать агрегатные значения.</param>
+            <param name="groupBy">Список реквизитов для группировки.</param>
+            <param name="transaction">Транзакция.</param>
+            <param name="startQuery">Подзапрос, выполнящийся до основного запроса</param>
+            <param name="endQuery">Подзапрос, выполнящийся после основного запроса</param>
+            <returns>Массив очередей с данными.</returns>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDatabaseTable">
+            <summary>
+            Класс образа таблицы БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseTable.#ctor(System.String,System.String)">
+            <summary>
+            Конструктор образа таблицы БД
+            </summary>
+            <param name="inName">Имя таблицы БД</param>
+            <param name="inFullName">Имя объекта в МД</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseTable.#ctor(System.String,NsgSoft.Common.NsgMultipleLogicTypes,NsgSoft.Database.NsgTimeMoment)">
+            <summary>
+            Специальный конструктор образа таблицы, содержащий только параметры для Post-a 
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="type">Тип объекта</param>
+            <param name="inMoment">Момент времени(для записи документов)</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDatabaseTable.#ctor(System.String,NsgSoft.Common.NsgMultipleLogicTypes,System.Collections.Generic.Queue{NsgSoft.Database.NsgDBField},NsgSoft.Database.NsgTimeMoment)">
+            <summary>
+            Специальный конструктор образа таблицы, содержащий только параметры для Post-a 
+            </summary>
+            <param name="tableName">Имя таблицы</param>
+            <param name="type">Тип объекта</param>
+            <param name="rekvs">Колонки</param>
+            <param name="inMoment">Момент времени(для записи документов)</param>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseTable.CloneObject">
+            <summary>
+            Возвращает клон объекта
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseTable.DataLost">
+            <summary>
+            Получение признака потери данных
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseTable.State">
+            <summary>
+            Получение состояния таблицы
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseTable.Name">
+            <summary>
+            Получение имени таблицы
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseTable.FullName">
+            <summary>
+            Получение полного имени
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDatabaseTable.AllRequisits">
+            <summary>
+            Получение всех реквизитов
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDBField">
+            <summary>
+            Класс образ поля базы данных.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._NAME">
+            <summary>
+            Имя поля
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._MD_NAME">
+            <summary>
+            Имя поля в метаданных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._LENGTH">
+            <summary>
+            Длина 
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._PRESCISION">
+            <summary>
+            Точность
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._TYPE">
+            <summary>
+            Логический тип данных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._PREV_TYPE">
+            <summary>
+            Предыдущий логический тип данных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._DB_TYPE">
+            <summary>
+            Тип данных поля в БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._STATE">
+            <summary>
+             Состояние поля
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._DATA_LOST">
+            <summary>
+            Тип потери данных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._VALUE">
+            <summary>
+            Значение поля 
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._SORT_DIRECT">
+            <summary>
+            Направление сортировки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._COMPARISON">
+            <summary>
+            Оператор сравнения
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._AGGREGATE_TABLE_NAME">
+            <summary>
+            Имя таблицы по полям которой будет вычисляться итог 
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._AGGREGATE_FIELD_NAME">
+            <summary>
+            Имя поля по которому будет вычисляться итог
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._INDEX_TYPE">
+            <summary>
+            Тип индекса
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._INDEX_LIST">
+            <summary>
+            Список индексов, в которых используется данное поле
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._SUB_TYPE">
+            <summary>
+            Подтип для регистра
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._NULL_ALLOW">
+            <summary>
+            Флаг, определящий допустимы ли для столбца значения NULL
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._PERIODIC_TYPE">
+            <summary>
+            Периодичность реквизита
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._PERIODICITY">
+            <summary>
+            Временная зависимость
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._REF_FIELDS">
+            <summary>
+            Ссылочный путь(если поле ссылка)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._GUID">
+            <summary>
+            Идентификатор столбца
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._EXTERNAL_TABLE_NAME">
+            <summary>
+            Имя таблицы на которую накладывается внешнее условие, например вхождение в группу.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBField._DEFAULT_VALUE">
+            <summary>
+            Значение по умолчанию
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Name">
+            <summary>
+            Получение и установка имени поля
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.NullAllow">
+            <summary>
+            Получение и установка флага, определящего возможность для столбца иметь значение NULL
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.AggregateTableName">
+            <summary>
+            Получение и установка имени таблицы по полям которой будет вычисляться итог 
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.AggregateFieldName">
+            <summary>
+            Получение и установка имени поля по которому будет вычисляться итог
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.ExternalTableName">
+            <summary>
+            Получение и установка имени таблицы, на которую накладывается внешнее условие
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Comparison">
+            <summary>
+            Оператор сравнения
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.SubType">
+            <summary>
+            Подтип - для регистра
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.PrevType">
+            <summary>
+            Предыдущий тип поля
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Type">
+            <summary>
+            Тип поля
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.DBType">
+            <summary>
+            Тип данных БД
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.DataLost">
+            <summary>
+            Признак потери данных
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.State">
+            <summary>
+            Состояние поля
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Precision">
+            <summary>
+            Точность
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.MDName">
+            <summary>
+            Имя в Метаданных
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Length">
+            <summary>
+            Длина поля
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Value">
+            <summary>
+            Значение поля
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.DefaultValue">
+            <summary>
+            Значение по умолчанию
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.SortDirectString">
+            <summary>
+            Направление сортировки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.SortDirect">
+            <summary>
+            Направление сортировки
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.IndexList">
+            <summary>
+            Список индексов, в которых используется данное поле
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.IndexType">
+            <summary>
+            Тип индекса
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.PeriodicType">
+            <summary>
+            Определяет является ли реквизит периодическим и если да то как хранится
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Periodicity">
+            <summary>
+            Временная зависимость
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.Guid">
+            <summary>
+            Номер колонки 
+            </summary>
+        </member>
+        <member name="P:NsgSoft.Database.NsgDBField.RefFields">
+            <summary>
+            Ссылочный путь(если поле ссылка)
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,NsgSoft.Common.NsgSimpleLogicTypes,System.Object)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inType">Логический тип</param>
+            <param name="inValue">Значение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,NsgSoft.Common.NsgSimpleLogicTypes,System.String,System.Object)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inType">Логический тип</param>
+            <param name="inDBType">Тип в БД</param>
+            <param name="inValue">Значение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,System.Object)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inValue">Значение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,NsgSoft.Database.NsgSortDirection)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inDirect">Направление сортировки</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,NsgSoft.Database.NsgSortDirection,NsgSoft.Database.NsgComparison)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inDirect">Направление сортировки</param>
+            <param name="inCompare">Оператор сравнения</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,System.Object,NsgSoft.Database.NsgComparison)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inValue">Значение</param>
+            <param name="inCompare">Оператор сравнения</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,System.Int32,System.Int32,NsgSoft.Common.NsgSimpleLogicTypes,System.Object)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inLength">Длина поля</param>
+            <param name="inPrecision">Точность</param>
+            <param name="inType">Логический тип</param>
+            <param name="inValue">Значение</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgDBField.#ctor(System.String,System.Int32,System.Int32,System.String)">
+            <summary>
+            Коструктор создания поля БД
+            </summary>
+            <param name="inName">Имя поля</param>
+            <param name="inLength">Длина поля</param>
+            <param name="inPrecision">Точность</param>
+            <param name="inDBType">Тип в БД</param>
+        </member>
+        <member name="T:NsgSoft.Database.NsgTimeMoment">
+            <summary>
+            Перечисление моментов для записи документа
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgTimeMoment.CurrentMoment">
+            <summary>
+            Текущии момент
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgTimeMoment.FirstMoment">
+            <summary>
+            Самый первый момент
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgTimeMoment.LastMoment">
+            <summary>
+            Последний момент
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.DatabaseMode">
+            <summary>
+            Перечисление видов подключения к БД
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseMode.SINGLE_USER">
+            <summary>
+            Монопольный режим
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseMode.MULTI_USER">
+            <summary>
+            Доступ к БД разрешен всем пользователям
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.DatabaseMode.RESTRICTED_USER">
+            <summary>
+            Доступ к БД разрешен только пользователям ролей db_owner, dbcreator, sysadmin
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.PeriodicTypes">
+            <summary>
+            Перечисление видов временных зависимостей реквизтов
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.PeriodicTypes.None">
+            <summary>
+            Нет временной зависимости (Нет)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.PeriodicTypes.CommonTable">
+            <summary>
+            Значения хранятся в общей таблице (Обычная)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.PeriodicTypes.DictionaryTable">
+            <summary>
+            Значения хранятся в дополнительной таблице справочника (Частые изменения)
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgRekvisitIndexType">
+            <summary>
+            Типы индекса реквизита
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRekvisitIndexType.None">
+            <summary>
+            Нет индекса
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRekvisitIndexType.Sort">
+            <summary>
+            Сортировка
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRekvisitIndexType.UniqueControl">
+            <summary>
+            Контроль уникальности
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgComparison">
+            <summary>
+            Перечисление операторов сравнения.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.Equal">
+            <summary>
+            Равенство.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotEqual">
+            <summary>
+            Неравенство.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.Greater">
+            <summary>
+            Больше.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.GreaterOrEqual">
+            <summary>
+            Больше или равно.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.Less">
+            <summary>
+            Меньше.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.LessOrEqual">
+            <summary>
+            Меньше или равно.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.In">
+            <summary>
+            Входит в множество.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.BeginWith">
+            <summary>
+            Начинается с ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.EndWith">
+            <summary>
+            Заканчивается на ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.Contain">
+            <summary>
+            Содержит ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.ContainWords">
+            <summary>
+            Содержит слова
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotContainWords">
+            <summary>
+            Не содержит слова
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.InGroup">
+            <summary>
+            Входит в группу ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.GroupsFrom">
+            <summary>
+            Все группы иерархии, в которую входит элемент
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotGroupsFrom">
+            <summary>
+            Не входит в группы иерархии, в которую входит элемент
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.EqualOrEmpty">
+            <summary>
+            Равен или пустой (значение по-умолчанию)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotIn">
+            <summary>
+            Не входит в множество.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotBeginWith">
+            <summary>
+            Не начинается с ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotEndWith">
+            <summary>
+            Не заканчивается на ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotContain">
+            <summary>
+            Не содержит ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotInGroup">
+            <summary>
+            Не входит в группу ...
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.NotEqualOrEmpty">
+            <summary>
+            Не равен и не пустой
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.TypeIn">
+            <summary>
+            Фильтрация по типу на вхождение в множество
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.TypeEqual">
+            <summary>
+            Фильтрация по типу на равенство
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgComparison.TypeNotEqual">
+            <summary>
+            Фильтрация по типу на неравенство
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgLogicalOperator">
+            <summary>
+            Перечисление логических операторов.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgLogicalOperator.And">
+            <summary>
+            Логическое И.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgLogicalOperator.Or">
+            <summary>
+            Логическое ИЛИ.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDBQuery">
+            <summary>
+            Перечисление доступных запросов в базу.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBQuery.Create">
+            <summary>
+            Создать запись.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBQuery.Insert">
+            <summary>
+            Добавить запись.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBQuery.Delete">
+            <summary>
+            Удалить запись.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBQuery.Update">
+            <summary>
+            Обновить запись.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBQuery.UpdateArray">
+            <summary>
+            Обновить несколько записей.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDBQuery.Rebuild">
+            <summary>
+            Пересоздать запись.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgSortDirection">
+            <summary>
+            Типы сортировки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgSortDirection.None">
+            <summary>
+            Без сортировки.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgSortDirection.Ascending">
+            <summary>
+            Возрастающая.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgSortDirection.Descending">
+            <summary>
+            Убывающая.
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgDataLost">
+            <summary>
+            Признак потери данных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDataLost.Unknown">
+            <summary>
+            На данный момент информация отсутствует
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDataLost.No">
+            <summary>
+            Потеря данных исключается
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDataLost.Yes">
+            <summary>
+            Данные будут потеряны
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDataLost.Maybe">
+            <summary>
+            Возможна потеря данных
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgDataLost.Part">
+            <summary>
+            Частичная потеря данных
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgRegisterSumParams">
+            <summary>
+            Задает параметры для коррекции результатов по таблице движений
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.OriginalDate">
+            <summary>
+            Дата на которую запрошены параметры
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.OptimalTableName">
+            <summary>
+            Таблица по которой оптимально делать запрос
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.BeginPeriodDate">
+            <summary>
+            Дата начала периода
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.Direction">
+            <summary>
+            Направление коррекции (добавлять или вычитать данные из таблицы движений)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.BeginCorrectionDate">
+            <summary>
+            Дата с которой выбираются данные для коррекции
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.EndCorrectionDate">
+            <summary>
+            Дата до которой выбираются данные для коррекции
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRegisterSumParams.IsActual">
+            <summary>
+            Признак того что выбранныя таблица является актуальной
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgRestParam">
+            <summary>
+            Структура для хранения параметров при работе с остатками регистра
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.TableName">
+            <summary>
+            Имя таблицы
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.Condition">
+            <summary>
+            Условие
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.DimensionList">
+            <summary>
+            Список измерений регистра
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.ResultDimensionList">
+            <summary>
+            Список измерений регистра которые необходимо вывести в результате
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.AllResultList">
+            <summary>
+            Список измерений и реквизитов регистра которые необходимо вывести в результате
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.ResourceList">
+            <summary>
+            Список ресурсов регистра
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.IsEndDay">
+            <summary>
+            Если true, то остатки берутся на конец дня
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.IsMuch">
+            <summary>
+            Если false, то возращается одна строка
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.MovementTable">
+            <summary>
+            Имя таблицы движений регистра
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.Result">
+            <summary>
+            Требуемые результаты
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.TblRefs">
+            <summary>
+            Список дочитываемых таблиц
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgRestParam.IsCuts">
+            <summary>
+            Признак получения результата со срезами по времени
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgRestParam.#ctor(System.String,System.Windows.Forms.TreeNode,System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Collections.Generic.List{System.String},System.Boolean,System.Boolean,NsgSoft.Common.NsgRegisterResult,System.Windows.Forms.TreeNode,System.Boolean)">
+            <summary>
+            Параметры регистра для формирования запросов по нему.
+            </summary>
+            <param name="inMovementTable">Имя таблицы движения</param>
+            <param name="inCondition">Условия</param>
+            <param name="inDimensionList">Список название измерений</param>
+            <param name="inResourceList">Список названий ресурсов</param>
+            <param name="inResultDimensionList">Список названий измерений, которые необходимо получить в результате</param>
+            <param name="inIsEndDay">Если true, то остатки берутся на конец дня</param>
+            <param name="inIsActual">Если true, то только используется актуальная таблица</param>
+            <param name="inIsMuch">Если false, то возращается одна строка</param>
+            <param name="inSumParams">Параметры запроса</param>
+            <param name="inIsCuts">Признак получения результата со срезами по времени</param>
+            <param name="inResult">Результат, который требуется получить</param>
+        </member>
+        <member name="T:NsgSoft.Database.NsgFindParam">
+            <summary>
+            Структура для хранения параметров при работе с поиском объектов
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgFindParam.SelectType">
+            <summary>
+            Перечисление видов запроса при поиске объекта
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.SelectType.ObjectByRow">
+            <summary>
+            Получить объект по номеру строки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.SelectType.RowByObject">
+            <summary>
+            Получить номер строки по объекту
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.Select">
+            <summary>
+            При запросе позиционирования определяет объект по номеру нужен или номер по объекту
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.Count">
+            <summary>
+            Кол-во строк для выборки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.Row_start">
+            <summary>
+             Номер строки, с которой начинается поиск
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.IsFull">
+            <summary>
+             Тип поиска. Если true, то поиск по полному совпадению. Иначе по первым введенным символам.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.ColumnNames">
+            <summary>
+            Поля для считывания(имена RequisitsNames в БД)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.RequisitsNames">
+            <summary>
+            Реквизиты для считывания
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.Conditions">
+            <summary>
+             Коллекция условий выборки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.AdditionalConditions">
+            <summary>
+             Коллекция дополнительных условий для курсора
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.Order">
+            <summary>
+            Массив полей, по которым производится упорядочивание выборки
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.KeyValue">
+            <summary>
+            Последнее значение ключевого поля.
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.LogicOperator">
+            <summary>
+            Логический оператор объединяющий все условия
+            /// </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.TblRefs">
+            <summary>
+            Дополнительные таблицы для считывания(ссылки на другие объекты)
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.StartQuery">
+            <summary>
+            Подзапрос, выполнящийся до основного запроса
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.EndQuery">
+            <summary>
+            Подзапрос, выполнящийся после основного запроса
+            </summary>
+        </member>
+        <member name="F:NsgSoft.Database.NsgFindParam.IsDistinct">
+            <summary>
+            Признак считывания только различных значений 
+            </summary>
+        </member>
+        <member name="M:NsgSoft.Database.NsgFindParam.#ctor(System.Int64,System.Boolean,System.Windows.Forms.TreeNode,System.Windows.Forms.TreeNode)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="inRow_start">Номер строки, с которой начинается выдача результата</param>
+            <param name="inIsFull">Признак поиска по полному совпадению</param>
+            <param name="inConditions">Условия выборки</param>
+            <param name="inOrder">Условия сортировки</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgFindParam.#ctor(System.Int32,System.Int64,System.Boolean,System.Windows.Forms.TreeNode,System.Windows.Forms.TreeNode)">
+            <summary>
+            Конструктор
+            </summary>
+            <param name="inCount">Количество запрашиваемых строк</param>
+            <param name="inRow_start">Номер строки, с которой начинается выдача результата</param>
+            <param name="inIsFull">Признак поиска по полному совпадению</param>
+            <param name="inConditions">Условия выборки</param>
+            <param name="inOrder">Условия сортировки</param>
+        </member>
+        <member name="M:NsgSoft.Database.NsgFindParam.#ctor(System.Int32,System.Int64,System.Boolean,System.Windows.Forms.TreeNode,System.Windows.Forms.TreeNode,System.Windows.Forms.TreeNode)">
+             <summary>
+             Конструктор
+             </summary>
+             <param name="inCount">Количество запрашиваемых строк</param>
+             <param name="inRow_start">Номер строки, с которой начинается выдача результата</param>
+             <param name="inIsFull">Признак поиска по полному совпадению</param>
+             <param name="inConditions">Условия выборки</param>
+             <param name="inOrder">Условия сортировки</param>
+            <param name="inTblRefs">Таблицы для дочитывания</param>
+        </member>
+        <member name="T:NsgSoft.Database.NsgUserInfo">
+            <summary>
+            Структура для хранения информации о пользователе
+            </summary>
+        </member>
+        <member name="T:NsgSoft.Database.NsgInterfaceInfo">
+            <summary>
+            Структура для хранения информации о интерфейсе
+            </summary>
+        </member>
+    </members>
+</doc>
