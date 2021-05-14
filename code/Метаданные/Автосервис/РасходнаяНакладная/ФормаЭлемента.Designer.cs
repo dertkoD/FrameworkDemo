@@ -46,6 +46,14 @@ namespace Авто.Метаданные.Автосервис
             NsgSoft.DataObjects.NsgObjectDescriptor nsgObjectDescriptor2 = new NsgSoft.DataObjects.NsgObjectDescriptor();
             this.nsgIGrid1 = new NsgSoft.Forms.NsgIGrid();
             this.vmoТаблица = new NsgSoft.Forms.NsgVisualMultipleObject(this.components);
+            this.Идентификатор_vmoТаблица = new NsgSoft.Forms.NsgColumnDescriptor.Guid();
+            this.Автоинкремент_vmoТаблица = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
+            this.Владелец = new NsgSoft.Forms.NsgColumnDescriptor.MultipleObject();
+            this.НомерСтроки = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
+            this.Номенклатура = new Авто.Метаданные.Автосервис.Номенклатура.ColumnDescriptor();
+            this.Количество = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
+            this.Цена = new NsgSoft.Forms.NsgColumnDescriptor.Decimal();
+            this.Сумма = new NsgSoft.Forms.NsgColumnDescriptor.Decimal();
             this.Идентификатор = new NsgSoft.Forms.NsgColumnDescriptor.Guid();
             this.Автоинкремент = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
             this.ПрефиксКода = new NsgSoft.Forms.NsgColumnDescriptor.String();
@@ -66,14 +74,7 @@ namespace Авто.Метаданные.Автосервис
             this.nsgInput2 = new NsgSoft.Forms.NsgInput();
             this.label1 = new System.Windows.Forms.Label();
             this.nsgInput1 = new NsgSoft.Forms.NsgInput();
-            this.Идентификатор_vmoТаблица = new NsgSoft.Forms.NsgColumnDescriptor.Guid();
-            this.Автоинкремент_vmoТаблица = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
-            this.Владелец = new NsgSoft.Forms.NsgColumnDescriptor.MultipleObject();
-            this.НомерСтроки = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
-            this.Номенклатура = new Авто.Метаданные.Автосервис.Номенклатура.ColumnDescriptor();
-            this.Количество = new NsgSoft.Forms.NsgColumnDescriptor.Int64();
-            this.Цена = new NsgSoft.Forms.NsgColumnDescriptor.Decimal();
-            this.Сумма = new NsgSoft.Forms.NsgColumnDescriptor.Decimal();
+            this.nsgBackgroundWorker1 = new NsgSoft.Forms.NsgBackgroundWorker(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.nsgEdit)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nsgClose)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.nsgToolStrip2)).BeginInit();
@@ -438,6 +439,7 @@ namespace Авто.Метаданные.Автосервис
             nsgIGridColumn3.ChangedProperties = new string[] {
         "Visible"};
             nsgIGridColumn3.DateFormat = null;
+            nsgIGridColumn3.ImportedFromVMO = false;
             nsgIGridColumn3.InitiateRowEdit = true;
             nsgIGridColumn3.Name = "Владелец";
             nsgIGridColumn3.Position = ((NsgSoft.Forms.NsgIGrid.ColumnPosition)(NsgSoft.Forms.NsgIGrid.ColumnPosition.NextColumn));
@@ -454,6 +456,7 @@ namespace Авто.Метаданные.Автосервис
             nsgIGridColumn4.ChangedProperties = new string[] {
         "Visible"};
             nsgIGridColumn4.DateFormat = null;
+            nsgIGridColumn4.ImportedFromVMO = false;
             nsgIGridColumn4.InitiateRowEdit = true;
             nsgIGridColumn4.Name = "Номенклатура";
             nsgIGridColumn4.Position = ((NsgSoft.Forms.NsgIGrid.ColumnPosition)(NsgSoft.Forms.NsgIGrid.ColumnPosition.NextColumn));
@@ -469,6 +472,7 @@ namespace Авто.Метаданные.Автосервис
             nsgIGridColumn5.ChangedProperties = new string[] {
         "Visible"};
             nsgIGridColumn5.DateFormat = null;
+            nsgIGridColumn5.ImportedFromVMO = false;
             nsgIGridColumn5.InitiateRowEdit = true;
             nsgIGridColumn5.Name = "Количество";
             nsgIGridColumn5.Position = ((NsgSoft.Forms.NsgIGrid.ColumnPosition)(NsgSoft.Forms.NsgIGrid.ColumnPosition.NextColumn));
@@ -485,6 +489,7 @@ namespace Авто.Метаданные.Автосервис
             nsgIGridColumn6.ChangedProperties = new string[] {
         "Visible"};
             nsgIGridColumn6.DateFormat = null;
+            nsgIGridColumn6.ImportedFromVMO = false;
             nsgIGridColumn6.InitiateRowEdit = true;
             nsgIGridColumn6.Name = "Цена";
             nsgIGridColumn6.Position = ((NsgSoft.Forms.NsgIGrid.ColumnPosition)(NsgSoft.Forms.NsgIGrid.ColumnPosition.NextColumn));
@@ -500,6 +505,7 @@ namespace Авто.Метаданные.Автосервис
             nsgIGridColumn7.ChangedProperties = new string[] {
         "Visible"};
             nsgIGridColumn7.DateFormat = null;
+            nsgIGridColumn7.ImportedFromVMO = false;
             nsgIGridColumn7.InitiateRowEdit = true;
             nsgIGridColumn7.Name = "Сумма";
             nsgIGridColumn7.Position = ((NsgSoft.Forms.NsgIGrid.ColumnPosition)(NsgSoft.Forms.NsgIGrid.ColumnPosition.NextColumn));
@@ -569,6 +575,102 @@ namespace Авто.Метаданные.Автосервис
             this.vmoТаблица.Columns.Collection.Add(this.Сумма);
             this.vmoТаблица.MasterComponent = this.nsgVisualMultipleObject;
             this.vmoТаблица.Binding = nsgMasterDetailBinding1;
+            // 
+            // Идентификатор_vmoТаблица
+            // 
+            this.Идентификатор_vmoТаблица.AutoGenerated = true;
+            this.Идентификатор_vmoТаблица.Caption = "Идентификатор";
+            this.Идентификатор_vmoТаблица.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Идентификатор_vmoТаблица.Name = "Идентификатор";
+            this.Идентификатор_vmoТаблица.NSGType = typeof(NsgSoft.DataObjects.NsgDataGuid);
+            this.Идентификатор_vmoТаблица.PropertyType = typeof(System.Guid);
+            this.Идентификатор_vmoТаблица.SearchCondition.OwnerComponent = this.Идентификатор_vmoТаблица;
+            this.Идентификатор_vmoТаблица.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            this.Идентификатор_vmoТаблица.Visible = false;
+            // 
+            // Автоинкремент_vmoТаблица
+            // 
+            this.Автоинкремент_vmoТаблица.AutoGenerated = true;
+            this.Автоинкремент_vmoТаблица.CalcTotal = false;
+            this.Автоинкремент_vmoТаблица.Caption = "Автоинкремент";
+            this.Автоинкремент_vmoТаблица.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Автоинкремент_vmoТаблица.Name = "Автоинкремент";
+            this.Автоинкремент_vmoТаблица.NSGType = typeof(NsgSoft.DataObjects.NsgDataInteger);
+            this.Автоинкремент_vmoТаблица.PropertyType = typeof(long);
+            this.Автоинкремент_vmoТаблица.SearchCondition.OwnerComponent = this.Автоинкремент_vmoТаблица;
+            this.Автоинкремент_vmoТаблица.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            this.Автоинкремент_vmoТаблица.Visible = false;
+            // 
+            // Владелец
+            // 
+            this.Владелец.AutoGenerated = true;
+            this.Владелец.Caption = "Владелец";
+            this.Владелец.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Владелец.Name = "Владелец";
+            this.Владелец.NSGType = typeof(NsgSoft.DataObjects.NsgReferencedObject);
+            this.Владелец.PropertyType = typeof(NsgSoft.DataObjects.NsgReferencedObject);
+            this.Владелец.SearchCondition.OwnerComponent = this.Владелец;
+            this.Владелец.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            // 
+            // НомерСтроки
+            // 
+            this.НомерСтроки.AutoGenerated = true;
+            this.НомерСтроки.CalcTotal = false;
+            this.НомерСтроки.Caption = "НомерСтроки";
+            this.НомерСтроки.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.НомерСтроки.Name = "НомерСтроки";
+            this.НомерСтроки.NSGType = typeof(NsgSoft.DataObjects.NsgDataInteger);
+            this.НомерСтроки.PropertyType = typeof(long);
+            this.НомерСтроки.SearchCondition.OwnerComponent = this.НомерСтроки;
+            this.НомерСтроки.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            this.НомерСтроки.Visible = false;
+            // 
+            // Номенклатура
+            // 
+            this.Номенклатура.AutoGenerated = true;
+            this.Номенклатура.Caption = "Номенклатура";
+            this.Номенклатура.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Номенклатура.Name = "Номенклатура";
+            this.Номенклатура.NSGType = typeof(Авто.Метаданные.Автосервис.Номенклатура);
+            this.Номенклатура.PropertyType = typeof(Авто.Метаданные.Автосервис.Номенклатура);
+            this.Номенклатура.SearchCondition.OwnerComponent = this.Номенклатура;
+            this.Номенклатура.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            // 
+            // Количество
+            // 
+            this.Количество.AutoGenerated = true;
+            this.Количество.CalcTotal = false;
+            this.Количество.Caption = "Количество";
+            this.Количество.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Количество.Name = "Количество";
+            this.Количество.NSGType = typeof(NsgSoft.DataObjects.NsgDataInteger);
+            this.Количество.PropertyType = typeof(long);
+            this.Количество.SearchCondition.OwnerComponent = this.Количество;
+            this.Количество.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            // 
+            // Цена
+            // 
+            this.Цена.AutoGenerated = true;
+            this.Цена.CalcTotal = false;
+            this.Цена.Caption = "Цена";
+            this.Цена.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Цена.Name = "Цена";
+            this.Цена.NSGType = typeof(NsgSoft.DataObjects.NsgDataFloat);
+            this.Цена.PropertyType = typeof(decimal);
+            this.Цена.SearchCondition.OwnerComponent = this.Цена;
+            this.Цена.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            // 
+            // Сумма
+            // 
+            this.Сумма.AutoGenerated = true;
+            this.Сумма.CalcTotal = false;
+            this.Сумма.Caption = "Сумма";
+            this.Сумма.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
+            this.Сумма.Name = "Сумма";
+            this.Сумма.NSGType = typeof(NsgSoft.DataObjects.NsgDataFloat);
+            this.Сумма.PropertyType = typeof(decimal);
+            this.Сумма.SearchCondition.OwnerComponent = this.Сумма;
+            this.Сумма.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
             // 
             // Идентификатор
             // 
@@ -867,101 +969,18 @@ namespace Авто.Метаданные.Автосервис
             this.nsgInput1.TabIndex = 20;
             this.nsgInput1.VerticalAlignment = System.Drawing.StringAlignment.Center;
             // 
-            // Идентификатор_vmoТаблица
+            // nsgBackgroundWorker1
             // 
-            this.Идентификатор_vmoТаблица.AutoGenerated = true;
-            this.Идентификатор_vmoТаблица.Caption = "Идентификатор";
-            this.Идентификатор_vmoТаблица.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Идентификатор_vmoТаблица.Name = "Идентификатор";
-            this.Идентификатор_vmoТаблица.NSGType = typeof(NsgSoft.DataObjects.NsgDataGuid);
-            this.Идентификатор_vmoТаблица.PropertyType = typeof(System.Guid);
-            this.Идентификатор_vmoТаблица.SearchCondition.OwnerComponent = this.Идентификатор_vmoТаблица;
-            this.Идентификатор_vmoТаблица.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            this.Идентификатор_vmoТаблица.Visible = false;
-            // 
-            // Автоинкремент_vmoТаблица
-            // 
-            this.Автоинкремент_vmoТаблица.AutoGenerated = true;
-            this.Автоинкремент_vmoТаблица.CalcTotal = false;
-            this.Автоинкремент_vmoТаблица.Caption = "Автоинкремент";
-            this.Автоинкремент_vmoТаблица.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Автоинкремент_vmoТаблица.Name = "Автоинкремент";
-            this.Автоинкремент_vmoТаблица.NSGType = typeof(NsgSoft.DataObjects.NsgDataInteger);
-            this.Автоинкремент_vmoТаблица.PropertyType = typeof(long);
-            this.Автоинкремент_vmoТаблица.SearchCondition.OwnerComponent = this.Автоинкремент_vmoТаблица;
-            this.Автоинкремент_vmoТаблица.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            this.Автоинкремент_vmoТаблица.Visible = false;
-            // 
-            // Владелец
-            // 
-            this.Владелец.AutoGenerated = true;
-            this.Владелец.Caption = "Владелец";
-            this.Владелец.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Владелец.Name = "Владелец";
-            this.Владелец.NSGType = typeof(NsgSoft.DataObjects.NsgReferencedObject);
-            this.Владелец.PropertyType = typeof(NsgSoft.DataObjects.NsgReferencedObject);
-            this.Владелец.SearchCondition.OwnerComponent = this.Владелец;
-            this.Владелец.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            // 
-            // НомерСтроки
-            // 
-            this.НомерСтроки.AutoGenerated = true;
-            this.НомерСтроки.CalcTotal = false;
-            this.НомерСтроки.Caption = "НомерСтроки";
-            this.НомерСтроки.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.НомерСтроки.Name = "НомерСтроки";
-            this.НомерСтроки.NSGType = typeof(NsgSoft.DataObjects.NsgDataInteger);
-            this.НомерСтроки.PropertyType = typeof(long);
-            this.НомерСтроки.SearchCondition.OwnerComponent = this.НомерСтроки;
-            this.НомерСтроки.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            this.НомерСтроки.Visible = false;
-            // 
-            // Номенклатура
-            // 
-            this.Номенклатура.AutoGenerated = true;
-            this.Номенклатура.Caption = "Номенклатура";
-            this.Номенклатура.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Номенклатура.Name = "Номенклатура";
-            this.Номенклатура.NSGType = typeof(Авто.Метаданные.Автосервис.Номенклатура);
-            this.Номенклатура.PropertyType = typeof(Авто.Метаданные.Автосервис.Номенклатура);
-            this.Номенклатура.SearchCondition.OwnerComponent = this.Номенклатура;
-            this.Номенклатура.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            // 
-            // Количество
-            // 
-            this.Количество.AutoGenerated = true;
-            this.Количество.CalcTotal = false;
-            this.Количество.Caption = "Количество";
-            this.Количество.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Количество.Name = "Количество";
-            this.Количество.NSGType = typeof(NsgSoft.DataObjects.NsgDataInteger);
-            this.Количество.PropertyType = typeof(long);
-            this.Количество.SearchCondition.OwnerComponent = this.Количество;
-            this.Количество.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            // 
-            // Цена
-            // 
-            this.Цена.AutoGenerated = true;
-            this.Цена.CalcTotal = false;
-            this.Цена.Caption = "Цена";
-            this.Цена.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Цена.Name = "Цена";
-            this.Цена.NSGType = typeof(NsgSoft.DataObjects.NsgDataFloat);
-            this.Цена.PropertyType = typeof(decimal);
-            this.Цена.SearchCondition.OwnerComponent = this.Цена;
-            this.Цена.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
-            // 
-            // Сумма
-            // 
-            this.Сумма.AutoGenerated = true;
-            this.Сумма.CalcTotal = false;
-            this.Сумма.Caption = "Сумма";
-            this.Сумма.Creator = typeof(NsgSoft.Forms.NsgMultipleObjectElementForm);
-            this.Сумма.Name = "Сумма";
-            this.Сумма.NSGType = typeof(NsgSoft.DataObjects.NsgDataFloat);
-            this.Сумма.PropertyType = typeof(decimal);
-            this.Сумма.SearchCondition.OwnerComponent = this.Сумма;
-            this.Сумма.SearchCondition.Parameters = new NsgSoft.DataObjects.NsgCompareParam[0];
+            this.nsgBackgroundWorker1.CancelForbidden = false;
+            this.nsgBackgroundWorker1.CurrentProgressValue = 0;
+            this.nsgBackgroundWorker1.Description = "";
+            this.nsgBackgroundWorker1.EventGeneratorObject = null;
+            this.nsgBackgroundWorker1.MaxProgressValue = 100;
+            this.nsgBackgroundWorker1.Name = "NsgBackgroundWorker";
+            this.nsgBackgroundWorker1.OwnerForm = this;
+            this.nsgBackgroundWorker1.ProgressEventType = NsgSoft.DataObjects.NsgThread.ProgressEventsType.Asynchronous;
+            this.nsgBackgroundWorker1.ProgressObject = null;
+            this.nsgBackgroundWorker1.ProgressProcentage = 0;
             // 
             // РасходнаяНакладнаяФормаЭлемента
             // 
@@ -1063,5 +1082,6 @@ namespace Авто.Метаданные.Автосервис
         private NsgColumnDescriptor.Int64 Количество;
         private NsgColumnDescriptor.Decimal Цена;
         protected NsgColumnDescriptor.Decimal Сумма;
+        protected NsgBackgroundWorker nsgBackgroundWorker1;
     }
 }

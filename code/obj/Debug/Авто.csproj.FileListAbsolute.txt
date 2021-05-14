@@ -68,3 +68,6 @@ C:\FrameworkDemo\code\obj\Debug\Авто.Метаданные.Автосерви
 C:\FrameworkDemo\code\obj\Debug\Авто.Метаданные.Автосервис.НоменклатураФормаСписка.resources
 C:\FrameworkDemo\code\obj\Debug\Авто.Метаданные.Автосервис.ПриходнаяНакладнаяФормаЭлемента.resources
 C:\FrameworkDemo\code\obj\Debug\Авто.Метаданные.Автосервис.РасходнаяНакладнаяФормаЭлемента.resources
+C:\FrameworkDemo\code\obj\Debug\Авто.csprojAssemblyReference.cache
+C:\FrameworkDemo\code\obj\Debug\Авто.Метаданные.Автосервис.ЗаполнениеФорма.resources
+C:\FrameworkDemo\code\obj\Debug\Авто.Метаданные.Банк.ЗаполнениеКурсаФорма.resources

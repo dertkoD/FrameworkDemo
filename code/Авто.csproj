@@ -3,7 +3,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProductVersion>2021.5.11.2</ProductVersion>
+    <ProductVersion>2021.5.12.8</ProductVersion>
     <SchemaVersion>2.0</SchemaVersion>
     <ProjectGuid>6e409654-01d6-4bf1-9535-5cd20e30f61a</ProjectGuid>
     <OutputType>WinExe</OutputType>
@@ -667,6 +667,76 @@
     <EmbeddedResource Include="Метаданные\Автосервис\РасходнаяНакладная\ФормаЭлемента.resx">
       <NsgOwnerGuid>0c95cda6-a6a6-4df6-9a7a-b0babebbbff2</NsgOwnerGuid>
       <DependentUpon>ФормаЭлемента.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Метаданные\Автосервис\Заполнение\Заполнение.NsgInit.cs">
+      <NsgOwnerGuid>c83026a2-5a5a-45ab-a90c-d934fb6d783f</NsgOwnerGuid>
+      <NsgOwnerName>Заполнение</NsgOwnerName>
+      <DependentUpon>Заполнение.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Метаданные\Автосервис\Заполнение\Заполнение.cs">
+      <NsgOwnerGuid>c83026a2-5a5a-45ab-a90c-d934fb6d783f</NsgOwnerGuid>
+      <NsgOwnerName>Заполнение</NsgOwnerName>
+    </Compile>
+    <Compile Include="Метаданные\Автосервис\Заполнение\Форма.Designer.cs">
+      <NsgOwnerGuid>c83026a2-5a5a-45ab-a90c-d934fb6d783f</NsgOwnerGuid>
+      <DependentUpon>Форма.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Метаданные\Автосервис\Заполнение\Форма.cs">
+      <NsgOwnerGuid>c83026a2-5a5a-45ab-a90c-d934fb6d783f</NsgOwnerGuid>
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Метаданные\Автосервис\Заполнение\Форма.resx">
+      <NsgOwnerGuid>c83026a2-5a5a-45ab-a90c-d934fb6d783f</NsgOwnerGuid>
+      <DependentUpon>Форма.cs</DependentUpon>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Метаданные\Банк\Валюты\Валюты.NsgInit.cs">
+      <NsgOwnerGuid>b30fac77-bcc2-4715-a3b9-7b6f20f1646d</NsgOwnerGuid>
+      <NsgOwnerName>Валюты</NsgOwnerName>
+      <DependentUpon>Валюты.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Метаданные\Банк\Валюты\Валюты.cs">
+      <NsgOwnerGuid>b30fac77-bcc2-4715-a3b9-7b6f20f1646d</NsgOwnerGuid>
+      <NsgOwnerName>Валюты</NsgOwnerName>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Метаданные\Банк\ИсторияКурсов\ИсторияКурсов.NsgInit.cs">
+      <NsgOwnerGuid>ea4b0a08-25cc-4dd9-9c6e-623978b075f2</NsgOwnerGuid>
+      <NsgOwnerName>ИсторияКурсов</NsgOwnerName>
+      <DependentUpon>ИсторияКурсов.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Метаданные\Банк\ИсторияКурсов\ИсторияКурсов.cs">
+      <NsgOwnerGuid>ea4b0a08-25cc-4dd9-9c6e-623978b075f2</NsgOwnerGuid>
+      <NsgOwnerName>ИсторияКурсов</NsgOwnerName>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Метаданные\Банк\ЗаполнениеКурса\ЗаполнениеКурса.NsgInit.cs">
+      <NsgOwnerGuid>12187fe5-e374-440b-b9af-3713e8212693</NsgOwnerGuid>
+      <NsgOwnerName>ЗаполнениеКурса</NsgOwnerName>
+      <DependentUpon>ЗаполнениеКурса.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Метаданные\Банк\ЗаполнениеКурса\ЗаполнениеКурса.cs">
+      <NsgOwnerGuid>12187fe5-e374-440b-b9af-3713e8212693</NsgOwnerGuid>
+      <NsgOwnerName>ЗаполнениеКурса</NsgOwnerName>
+    </Compile>
+    <Compile Include="Метаданные\Банк\ЗаполнениеКурса\Форма.Designer.cs">
+      <NsgOwnerGuid>12187fe5-e374-440b-b9af-3713e8212693</NsgOwnerGuid>
+      <DependentUpon>Форма.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Метаданные\Банк\ЗаполнениеКурса\Форма.cs">
+      <NsgOwnerGuid>12187fe5-e374-440b-b9af-3713e8212693</NsgOwnerGuid>
+      <SubType>Form</SubType>
+    </Compile>
+    <EmbeddedResource Include="Метаданные\Банк\ЗаполнениеКурса\Форма.resx">
+      <NsgOwnerGuid>12187fe5-e374-440b-b9af-3713e8212693</NsgOwnerGuid>
+      <DependentUpon>Форма.cs</DependentUpon>
       <SubType>Designer</SubType>
     </EmbeddedResource>
   </ItemGroup>

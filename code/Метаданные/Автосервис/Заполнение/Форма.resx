@@ -118,24 +118,6 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="documentButton.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
-    <value>
-        Qk1CAwAAAAAAADYAAAAoAAAAEQAAAA8AAAABABgAAAAAAAAAAADEDgAAxA4AAAAAAAAAAAAA1+Dg1+Dg
-        1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg1+Dg2eHhANfg4MxoAsxoAsxoAsxo
-        AsxoAsxoAsxoAsxoAsxoAsxoAsxoAsxoAsxoAsxoAsxoAtnh4QDY4OHMaAL//////Pj/+PD/8+f/8eP/
-        7Nn/6dP/5cr/4sX/3bv/27X/1av/06fMaALa4eIA2eHizGgC////////s7Gvs7Gv//Pn//Pns62os62o
-        /+XK/+LFs6qgs6qg/9SpzGgC2uLjANnh4sxoAv///////017/017///48P/48Jk1Apk1Av/p0//lygKZ
-        zAKZzP/as8xoAtri4wDZ4eLMaAL///////9Ne/9Ne///+/b/+PCZNQKZNQL/7Nn/6dMCmcwCmcz/27fM
-        aALa4uMA2uHizGgC//////////////////////v2//v2//Di//Di/+zZ/+zZ/+LF/+HCzGgC2+LjANri
-        48xoAv/////////////////////////79v/w4v/16v/w4v/s2f/ixf/jyMxoAtvj5ADa4+PMaAL/////
-        //+zraizraj///////+zraizraj/+PD/9euzraizraj/6dLMaALc5OQA2+PjzGgC////////zJmZzJmZ
-        ////////4oAM4oAM//z5//jwApkCApkC/+rWzGgC3eTkANvj5MxoAv///////8yZmcyZmf///////+KA
-        DOKADP/////8+QKZAgKZAv/w4cxoAt3k5QDc5OXMaAL/////////////////////////////////////
-        //7/+fP/+O//8uXMaALe5eYA3uXmzGgC33wC33wC33wC33wC33wC33wC33wC33wC33wC33wC33wC33wC
-        33wCzGgC4ObnAN/l5u7LqNJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1FdJ1Fem9j+Hn
-        6ADe5OXg5efg5efg5ufg5ufg5ufg5ufg5ufg5ufg5ufg5ufg5ufg5ufg5ufg5efg5efg5ucA
-</value>
-  </data>
   <data name="printButton.ButtonImage" type="System.Drawing.Bitmap, System.Drawing" mimetype="application/x-microsoft.net.object.bytearray.base64">
     <value>
         Qk1CAwAAAAAAADYAAAAoAAAAEQAAAA8AAAABABgAAAAAAAAAAADEDgAAxA4AAAAAAAAAAAAA1+Dg1+Dg
@@ -156,11 +138,5 @@
   </data>
   <metadata name="nsgVisualMultipleObject.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>
-  </metadata>
-  <metadata name="vmoТаблица.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>277, 17</value>
-  </metadata>
-  <metadata name="nsgBackgroundWorker1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>445, 17</value>
   </metadata>
 </root>

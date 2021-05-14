@@ -1,153 +1,112 @@
-[INFO ] [00:08:02] [1] - 
+[INFO ] [14:44:02] [1] - 
 
-00:08:02 -------------------------------- NEW LOG --------------------------------
-[INFO ] [00:08:12] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [00:08:55] [6] - Key: Invalid agent!
-[ERROR] [00:08:55] [6] - Key: Invalid agent!
-[ERROR] [00:08:55] [6] - Key: Invalid agent!
-[ERROR] [00:08:55] [6] - Key: Invalid agent!
-[ERROR] [00:08:56] [6] - ќшибка 22. ќшибка работы с Ѕƒ -- Ќельз€ сн€ть блокировку приложени€ (участник базы данных: "public", ресурс: "d260dc25-4bbe-49e4-9619-120f470152f6"), поскольку в данный момент она не удерживаетс€.
-[ERROR] [00:08:56] [6] -  CallStack content :
-[ERROR] [00:08:56] [6] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+14:44:02 -------------------------------- NEW LOG --------------------------------
+[INFO ] [14:46:07] [1] - 
+
+14:46:07 -------------------------------- NEW LOG --------------------------------
+[INFO ] [14:46:24] [1] - Login user: 'јдминистратор' result: 'True'
+[ERROR] [14:46:36] [1] - Key: Invalid agent!
+[ERROR] [14:46:36] [1] - Key: Invalid agent!
+[ERROR] [14:46:36] [1] - Key: Invalid agent!
+[ERROR] [14:46:36] [1] - Key: Invalid agent!
+[ERROR] [14:46:54] [27] - ќшибка 22. ќшибка работы с Ѕƒ -- ќшибка при преобразовании строки символов в тип uniqueidentifier.
+[ERROR] [14:46:54] [27] -  CallStack content :
+[ERROR] [14:46:55] [27] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
    в System.Environment.get_StackTrace()
    в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
    в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
-   в NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(SqlCommand command, Boolean noOutTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 4571
-   в NsgSoft.DataObjects.NsgMultipleObject.UnLock(String resource) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2323
-   в NsgSoft.DataObjects.NsgMultipleObject.Lock(String resource, Boolean openNewTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2264
-   в NsgSoft.DataObjects.NsgConfiguration.SetUpdateFlag(Boolean p) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 2281
-   в NsgSoft.DataObjects.NsgConfiguration.CreateStorage(Object sender, DoWorkEventArgs eventArgs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1697
+   в NsgSoft.Database.NsgDatabaseMsSQL.Find(String tableName, NsgFindParam& parameters, IDbTransaction transaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 2440
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(NsgFindParam& parameters) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2572
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(Boolean isFull, Int32& count, Int64 row_start, NsgSorting sorting, NsgCompare compare, String[] reqNames, String[] tblRefs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2534
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(Boolean isFull, Int32& count, Int64 row_start, NsgSorting sorting, NsgCompare compare) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2457
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(Int32& count, Int64 row_start, NsgSorting sorting, NsgCompare compare) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 3251
+   в јвто.ћетаданные.Ѕанк.»стори€ урсов.FindAll(Int32& count, Int64 row_start, NsgSorting sorting, NsgCompare compare) в C:\FrameworkDemo\code\ћетаданные\Ѕанк\»стори€ урсов\»стори€ урсов.NsgInit.cs:строка 1125
+   в јвто.ћетаданные.Ѕанк.«аполнение урса‘орма.OnCreateReport(NsgBackgroundWorker nsgBackgroundReporter, DoWorkEventArgs e) в C:\FrameworkDemo\code\ћетаданные\Ѕанк\«аполнение урса\‘орма.cs:строка 76
+   в NsgSoft.Forms.NsgReportForm.onCreateReport(Object sender, DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Forms\CommonForms\NsgReportForm.cs:строка 405
    в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
    в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
    в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    в System.Threading.ThreadHelper.ThreadStart(Object obj)
-[ERROR] [00:08:56] [6] - 
-[INFO ] [00:12:12] [1] - 
+[ERROR] [14:46:55] [27] - 
+[INFO ] [14:51:24] [1] - 
 
-00:12:12 -------------------------------- NEW LOG --------------------------------
-[INFO ] [00:12:22] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [00:12:26] [1] - Key: Invalid agent!
-[ERROR] [00:12:26] [1] - Key: Invalid agent!
-[ERROR] [00:12:26] [1] - Key: Invalid agent!
-[ERROR] [00:12:26] [1] - Key: Invalid agent!
-[INFO ] [01:26:31] [1] - 
+14:51:24 -------------------------------- NEW LOG --------------------------------
+[INFO ] [14:51:34] [1] - Login user: 'јдминистратор' result: 'True'
+[ERROR] [14:51:40] [1] - Key: Invalid agent!
+[ERROR] [14:51:40] [1] - Key: Invalid agent!
+[ERROR] [14:51:40] [1] - Key: Invalid agent!
+[ERROR] [14:51:40] [1] - Key: Invalid agent!
+[INFO ] [14:52:20] [1] - 
 
-01:26:31 -------------------------------- NEW LOG --------------------------------
-[INFO ] [01:26:41] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [01:26:45] [1] - Key: Invalid agent!
-[ERROR] [01:26:45] [1] - Key: Invalid agent!
-[ERROR] [01:26:45] [1] - Key: Invalid agent!
-[ERROR] [01:26:45] [1] - Key: Invalid agent!
-[INFO ] [01:33:32] [1] - 
-
-01:33:32 -------------------------------- NEW LOG --------------------------------
-[INFO ] [01:34:25] [1] - 
-
-01:34:25 -------------------------------- NEW LOG --------------------------------
-[INFO ] [01:34:33] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [01:34:37] [1] - Key: Invalid agent!
-[ERROR] [01:34:37] [1] - Key: Invalid agent!
-[ERROR] [01:34:37] [1] - Key: Invalid agent!
-[ERROR] [01:34:37] [1] - Key: Invalid agent!
-[INFO ] [02:06:21] [1] - 
-
-02:06:21 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:06:33] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:06:48] [11] - Key: Invalid agent!
-[ERROR] [02:06:48] [11] - Key: Invalid agent!
-[ERROR] [02:06:48] [11] - Key: Invalid agent!
-[ERROR] [02:06:48] [11] - Key: Invalid agent!
-[ERROR] [02:06:48] [11] - ќшибка 22. ќшибка работы с Ѕƒ -- Ќельз€ сн€ть блокировку приложени€ (участник базы данных: "public", ресурс: "588df5f9-de35-47bc-9262-e31ad110299a"), поскольку в данный момент она не удерживаетс€.
-[ERROR] [02:06:48] [11] -  CallStack content :
-[ERROR] [02:06:49] [11] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+14:52:20 -------------------------------- NEW LOG --------------------------------
+[INFO ] [14:52:30] [1] - Login user: 'јдминистратор' result: 'True'
+[ERROR] [14:52:35] [1] - Key: Invalid agent!
+[ERROR] [14:52:35] [1] - Key: Invalid agent!
+[ERROR] [14:52:35] [1] - Key: Invalid agent!
+[ERROR] [14:52:35] [1] - Key: Invalid agent!
+[ERROR] [14:52:54] [53] - ќшибка 22. ќшибка работы с Ѕƒ -- ќшибка при преобразовании строки символов в тип uniqueidentifier.
+[ERROR] [14:52:54] [53] -  CallStack content :
+[ERROR] [14:52:54] [53] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
    в System.Environment.get_StackTrace()
    в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
    в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
-   в NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(SqlCommand command, Boolean noOutTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 4571
-   в NsgSoft.DataObjects.NsgMultipleObject.UnLock(String resource) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2323
-   в NsgSoft.DataObjects.NsgMultipleObject.Lock(String resource, Boolean openNewTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2264
-   в NsgSoft.DataObjects.NsgConfiguration.SetUpdateFlag(Boolean p) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 2281
-   в NsgSoft.DataObjects.NsgConfiguration.CreateStorage(Object sender, DoWorkEventArgs eventArgs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1697
+   в NsgSoft.Database.NsgDatabaseMsSQL.Find(String tableName, NsgFindParam& parameters, IDbTransaction transaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 2440
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(NsgFindParam& parameters) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2572
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(Boolean isFull, Int32& count, Int64 row_start, NsgSorting sorting, NsgCompare compare, String[] reqNames, String[] tblRefs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2534
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(NsgCompare compare) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2436
+   в јвто.ћетаданные.Ѕанк.»стори€ урсов.FindAll(NsgCompare compare) в C:\FrameworkDemo\code\ћетаданные\Ѕанк\»стори€ урсов\»стори€ урсов.NsgInit.cs:строка 1108
+   в јвто.ћетаданные.Ѕанк.«аполнение урса‘орма.OnCreateReport(NsgBackgroundWorker nsgBackgroundReporter, DoWorkEventArgs e) в C:\FrameworkDemo\code\ћетаданные\Ѕанк\«аполнение урса\‘орма.cs:строка 75
+   в NsgSoft.Forms.NsgReportForm.onCreateReport(Object sender, DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Forms\CommonForms\NsgReportForm.cs:строка 405
    в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
    в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
    в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    в System.Threading.ThreadHelper.ThreadStart(Object obj)
-[ERROR] [02:06:49] [11] - 
-[INFO ] [02:08:47] [1] - 
+[ERROR] [14:52:54] [53] - 
+[INFO ] [14:54:57] [1] - 
 
-02:08:47 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:08:54] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:08:57] [1] - Key: Invalid agent!
-[ERROR] [02:08:57] [1] - Key: Invalid agent!
-[ERROR] [02:08:57] [1] - Key: Invalid agent!
-[ERROR] [02:08:57] [1] - Key: Invalid agent!
-[INFO ] [02:22:07] [1] - 
-
-02:22:07 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:22:15] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:22:19] [1] - Key: Invalid agent!
-[ERROR] [02:22:19] [1] - Key: Invalid agent!
-[ERROR] [02:22:19] [1] - Key: Invalid agent!
-[ERROR] [02:22:19] [1] - Key: Invalid agent!
-[INFO ] [02:25:26] [1] - 
-
-02:25:26 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:25:41] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:25:46] [1] - Key: Invalid agent!
-[ERROR] [02:25:46] [1] - Key: Invalid agent!
-[ERROR] [02:25:46] [1] - Key: Invalid agent!
-[ERROR] [02:25:46] [1] - Key: Invalid agent!
-[INFO ] [02:33:03] [1] - 
-
-02:33:03 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:33:12] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:33:24] [13] - Key: Invalid agent!
-[ERROR] [02:33:24] [13] - Key: Invalid agent!
-[ERROR] [02:33:24] [13] - Key: Invalid agent!
-[ERROR] [02:33:24] [13] - Key: Invalid agent!
-[ERROR] [02:33:25] [13] - ќшибка 22. ќшибка работы с Ѕƒ -- Ќельз€ сн€ть блокировку приложени€ (участник базы данных: "public", ресурс: "4063d067-1ed7-4f08-ba72-0a7db0875511"), поскольку в данный момент она не удерживаетс€.
-[ERROR] [02:33:25] [13] -  CallStack content :
-[ERROR] [02:33:25] [13] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+14:54:57 -------------------------------- NEW LOG --------------------------------
+[INFO ] [14:55:05] [1] - Login user: 'јдминистратор' result: 'True'
+[ERROR] [14:55:10] [1] - Key: Invalid agent!
+[ERROR] [14:55:10] [1] - Key: Invalid agent!
+[ERROR] [14:55:10] [1] - Key: Invalid agent!
+[ERROR] [14:55:10] [1] - Key: Invalid agent!
+[ERROR] [14:59:08] [203] - ќшибка 22. ќшибка работы с Ѕƒ -- ќшибка при преобразовании строки символов в тип uniqueidentifier.
+[ERROR] [14:59:08] [203] -  CallStack content :
+[ERROR] [14:59:08] [203] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
    в System.Environment.get_StackTrace()
    в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
    в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
-   в NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(SqlCommand command, Boolean noOutTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 4571
-   в NsgSoft.DataObjects.NsgMultipleObject.UnLock(String resource) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2323
-   в NsgSoft.DataObjects.NsgMultipleObject.Lock(String resource, Boolean openNewTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2264
-   в NsgSoft.DataObjects.NsgConfiguration.SetUpdateFlag(Boolean p) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 2281
-   в NsgSoft.DataObjects.NsgConfiguration.CreateStorage(Object sender, DoWorkEventArgs eventArgs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1697
+   в NsgSoft.Database.NsgDatabaseMsSQL.Find(String tableName, NsgFindParam& parameters, IDbTransaction transaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 2440
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(NsgFindParam& parameters) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2572
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(Boolean isFull, Int32& count, Int64 row_start, NsgSorting sorting, NsgCompare compare, String[] reqNames, String[] tblRefs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2534
+   в NsgSoft.DataObjects.NsgMultipleObject.FindAll(NsgCompare compare) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.DB.cs:строка 2436
+   в јвто.ћетаданные.Ѕанк.»стори€ урсов.FindAll(NsgCompare compare) в C:\FrameworkDemo\code\ћетаданные\Ѕанк\»стори€ урсов\»стори€ урсов.NsgInit.cs:строка 1108
+   в јвто.ћетаданные.Ѕанк.«аполнение урса‘орма.OnCreateReport(NsgBackgroundWorker nsgBackgroundReporter, DoWorkEventArgs e) в C:\FrameworkDemo\code\ћетаданные\Ѕанк\«аполнение урса\‘орма.cs:строка 75
+   в NsgSoft.Forms.NsgReportForm.onCreateReport(Object sender, DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Forms\CommonForms\NsgReportForm.cs:строка 405
    в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
    в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
    в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
    в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
    в System.Threading.ThreadHelper.ThreadStart(Object obj)
-[ERROR] [02:33:25] [13] - 
-[INFO ] [02:33:59] [1] - 
+[ERROR] [14:59:08] [203] - 
+[INFO ] [15:05:37] [1] - 
 
-02:33:59 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:34:04] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:34:07] [1] - Key: Invalid agent!
-[ERROR] [02:34:07] [1] - Key: Invalid agent!
-[ERROR] [02:34:07] [1] - Key: Invalid agent!
-[ERROR] [02:34:07] [1] - Key: Invalid agent!
-[INFO ] [02:42:14] [1] - 
+15:05:37 -------------------------------- NEW LOG --------------------------------
+[INFO ] [15:05:49] [1] - Login user: 'јдминистратор' result: 'True'
+[ERROR] [15:05:54] [1] - Key: Invalid agent!
+[ERROR] [15:05:54] [1] - Key: Invalid agent!
+[ERROR] [15:05:54] [1] - Key: Invalid agent!
+[ERROR] [15:05:54] [1] - Key: Invalid agent!
+[INFO ] [15:12:25] [1] - 
 
-02:42:14 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:42:28] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:42:34] [1] - Key: Invalid agent!
-[ERROR] [02:42:34] [1] - Key: Invalid agent!
-[ERROR] [02:42:34] [1] - Key: Invalid agent!
-[ERROR] [02:42:34] [1] - Key: Invalid agent!
-[INFO ] [02:44:36] [1] - 
-
-02:44:36 -------------------------------- NEW LOG --------------------------------
-[INFO ] [02:44:43] [1] - Login user: 'јдминистратор' result: 'True'
-[ERROR] [02:44:47] [1] - Key: Invalid agent!
-[ERROR] [02:44:47] [1] - Key: Invalid agent!
-[ERROR] [02:44:47] [1] - Key: Invalid agent!
-[ERROR] [02:44:47] [1] - Key: Invalid agent!
+15:12:25 -------------------------------- NEW LOG --------------------------------
+[INFO ] [15:12:36] [1] - Login user: 'јдминистратор' result: 'True'
+[ERROR] [15:12:42] [1] - Key: Invalid agent!
+[ERROR] [15:12:42] [1] - Key: Invalid agent!
+[ERROR] [15:12:42] [1] - Key: Invalid agent!
+[ERROR] [15:12:42] [1] - Key: Invalid agent!

@@ -1,0 +1,213 @@
+[INFO ] [02:25:11] [1] - 
+
+02:25:11 -------------------------------- NEW LOG --------------------------------
+[INFO ] [02:25:21] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [02:25:43] [9] - Key: Invalid agent!
+[ERROR] [02:25:43] [9] - Key: Invalid agent!
+[ERROR] [02:25:43] [9] - Key: Invalid agent!
+[ERROR] [02:25:43] [9] - Key: Invalid agent!
+[ERROR] [02:25:44] [9] - Ошибка 22. Ошибка работы с БД -- Нельзя снять блокировку приложения (участник базы данных: "public", ресурс: "064679c1-7d91-4085-8527-8bf39e05d2ab"), поскольку в данный момент она не удерживается.
+[ERROR] [02:25:44] [9] -  CallStack content :
+[ERROR] [02:25:44] [9] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   в System.Environment.get_StackTrace()
+   в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
+   в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
+   в NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(SqlCommand command, Boolean noOutTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 4571
+   в NsgSoft.DataObjects.NsgMultipleObject.UnLock(String resource) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2323
+   в NsgSoft.DataObjects.NsgMultipleObject.Lock(String resource, Boolean openNewTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2264
+   в NsgSoft.DataObjects.NsgConfiguration.SetUpdateFlag(Boolean p) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 2281
+   в NsgSoft.DataObjects.NsgConfiguration.CreateStorage(Object sender, DoWorkEventArgs eventArgs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1697
+   в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
+   в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart(Object obj)
+[ERROR] [02:25:44] [9] - 
+[INFO ] [02:27:28] [1] - 
+
+02:27:28 -------------------------------- NEW LOG --------------------------------
+[INFO ] [02:27:35] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [02:27:38] [1] - Key: Invalid agent!
+[ERROR] [02:27:38] [1] - Key: Invalid agent!
+[ERROR] [02:27:38] [1] - Key: Invalid agent!
+[ERROR] [02:27:38] [1] - Key: Invalid agent!
+[INFO ] [02:29:53] [1] - 
+
+02:29:53 -------------------------------- NEW LOG --------------------------------
+[INFO ] [02:30:05] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [02:30:22] [9] - Key: Invalid agent!
+[ERROR] [02:30:22] [9] - Key: Invalid agent!
+[ERROR] [02:30:22] [9] - Key: Invalid agent!
+[ERROR] [02:30:22] [9] - Key: Invalid agent!
+[ERROR] [02:30:23] [9] - Ошибка 22. Ошибка работы с БД -- Нельзя снять блокировку приложения (участник базы данных: "public", ресурс: "12706c3f-b92a-44e1-a220-339e3066c95a"), поскольку в данный момент она не удерживается.
+[ERROR] [02:30:23] [9] -  CallStack content :
+[ERROR] [02:30:23] [9] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   в System.Environment.get_StackTrace()
+   в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
+   в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
+   в NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(SqlCommand command, Boolean noOutTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 4571
+   в NsgSoft.DataObjects.NsgMultipleObject.UnLock(String resource) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2323
+   в NsgSoft.DataObjects.NsgMultipleObject.Lock(String resource, Boolean openNewTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2264
+   в NsgSoft.DataObjects.NsgConfiguration.SetUpdateFlag(Boolean p) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 2281
+   в NsgSoft.DataObjects.NsgConfiguration.CreateStorage(Object sender, DoWorkEventArgs eventArgs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1697
+   в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
+   в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart(Object obj)
+[ERROR] [02:30:23] [9] - 
+[INFO ] [02:32:14] [1] - 
+
+02:32:14 -------------------------------- NEW LOG --------------------------------
+[INFO ] [02:32:28] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [02:32:31] [1] - Key: Invalid agent!
+[ERROR] [02:32:31] [1] - Key: Invalid agent!
+[ERROR] [02:32:31] [1] - Key: Invalid agent!
+[ERROR] [02:32:31] [1] - Key: Invalid agent!
+[INFO ] [23:39:30] [1] - 
+
+23:39:30 -------------------------------- NEW LOG --------------------------------
+[ERROR] [23:39:51] [Launch] - Ошибка 21. Невозможно открыть соединение с сервером: 
+	Type: 'MsSQL'
+	Server: 'LAPTOP-NSA4I971\SQLSERVER'
+	Database: 'Avto'
+	IntegratedSecurity: 'True'
+.
+[ERROR] [23:39:51] [Launch] -  CallStack content :
+[ERROR] [23:39:51] [Launch] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   в System.Environment.get_StackTrace()
+   в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
+   в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
+   в NsgSoft.Database.NsgDatabaseMsSQL.connect(String databaseName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 135
+   в NsgSoft.Database.NsgDatabaseMsSQL.CheckExistDB(String dbName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 287
+   в NsgSoft.DataObjects.NsgConfiguration.CheckDatabasesExisting() в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1809
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExisting(List`1 noExisting) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 164
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExistingWithMessage(Boolean showMessage, Boolean throwException) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 191
+   в NsgSoft.Forms.NsgDatabaseGUIService.Connect(String[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 597
+   в Авто.Program.<>c__DisplayClass0_0.<Main>b__1(NsgThread <p0>, DoWorkEventArgs <p1>) в C:\FrameworkDemo\code\Program.cs:строка 50
+   в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
+   в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart(Object obj)
+[ERROR] [23:39:51] [Launch] - 
+[ERROR] [23:40:03] [Launch] - Ошибка 21. Невозможно открыть соединение с сервером: 
+	Type: 'MsSQL'
+	Server: 'LAPTOP-NSA4I971\SQLSERVER'
+	Database: 'Avto'
+	IntegratedSecurity: 'True'
+.
+NsgSoft.Common.NsgLoggedException: Ошибка 21. Невозможно открыть соединение с сервером: 
+	Type: 'MsSQL'
+	Server: 'LAPTOP-NSA4I971\SQLSERVER'
+	Database: 'Avto'
+	IntegratedSecurity: 'True'
+.
+   в NsgSoft.Database.NsgDatabaseMsSQL.connect(String databaseName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 210
+   в NsgSoft.Database.NsgDatabaseMsSQL.CheckExistDB(String dbName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 287
+   в NsgSoft.DataObjects.NsgConfiguration.CheckDatabasesExisting() в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1809
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExisting(List`1 noExisting) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 164
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExistingWithMessage(Boolean showMessage, Boolean throwException) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 191
+   в NsgSoft.Forms.NsgDatabaseGUIService.Connect(String[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 597
+[INFO ] [23:41:30] [1] - 
+
+23:41:30 -------------------------------- NEW LOG --------------------------------
+[INFO ] [23:42:29] [1] - 
+
+23:42:29 -------------------------------- NEW LOG --------------------------------
+[ERROR] [23:42:49] [Launch] - Ошибка 21. Невозможно открыть соединение с сервером: 
+	Type: 'MsSQL'
+	Server: 'LAPTOP-NSA4I971\SQLSERVER'
+	Database: 'Avto'
+	IntegratedSecurity: 'True'
+.
+[ERROR] [23:42:49] [Launch] -  CallStack content :
+[ERROR] [23:42:49] [Launch] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   в System.Environment.get_StackTrace()
+   в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
+   в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
+   в NsgSoft.Database.NsgDatabaseMsSQL.connect(String databaseName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 135
+   в NsgSoft.Database.NsgDatabaseMsSQL.CheckExistDB(String dbName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 287
+   в NsgSoft.DataObjects.NsgConfiguration.CheckDatabasesExisting() в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1809
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExisting(List`1 noExisting) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 164
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExistingWithMessage(Boolean showMessage, Boolean throwException) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 191
+   в NsgSoft.Forms.NsgDatabaseGUIService.Connect(String[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 597
+   в Авто.Program.<>c__DisplayClass0_0.<Main>b__1(NsgThread <p0>, DoWorkEventArgs <p1>) в C:\FrameworkDemo\code\Program.cs:строка 50
+   в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
+   в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart(Object obj)
+[ERROR] [23:42:49] [Launch] - 
+[ERROR] [23:43:03] [Launch] - Ошибка 21. Невозможно открыть соединение с сервером: 
+	Type: 'MsSQL'
+	Server: 'LAPTOP-NSA4I971\SQLSERVER'
+	Database: 'Avto'
+	IntegratedSecurity: 'True'
+.
+NsgSoft.Common.NsgLoggedException: Ошибка 21. Невозможно открыть соединение с сервером: 
+	Type: 'MsSQL'
+	Server: 'LAPTOP-NSA4I971\SQLSERVER'
+	Database: 'Avto'
+	IntegratedSecurity: 'True'
+.
+   в NsgSoft.Database.NsgDatabaseMsSQL.connect(String databaseName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 210
+   в NsgSoft.Database.NsgDatabaseMsSQL.CheckExistDB(String dbName) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 287
+   в NsgSoft.DataObjects.NsgConfiguration.CheckDatabasesExisting() в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1809
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExisting(List`1 noExisting) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 164
+   в NsgSoft.Forms.NsgDatabaseGUIService.checkDBExistingWithMessage(Boolean showMessage, Boolean throwException) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 191
+   в NsgSoft.Forms.NsgDatabaseGUIService.Connect(String[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Forms\Service\NsgDatabaseGUIService.cs:строка 597
+[INFO ] [23:47:33] [1] - 
+
+23:47:33 -------------------------------- NEW LOG --------------------------------
+[INFO ] [23:47:44] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [23:48:04] [9] - Key: Invalid agent!
+[ERROR] [23:48:04] [9] - Key: Invalid agent!
+[ERROR] [23:48:04] [9] - Key: Invalid agent!
+[ERROR] [23:48:04] [9] - Key: Invalid agent!
+[ERROR] [23:48:07] [9] - Ошибка 22. Ошибка работы с БД -- Нельзя снять блокировку приложения (участник базы данных: "public", ресурс: "fd72921a-8f34-4e3f-b6c7-a04c89e100b8"), поскольку в данный момент она не удерживается.
+[ERROR] [23:48:07] [9] -  CallStack content :
+[ERROR] [23:48:07] [9] -    в System.Environment.GetStackTrace(Exception e, Boolean needFileInfo)
+   в System.Environment.get_StackTrace()
+   в NsgSoft.Common.NsgTracer.WriteErrorWithCallstack(String error) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgTracer.cs:строка 239
+   в NsgSoft.Common.NsgLoggedException..ctor(Enum error, Single errorNumber, Object[] args) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Common\Service\NsgLoggedException.cs:строка 60
+   в NsgSoft.Database.NsgDatabaseMsSQL.asyncExecuteNonQuery(SqlCommand command, Boolean noOutTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.Database\NsgDatabaseMsSQL.cs:строка 4571
+   в NsgSoft.DataObjects.NsgMultipleObject.UnLock(String resource) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2323
+   в NsgSoft.DataObjects.NsgMultipleObject.Lock(String resource, Boolean openNewTransaction) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Base Data Types\NsgMultipleObject.cs:строка 2264
+   в NsgSoft.DataObjects.NsgConfiguration.SetUpdateFlag(Boolean p) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 2281
+   в NsgSoft.DataObjects.NsgConfiguration.CreateStorage(Object sender, DoWorkEventArgs eventArgs) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\MetaData Managment\NsgConfiguration.cs:строка 1697
+   в NsgSoft.DataObjects.NsgThread.OnDoWork(DoWorkEventArgs e) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 630
+   в NsgSoft.DataObjects.NsgThread.start(Object obj) в F:\Project_TT_2010\Framework\trunk\NsgSoft.DataObjects\Service\NsgThread.cs:строка 565
+   в System.Threading.ExecutionContext.RunInternal(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state, Boolean preserveSyncCtx)
+   в System.Threading.ExecutionContext.Run(ExecutionContext executionContext, ContextCallback callback, Object state)
+   в System.Threading.ThreadHelper.ThreadStart(Object obj)
+[ERROR] [23:48:07] [9] - 
+[INFO ] [23:49:46] [1] - 
+
+23:49:46 -------------------------------- NEW LOG --------------------------------
+[INFO ] [23:49:52] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [23:49:55] [1] - Key: Invalid agent!
+[ERROR] [23:49:55] [1] - Key: Invalid agent!
+[ERROR] [23:49:55] [1] - Key: Invalid agent!
+[ERROR] [23:49:55] [1] - Key: Invalid agent!
+[INFO ] [23:52:48] [1] - 
+
+23:52:48 -------------------------------- NEW LOG --------------------------------
+[INFO ] [23:52:57] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [23:53:02] [1] - Key: Invalid agent!
+[ERROR] [23:53:02] [1] - Key: Invalid agent!
+[ERROR] [23:53:02] [1] - Key: Invalid agent!
+[ERROR] [23:53:02] [1] - Key: Invalid agent!
+[INFO ] [23:57:37] [1] - 
+
+23:57:37 -------------------------------- NEW LOG --------------------------------
+[INFO ] [23:57:56] [1] - Login user: 'Администратор' result: 'True'
+[ERROR] [23:58:01] [1] - Key: Invalid agent!
+[ERROR] [23:58:01] [1] - Key: Invalid agent!
+[ERROR] [23:58:01] [1] - Key: Invalid agent!
+[ERROR] [23:58:01] [1] - Key: Invalid agent!
