@@ -71,9 +71,9 @@ namespace Авто.Метаданные.Банк
             this.panelButtonReportForm.Controls.Add(this.printButton);
             this.panelButtonReportForm.Controls.Add(this.btnCreateReport);
             this.panelButtonReportForm.Dock = System.Windows.Forms.DockStyle.Bottom;
-            this.panelButtonReportForm.Location = new System.Drawing.Point(0, 378);
+            this.panelButtonReportForm.Location = new System.Drawing.Point(0, 429);
             this.panelButtonReportForm.Name = "panelButtonReportForm";
-            this.panelButtonReportForm.Size = new System.Drawing.Size(967, 28);
+            this.panelButtonReportForm.Size = new System.Drawing.Size(1058, 28);
             this.panelButtonReportForm.TabIndex = 0;
             // 
             // printButton
@@ -85,7 +85,7 @@ namespace Авто.Метаданные.Банк
             this.printButton.ButtonText = "Печать";
             this.printButton.Dock = System.Windows.Forms.DockStyle.Right;
             this.printButton.ImageKey = "Print";
-            this.printButton.Location = new System.Drawing.Point(937, 0);
+            this.printButton.Location = new System.Drawing.Point(1028, 0);
             this.printButton.Margin = new System.Windows.Forms.Padding(13, 18, 13, 18);
             this.printButton.Name = "printButton";
             this.printButton.ShowImage = false;
@@ -196,7 +196,7 @@ namespace Авто.Метаданные.Банк
             this.AutoScroll = true;
             this.BackColor = System.Drawing.SystemColors.Control;
             this.BlockShowReport = false;
-            this.ClientSize = new System.Drawing.Size(967, 437);
+            this.ClientSize = new System.Drawing.Size(1058, 488);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.nsgInput2);
